@@ -47,7 +47,7 @@ if (isset($_POST['start'])) {
             $_SESSION["autentificado_empleado"] = "SI";
             $_SESSION["Usuario"] = $usua;
             //Si todo se hizo correctamente, mando a la pagina de inicio de sesion correcto
-            echo "<META HTTP-EQUIV='refresh' URL=../proyecto/usuarios/index.php'>";
+            echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=../proyecto/empleado/index.php'>";
         }
     } else {
         //si hay problemas con el usuario, contraseña o el tipo de usuario, se manda mensaje y 

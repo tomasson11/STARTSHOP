@@ -4,19 +4,19 @@ $con=conectar();
 
 session_start(); 
 //COMPRUEBA QUE EL USUARIO INICIÓ SESIÓN
-if ($_SESSION["autentificado_Administrador"] != "SI") { 
+if ($_SESSION["autentificado_empleado"] != "SI") { 
    	//SI NO HAY UNA SESION ACTIVA MANDO A INICIAR SESIÓN
    	header("Location:/starshop/index.php"); 
    	exit();
 }
 
-$uss = $_SESSION["usuario"];
-$sql = "SELECT * FROM empleados WHERE usuario_login='$uss'"; 
+$uss = $_SESSION["Usuario"];
+$sql = "SELECT * FROM usuario WHERE usuario_login='$uss'"; 
         $resultado = mysqli_query($con,$sql) or die(mysqli_error($con));
         mysqli_data_seek ($resultado, 0);
         $datos = mysqli_fetch_array($resultado);
 
-        $id = $datos['id_empleado'];
+        $id = $datos['id_usuario'];
 
         /*$query="SELECT * FROM articulo WHERE id_usuario = '$id'"; 
                 $resulta=mysqli_query($con,$query);*/
@@ -275,7 +275,7 @@ $sql = "SELECT * FROM empleados WHERE usuario_login='$uss'";
                   <a href="editar_perfil.php" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="/starshop/php/salir.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
+                  <a href="/STARTSHOP/php/salir.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
                 </div>
               </li>
             </ul>
@@ -379,7 +379,7 @@ $stock="";
 $fecha="";
 $descripcion="";
 $estado = 1;
-$id_empleado= $id;
+$id_usuario= $id;
 
 if ($_POST) {
 $categoria=$_POST['categoria_producto']; 
@@ -391,11 +391,11 @@ $stock=$_POST['stock'];
 $fecha=$_POST['fecha_creacion'];
 $descripcion=$_POST['descripcion'];
 $estado = 1;
-$id_empleado= $id;
+$id_usuario= $id;
 
-$sql="INSERT INTO `articulo`(`id_articulo`, `id_empleado`, `nombre_categoria`, `codigo`, `nombre`,
+$sql="INSERT INTO `articulo`(`id_articulo`, `id_usuario`, `nombre_categoria`, `codigo`, `nombre`,
  `precio_venta`, `stock`, `fecha_creacion`, `descripcion`, `id_estado`)
-    VALUES ('', '$id_empleado', '$categoria' , '$codigo' , '$nombre', '$precio', '$stock', '$fecha', '$descripcion', '$estado' )";
+    VALUES ('', '$id_usuario', '$categoria' , '$codigo' , '$nombre', '$precio', '$stock', '$fecha', '$descripcion', '$estado' )";
 $datos=$con->query($sql);
 }
 }

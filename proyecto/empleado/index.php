@@ -10,7 +10,7 @@ if ($_SESSION["autentificado_empleado"] != "SI") {
    	exit();
 }
 
-$uss = $_SESSION["usuario"];
+$uss = $_SESSION["Usuario"];
 $sql = "SELECT * FROM usuario WHERE usuario_login='$uss'"; 
         $resultado = mysqli_query($con,$sql) or die(mysqli_error($con));
         mysqli_data_seek ($resultado, 0);
@@ -240,7 +240,7 @@ $query="SELECT * FROM articulo WHERE id_usuario = '$id'";
                   <a href="editar_perfil.php" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="/starshop/php/salir.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
+                  <a href="/STARTSHOP/php/salir.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
                 </div>
               </li>
             </ul>

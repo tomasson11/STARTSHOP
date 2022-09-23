@@ -4,14 +4,14 @@ $con=conectar();
 
 session_start(); 
 //COMPRUEBA QUE EL USUARIO INICIÓ SESIÓN
-if ($_SESSION["autentificado_Administrador"] != "SI") { 
+if ($_SESSION["autentificado_empleado"] != "SI") { 
    	//SI NO HAY UNA SESION ACTIVA MANDO A INICIAR SESIÓN
    	header("Location:/starshop/index.php"); 
    	exit();
 }
 
-$uss = $_SESSION["usuario"];
-$sql = "SELECT * FROM empleados WHERE usuario_login='$uss'"; 
+$uss = $_SESSION["Usuario"];
+$sql = "SELECT * FROM usuario WHERE usuario_login='$uss'"; 
         $resultado = mysqli_query($con,$sql) or die(mysqli_error($con));
         mysqli_data_seek ($resultado, 0);
         $datos = mysqli_fetch_array($resultado);
@@ -252,7 +252,7 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
                   <a href="editar_perfil.php" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="/starshop/php/salir.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
+                  <a href="/STARTSHOP/php/salir.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
                 </div>
               </li>
             </ul>
@@ -336,8 +336,8 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
     data: {
         labels: [
           <?php
-          $id = $datos['id_empleado'];
-          $sqli = "SELECT * FROM articulo WHERE id_empleado = '$id'";
+          $id = $datos['id_usuario'];
+          $sqli = "SELECT * FROM articulo WHERE id_usuario = '$id'";
           $result = mysqli_query($con,$sqli);
           while ($registros = mysqli_fetch_array($result)){
           ?>
@@ -350,8 +350,8 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
             label: 'cantidad',
             data: [
               <?php
-              $id1= $datos['id_empleado'];
-              $sqli1 = "SELECT * FROM articulo WHERE id_empleado = '$id1'";
+              $id1= $datos['id_usuario'];
+              $sqli1 = "SELECT * FROM articulo WHERE id_usuario = '$id1'";
               $resulto = mysqli_query($con,$sqli1);
               while ($registro = mysqli_fetch_array($resulto)){
               ?>
