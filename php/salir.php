@@ -19,4 +19,3 @@ session_destroy();
         echo "</script>";
         echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=/STARTSHOP/proyecto/usuarios/normal_user.php'>"; 
 ?>
-?>
