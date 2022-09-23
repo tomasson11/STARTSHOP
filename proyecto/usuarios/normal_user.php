@@ -375,79 +375,43 @@ if (isset($_GET['enviar'])) {
       </section>
 
 
-      <!-- Main content -->
-      <section class="content">
-        <div class="main">
-          <div class="shop_top">
-            <div class="container">
-              <?php
-              //iniciar la carga de los datos directamente de la tabla
 
-              while ($mostrar = mysqli_fetch_array($resulta)) {
+      <?php
+      //iniciar la carga de los datos directamente de la tabla
 
-              ?>
+      while ($mostrar = mysqli_fetch_array($resulta)) {
 
-                <!-- Main content -->
-                <section class="content">
-                  <div class="main">
-                    <div class="shop_top">
-                      <div class="container">
-                        <div class="row shop_box-top">
-                          <div class="col-md-3 shop_box"><a href="#">
-                              <img src="dist/img/tela.jpg" class="img-responsive" alt="" />
+      ?>
 
-                              <span class="new-box">
-                                <!--<span class="new-label">New</span>-->
-                              </span>
-                              <span class="sale-box">
-                                <span class="sale-label">Sale!</span>
-                              </span>
-                              <div class="shop_desc">
-                                <h3><a href="#">
-                                    <td><?php echo $mostrar['nombre']; ?></td>
-                                  </a></h3>
-                                <p>
-                                  <td><?php echo $mostrar['descripcion']; ?></td>
-                                </p>
+        <!-- Main content -->
+        <section class="container">
+          <div class="main">
 
-                                <span class="actual"><?php echo number_format($mostrar['precio_venta'], 2, '.', ','); ?></span><br>
-                                <ul class="buttons">
-                                  <li class="cart"><a href="editar.php? id=<?php echo $mostrar['id_articulo'] ?>" name="agregar">añadir a carrito</a></li>
-                                  <li class="shop_btn"><a href="paginas/producto_detallado.php? id=<?php echo $mostrar['id_articulo'] ?>" name="leer">Conoce más</a></li>
-                                  <div class="clear"> </div>
-                                </ul>
-                              </div>
-                            </a></div>
-
-
-                        <?php
-                      }
-                        ?>
-                        </div>
-                      </div>
-                    </div>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="thumbnail">
+                  <img src="..." alt="...">
+                  <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>...</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
                   </div>
+                </div>
+              </div>
+            </div>
 
 
 
-                  <div class="col-md-3 shop_box"><a href="single.html">
-                      <img src="dist/img/algodon.jpg" class="img-responsive" alt="" />
-                      <span class="new-box">
-                        <span class="new-label">New</span>
-                      </span>
-                      <div class="shop_desc">
-                        <h3><a href="#">aliquam volutp</a></h3>
-                        <p>Lorem ipsum consectetuer adipiscing </p>
-                        <span class="actual">$12.00</span><br>
-                        <ul class="buttons">
-                          <li class="cart"><a href="#">Add To Cart</a></li>
-                          <li class="shop_btn"><a href="#">Read More</a></li>
-                          <div class="clear"> </div>
-                        </ul>
-                      </div>
-                    </a></div>
-                  <div class="col-md-3 shop_box"><a href="single.html">
+
+
+
+
+            <div class="shop_top">
+              <div class="container">
+                <div class="row shop_box-top">
+                  <div class="col-md-3 shop_box"><a href="#">
                       <img src="dist/img/tela.jpg" class="img-responsive" alt="" />
+
                       <span class="new-box">
                         <!--<span class="new-label">New</span>-->
                       </span>
@@ -455,140 +419,57 @@ if (isset($_GET['enviar'])) {
                         <span class="sale-label">Sale!</span>
                       </span>
                       <div class="shop_desc">
-                        <h3><a href="#">aliquam volutp</a></h3>
-                        <p>Lorem ipsum consectetuer adipiscing </p>
-                        <span class="reducedfrom">$66.00</span>
-                        <span class="actual">$12.00</span><br>
-                        <ul class="buttons">
-                          <li class="cart"><a href="#">Add To Cart</a></li>
-                          <li class="shop_btn"><a href="#">Read More</a></li>
-                          <div class="clear"> </div>
-                        </ul>
-                      </div>
-                    </a></div>
-                  <div class="col-md-3 shop_box"><a href="single.html">
-                      <img src="dist/img/pic8.jpg" class="img-responsive" alt="" />
-                      <span class="new-box">
-                        <span class="new-label">New</span>
-                      </span>
-                      <div class="shop_desc">
-                        <h3><a href="#">aliquam volutp</a></h3>
-                        <p>Lorem ipsum consectetuer adipiscing </p>
-                        <span class="reducedfrom">$66.00</span>
-                        <span class="actual">$12.00</span><br>
-                        <ul class="buttons">
-                          <li class="cart"><a href="#">Add To Cart</a></li>
-                          <li class="shop_btn"><a href="#">Read More</a></li>
-                          <div class="clear"> </div>
-                        </ul>
-                      </div>
-                    </a></div>
-            </div>
-            <div class="row">
-              <div class="col-md-3 shop_box"><a href="single.html">
-                  <img src="dist/img/pic9.jpg" class="img-responsive" alt="" />
-                  <span class="new-box">
-                    <span class="new-label">New</span>
-                  </span>
-                  <div class="shop_desc">
-                    <h3><a href="#">aliquam volutp</a></h3>
-                    <p>Lorem ipsum consectetuer adipiscing </p>
-                    <span class="actual">$12.00</span><br>
-                    <ul class="buttons">
-                      <li class="cart"><a href="#">Add To Cart</a></li>
-                      <li class="shop_btn"><a href="#">Read More</a></li>
-                      <div class="clear"> </div>
-                    </ul>
-                  </div>
-                </a></div>
-              <div class="col-md-3 shop_box"><a href="single.html">
-                  <img src="dist/img/pic10.jpg" class="img-responsive" alt="" />
-                  <span class="new-box">
-                    <span class="new-label">New</span>
-                  </span>
-                  <span class="sale-box">
+                        <h3><a href="#">
+                            <td><?php echo $mostrar['nombre']; ?></td>
+                          </a></h3>
+                        <p>
+                          <td><?php echo $mostrar['descripcion']; ?></td>
+                        </p>
 
-                    <span class="new-label">sale</span>-->
-                    <!--</span>
-					<div class="shop_desc">
-						<h3><a href="#">aliquam volutp</a></h3>
-						<p>Lorem ipsum consectetuer adipiscing </p>
-						<span class="actual">$12.00</span><br>
-						<ul class="buttons">
-							<li class="cart"><a href="#">Add To Cart</a></li>
-							<li class="shop_btn"><a href="#">Read More</a></li>
-							<div class="clear"> </div>
-					    </ul>
-				    </div>
-				</a></div>
-				<div class="col-md-3 shop_box"><a href="single.html">
-					<img src="dist/img/pic11.jpg" class="img-responsive" alt=""/>
-					<span class="new-box">
-						<span class="new-label">New</span>
-					</span>
-					<div class="shop_desc">
-						<h3><a href="#">aliquam volutp</a></h3>
-						<p>Lorem ipsum consectetuer adipiscing </p>
-						<span class="reducedfrom">$66.00</span>
-						<span class="actual">$12.00</span><br>
-						<ul class="buttons">
-							<li class="cart"><a href="#">Add To Cart</a></li>
-							<li class="shop_btn"><a href="#">Read More</a></li>
-							<div class="clear"> </div>
-					    </ul>
-				    </div>
-				</a></div>
-				<div class="col-md-3 shop_box"><a href="single.html">
-					<img src="dist/img/pic12.jpg" class="img-responsive" alt=""/>
-					<span class="new-box">
-						<!--<span class="new-label">New</span>-->
-                  </span>
-                  <span class="sale-box">
-                    <span class="sale-label">Sale!</span>
-                  </span>
-                  <div class="shop_desc">
-                    <h3><a href="#">aliquam volutp</a></h3>
-                    <p>Lorem ipsum consectetuer adipiscing </p>
-                    <span class="reducedfrom">$66.00</span>
-                    <span class="actual">$12.00</span><br>
-                    <ul class="buttons">
-                      <li class="cart"><a href="#">Add To Cart</a></li>
-                      <li class="shop_btn"><a href="#">Read More</a></li>
-                      <div class="clear"> </div>
-                    </ul>
-                  </div>
-                </a></div>
+                        <span class="actual"><?php echo number_format($mostrar['precio_venta'], 2, '.', ','); ?></span><br>
+                        <ul class="buttons">
+                          <li class="cart"><a href="editar.php? id=<?php echo $mostrar['id_articulo'] ?>" name="agregar">añadir a carrito</a></li>
+                          <li class="shop_btn"><a href="paginas/producto_detallado.php? id=<?php echo $mostrar['id_articulo'] ?>" name="leer">Conoce más</a></li>
+                          <div class="clear"> </div>
+                        </ul>
+                      </div>
+                    </a></div>
+
+
+                <?php
+              }
+                ?>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-    </div>
 
 
 
 
 
 
-    <center>
-      <nav aria-label="">
-        <ul class="pagination pagination-lg">
-          <li>
-            <a href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li>
-            <a href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <center>
+          <center>
+            <nav aria-label="">
+              <ul class="pagination pagination-lg">
+                <li>
+                  <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                  <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <center>
 
 
 
@@ -600,17 +481,17 @@ if (isset($_GET['enviar'])) {
 
 
         <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.8
     </div>
-    <strong>Copyright &copy; 2022 <a href="http://localhost/startshop/usuarios/index.php">STARTSHOP</a>.</strong> All rights
-    reserved.
-  </footer>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+      <div class="pull-right hidden-xs">
+        <b>Version</b> 2.3.8
+      </div>
+      <strong>Copyright &copy; 2022 <a href="http://localhost/startshop/usuarios/index.php">STARTSHOP</a>.</strong> All rights
+      reserved.
+    </footer>
 
-  <div class="control-sidebar-bg"></div>
+    <div class="control-sidebar-bg"></div>
   </div>
   <!-- ./wrapper -->
 

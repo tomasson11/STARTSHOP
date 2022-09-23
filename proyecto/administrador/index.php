@@ -20,12 +20,6 @@ $sqli="SELECT * from articulo";
 $result=mysqli_query($con,$sqli);        
 
 
-
-$id = $datos['id_usuario'];
-
-$query="SELECT * FROM articulo WHERE id_usuario = '$id'"; 
-        $resulta=mysqli_query($con,$query);
-
 /*$query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'"; 
         $resulta=mysqli_query($con,$query);
 
@@ -219,9 +213,20 @@ $query="SELECT * FROM articulo WHERE id_usuario = '$id'";
             </ul>
           </li>
           <!-- User Account: style can be found in dropdown.less -->
+
+          <?php 
+          $uss = $_SESSION["usuario"];
+          $query="SELECT imagen_usuario from usuario where usuario_login = '$uss'"; 
+          $resulta=mysqli_query($con,$query);
+  
+          if ($row = mysqli_fetch_array($resulta)) {
+                $img = $row['imagen_usuario'];
+              }  
+          ?>
+
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/user4-128x128.jpg" class="user-image" alt="User Image">
+              <img src="<?php echo $row['imagen_usuario'];?>" class="user-image" alt="User Image">
               <span class="hidden-xs"></span>
             </a>
             <ul class="dropdown-menu">
@@ -237,12 +242,10 @@ $query="SELECT * FROM articulo WHERE id_usuario = '$id'";
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="editar_perfil.php" class="btn btn-default btn-flat glyphicon glyphicon-user">Perfil</a>
-                 
+                  <a href="editar_perfil.php" class="btn btn-default btn-flat">Perfil</a>
                 </div>
-
                 <div class="pull-right">
-                  <a href="/STARTSHOP/php/salir.php" class="btn btn-default btn-flat">Salir <p class="glyphicon glyphicon-log-out"></p></a>
+                  <a href="/STARTSHOP/php/salir.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
                 </div>
               </li>
             </ul>
@@ -282,23 +285,10 @@ $query="SELECT * FROM articulo WHERE id_usuario = '$id'";
             </span>
           </a>
           <ul class="treeview-menu">
-          <li class="active"><a href="Productos_agregados.php"><i class="glyphicon glyphicon-ok"></i> Productos Listados</a></li>
-            <li class="active"><a href="inventario.php"><i class="glyphicon glyphicon-plus"></i>Listar Productos</a></li>
-          </ul>
-         
-         </li>
-
-
-         <li class="active treeview">
-          <a href="#">
-          <i class="glyphicon glyphicon-tasks"></i> <span>Reportes</span>
-
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
+          
+          <li class="active"><a href="index.php"><i class="fa fa-table"></i>ARTICULOS</a></li>
+            <li class="active"><a href="usuarios.php"><i class="fa fa-circle-o"></i>USUARIOS</a></li>
+            
           </ul>
          
          </li>
@@ -315,7 +305,7 @@ $query="SELECT * FROM articulo WHERE id_usuario = '$id'";
         </li>
         --->
        
-        
+        <li class="header">REPORTES</li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -328,10 +318,193 @@ $query="SELECT * FROM articulo WHERE id_usuario = '$id'";
 <section class="content-header">
 
   <h1><center>
-     
+     PRODUCTOS AGREGADOS
   </h1></center>			
 
-    
+    <!-- Main content -->
+    <section class="content">
+
+     <!-- Main content -->
+     <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Lista de productos</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  
+                  <th>CODIGO</th>
+                  <th>NOMBRE</th>
+                  <th>PRECIO</th>
+                  <th>STOCK</th>
+                  <th>CATEGORIA</th>
+                  <th>CREACION</th>
+                  <th>DESCRIPCION</th>
+                  <th>ESTADO</th>
+                </tr>
+                </thead>
+
+                <?php
+                        //iniciar la carga de los datos directamente de la tabla
+
+                while ($mostrar=mysqli_fetch_array($result)){
+
+                ?> 
+                
+                <tr>
+                <td><?php echo $mostrar['id_articulo']; ?></td>
+               
+                <td><?php echo $mostrar['codigo']; ?></td>
+                <td><?php echo $mostrar['nombre']; ?></td>
+                <td><?php echo $mostrar['precio_venta']; ?></td>
+                <td><?php echo $mostrar['stock']; ?></td>
+                <td><?php echo $mostrar['nombre_categoria']; ?></td>
+                <td><?php echo $mostrar['fecha_creacion']; ?></td>
+                <td><?php echo $mostrar['descripcion']; ?></td>
+                <td><?php echo $mostrar['id_estado']; ?></td>
+                <td>
+                                    
+                           
+                            <a href="php/eliminar_producto.php? id=<?php echo $mostrar['id_articulo'] ?> id_estado=<?php echo $mostrar['id_estado'] ?>"
+                            class="btn btn-danger glyphicon glyphicon-trash"></a>
+
+                            <a href="php/estado.php? id=<?php echo $mostrar['id_articulo'] ?>"
+                            class="btn btn-warning" name="cambiar_estado">estado</a>
+
+                            
+                            
+                            
+                            </td>
+                </tr>
+
+                <?php
+                }
+                ?>    
+              </table>
+
+
+
+  
+                  <!--MODAL DESPLAZAMIENTO PARA EDITAR PRODUCTO-->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form>
+
+                          <div class="row">
+          <div class="col-md-12">
+
+          <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Edición de productos</h3>
+        </div>
+        <div class="panel-body">
+
+          <form action="index.php" method="post">
+            <div class="row">
+              
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Nombre</label>
+                  <input  value="<?php echo $mostrar['nombre']?>" type="text" class="form-control" name="name_producto"  placeholder="Ingrese el nombre del producto">
+                </div>
+
+                  <div class="form-group">
+                  <label for="">Precio</label>
+                  <input type="number" class="form-control"  value="<?php echo $mostrar['precio_venta']?>" name="precio" id="precio" placeholder="Ingrese el precio del producto">
+            </div> 
+                </div> 
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Codigo</label>
+                  <input type="text" class="form-control" name="code_producto" value="<?php echo $mostrar['codigo']?>" placeholder="Ingrese el codigo del producto">
+            </div> 
+                
+            
+                <div class="form-group">
+                <label for="">categoria</label>
+                <select name="categoria_producto" class="form-control">
+            <option id="opcion" value="value="<?php echo $mostrar['nombre_categoria']?>></option>
+            <?php
+            include("php/bd.php");
+            $con = conectar();
+
+            $query = "SELECT * FROM categoria";
+            $resulta = mysqli_query($con, $query);
+
+            while ($row = mysqli_fetch_array($resulta)) {
+
+              $tipo = $row['nombre_categoria'];
+
+              echo "<option value='$tipo'>$tipo</option>";
+            }
+            ?>
+          </select>
+            </div>
+                </div>  
+            
+                <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Stock</label>
+                  <input type="number" class="form-control" name="stock" value="<?php echo $mostrar['stock']; ?>" id="stock" placeholder="Ingrese la cantidad de productos">
+            </div> 
+          </div>
+
+          <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Fecha</label>
+                  <input type="date" class="form-control" min="2022-09-10" name="fecha_creacion" id="fecha" placeholder="Ingrese el codigo del producto">
+          
+          <!--<input type="date" id="start" name="trip-start"
+          value="2018-07-22"
+            min="2018-01-01" max="2018-12-31">-->
+                </div> 
+          </div>
+
+          <div class="col-md-12">
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Descripcion</label>
+                  <textarea class="form-control" type="text" value="<?php echo $mostrar['descripcion']; ?>" id="exampleFormControlTextarea1" id="descrpcion" rows="3" name="descripcion" placeholder="Ingrese la descripcion del producto"></textarea>
+            </div> 
+          </div>
+
+          <div class="row">
+            <div class="ol-md-12">
+            
+          </div>
+          </div>
+          </form>
+        </div>
+      </div>
+      </div>
+                </div>  
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default glyphicon glyphicon-remove-circle" data-dismiss="modal"></button>
+
+                         
+                            <button type="button" class="btn btn-success">Guardar Cambios</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
 
 
 

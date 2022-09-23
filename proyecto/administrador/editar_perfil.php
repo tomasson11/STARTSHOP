@@ -208,7 +208,47 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
             </ul>
           </li>
           <!-- Notifications: style can be found in dropdown.less -->
-          
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">10</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have 10 notifications</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
+                      page and may cause design problems
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-red"></i> 5 new members joined
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-user text-red"></i> You changed your username
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">View all</a></li>
+            </ul>
+          </li>
           <!-- Tasks: style can be found in dropdown.less -->
           <li class="dropdown tasks-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -302,12 +342,10 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="editar_perfil.php" class="btn btn-default btn-flat glyphicon glyphicon-user">Perfil</a>
-                 
+                  <a href="editar_perfil.php" class="btn btn-default btn-flat">Perfil</a>
                 </div>
-
                 <div class="pull-right">
-                  <a href="/starshop/php/salir.php" class="btn btn-default btn-flat">Salir <p class="glyphicon glyphicon-log-out"></p></a>
+                  <a href="/starshop/php/salir.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
                 </div>
               </li>
             </ul>
@@ -340,34 +378,55 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
         
         <li class="active treeview">
           <a href="#">
-          <i class="glyphicon glyphicon-shopping-cart"></i> <span>Mi tienda</span>
-
+          <i class="fa fa-dashboard"></i> <span>Mi tieda</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-          <li class="active"><a href="Productos_agregados.php"><i class="glyphicon glyphicon-ok"></i> Productos Listados</a></li>
-            <li class="active"><a href="inventario.php"><i class="glyphicon glyphicon-plus"></i>Listar Productos</a></li>
-          </ul>
-         
-         </li>
-
-
-         <li class="active treeview">
-          <a href="#">
-          <i class="glyphicon glyphicon-tasks"></i> <span>Reportes</span>
-
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
+          
+          <li class="active"><a href="index.php"><i class="fa fa-table"></i> Productos</a></li>
+            <li class="active"><a href="inventario.php"><i class="fa fa-circle-o"></i> Inventarios</a></li>
             <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
           </ul>
          
          </li>
-      
+
+  
+
+  
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Charts</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
+            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
+            <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
+            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+          </ul>
+        </li>
+        
+        
+        <!--TABLAS PARA COMPRAS              
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Tables</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
+            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+          </ul>
+        </li>
+        ----------------------------------------------------------------------------------------------->
+
         <!--CALENDARIO PARA EMPRENDEDORES
         <li>
           <a href="pages/calendar.html">
@@ -378,13 +437,13 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
             </span>
           </a>
         </li>
-        --->
-       
-        
+        ------------------------------------------------------------------------------------------------>
+        <li class="header">Cuenta</li>
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->

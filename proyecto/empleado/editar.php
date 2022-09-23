@@ -6,14 +6,14 @@ $con=conectar();
 
 session_start(); 
 //COMPRUEBA QUE EL USUARIO INICIÓ SESIÓN
-if ($_SESSION["autentificado_empleado"] != "SI") { 
+if ($_SESSION["autentificado_Administrador"] != "SI") { 
    	//SI NO HAY UNA SESION ACTIVA MANDO A INICIAR SESIÓN
    	header("Location:/starshop/index.php"); 
    	exit();
 }
 
 $uss = $_SESSION["usuario"];
-$sql = "SELECT * FROM usuario WHERE usuario_login='$uss'"; 
+$sql = "SELECT * FROM empleados WHERE usuario_login='$uss'"; 
         $resultado = mysqli_query($con,$sql) or die(mysqli_error($con));
         mysqli_data_seek ($resultado, 0);
         $datos = mysqli_fetch_array($resultado);

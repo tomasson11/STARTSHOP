@@ -4,19 +4,19 @@ $con=conectar();
 
 session_start(); 
 //COMPRUEBA QUE EL USUARIO INICIÓ SESIÓN
-if ($_SESSION["autentificado_empleado"] != "SI") { 
+if ($_SESSION["autentificado_Administrador"] != "SI") { 
    	//SI NO HAY UNA SESION ACTIVA MANDO A INICIAR SESIÓN
    	header("Location:/starshop/index.php"); 
    	exit();
 }
 
 $uss = $_SESSION["usuario"];
-$sql = "SELECT * FROM usuario WHERE usuario_login='$uss'"; 
+$sql = "SELECT * FROM empleados WHERE usuario_login='$uss'"; 
         $resultado = mysqli_query($con,$sql) or die(mysqli_error($con));
         mysqli_data_seek ($resultado, 0);
         $datos = mysqli_fetch_array($resultado);
 
-        $id = $datos['id_usuario'];
+        $id = $datos['id_empleado'];
 
         /*$query="SELECT * FROM articulo WHERE id_usuario = '$id'"; 
                 $resulta=mysqli_query($con,$query);*/
@@ -138,7 +138,47 @@ $sql = "SELECT * FROM usuario WHERE usuario_login='$uss'";
             </ul>
           </li>
           <!-- Notifications: style can be found in dropdown.less -->
-          
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">10</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have 10 notifications</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
+                      page and may cause design problems
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-red"></i> 5 new members joined
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-user text-red"></i> You changed your username
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">View all</a></li>
+            </ul>
+          </li>
           <!-- Tasks: style can be found in dropdown.less -->
           <li class="dropdown tasks-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -232,12 +272,10 @@ $sql = "SELECT * FROM usuario WHERE usuario_login='$uss'";
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="editar_perfil.php" class="btn btn-default btn-flat glyphicon glyphicon-user">Perfil</a>
-                 
+                  <a href="editar_perfil.php" class="btn btn-default btn-flat">Perfil</a>
                 </div>
-
                 <div class="pull-right">
-                  <a href="/starshop/php/salir.php" class="btn btn-default btn-flat">Salir <p class="glyphicon glyphicon-log-out"></p></a>
+                  <a href="/starshop/php/salir.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
                 </div>
               </li>
             </ul>
@@ -271,33 +309,35 @@ $sql = "SELECT * FROM usuario WHERE usuario_login='$uss'";
         <li class="active treeview">
           <a href="#">
           <i class="glyphicon glyphicon-shopping-cart"></i> <span>Mi tienda</span>
-
+          
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-          <li class="active"><a href="Productos_agregados.php"><i class="glyphicon glyphicon-ok"></i> Productos Listados</a></li>
-            <li class="active"><a href="inventario.php"><i class="glyphicon glyphicon-plus"></i>Listar Productos</a></li>
-          </ul>
-         
-         </li>
-
-
-         <li class="active treeview">
-          <a href="#">
-          <i class="glyphicon glyphicon-tasks"></i> <span>Reportes</span>
-
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
+          <li class="active"><a href="index.php"><i class="fa fa-table"></i> Productos</a></li>
+            <li class="active"><a href="inventario.php"><i class="fa fa-circle-o"></i> Inventarios</a></li>
             <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
           </ul>
-         
-         </li>
-      
+        </li>
+
+        
+        
+        <!--TABLAS PARA COMPRAS              
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Tables</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
+            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+          </ul>
+        </li>
+        ----------------------------------------------------------------------------------------------->
+
         <!--CALENDARIO PARA EMPRENDEDORES
         <li>
           <a href="pages/calendar.html">
@@ -308,9 +348,8 @@ $sql = "SELECT * FROM usuario WHERE usuario_login='$uss'";
             </span>
           </a>
         </li>
-        --->
-       
-        
+        ------------------------------------------------------------------------------------------------>
+        <li class="header">REPORTES</li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -340,7 +379,7 @@ $stock="";
 $fecha="";
 $descripcion="";
 $estado = 1;
-$id_usuario= $id;
+$id_empleado= $id;
 
 if ($_POST) {
 $categoria=$_POST['categoria_producto']; 
@@ -352,11 +391,11 @@ $stock=$_POST['stock'];
 $fecha=$_POST['fecha_creacion'];
 $descripcion=$_POST['descripcion'];
 $estado = 1;
-$id_usuario= $id;
+$id_empleado= $id;
 
-$sql="INSERT INTO `articulo`(`id_articulo`, `id_usuario`, `nombre_categoria`, `codigo`, `nombre`,
+$sql="INSERT INTO `articulo`(`id_articulo`, `id_empleado`, `nombre_categoria`, `codigo`, `nombre`,
  `precio_venta`, `stock`, `fecha_creacion`, `descripcion`, `id_estado`)
-    VALUES ('', '$id_usuario', '$categoria' , '$codigo' , '$nombre', '$precio', '$stock', '$fecha', '$descripcion', '$estado' )";
+    VALUES ('', '$id_empleado', '$categoria' , '$codigo' , '$nombre', '$precio', '$stock', '$fecha', '$descripcion', '$estado' )";
 $datos=$con->query($sql);
 }
 }
@@ -381,12 +420,12 @@ $datos=$con->query($sql);*/
         <div class="col-md-6">
           <div class="form-group">
             <label for="">Nombres</label>
-            <input type="text" max="20" class="form-control"required name="name_producto" placeholder="Ingrese el nombre del producto">
+            <input type="text" max="20" class="form-control" name="name_producto" placeholder="Ingrese el nombre del producto">
           </div>
 
             <div class="form-group">
             <label for="">Precio</label>
-            <input type="number" class="form-control" required name="precio" placeholder="Ingrese el precio del producto">
+            <input type="number" class="form-control" name="precio" placeholder="Ingrese el precio del producto">
       </div> 
           </div> 
 
@@ -400,7 +439,7 @@ $datos=$con->query($sql);*/
           <div class="form-group">
           <label for="">categoria</label>
             <select name="categoria_producto" class="form-control">
-      <option  id="opcion" value="0">Selecciona:</option>
+      <option id="opcion" value="0">Selecciona:</option>
       <?php
       include("php/bd.php");
       $con = conectar();
@@ -422,14 +461,14 @@ $datos=$con->query($sql);*/
           <div class="col-md-6">
           <div class="form-group">
             <label for="">Stock</label>
-            <input type="number" class="form-control" required name="stock" placeholder="Ingrese la cantidad de productos">
+            <input type="number" class="form-control" name="stock" placeholder="Ingrese la cantidad de productos">
       </div> 
     </div>
 
     <div class="col-md-6">
           <div class="form-group">
             <label for="">Fecha</label>
-            <input type="date" class="form-control" required min="2022-09-10" name="fecha_creacion" >
+            <input type="date" class="form-control" min="2022-09-10" name="fecha_creacion" placeholder="Ingrese el codigo del producto">
     
     <!--<input type="date" id="start" name="trip-start"
     value="2018-07-22"
@@ -440,7 +479,7 @@ $datos=$con->query($sql);*/
     <div class="col-md-12">
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Descripcion</label>
-            <textarea required class="form-control" type="text" id="exampleFormControlTextarea1" rows="3" name="descripcion" placeholder="Ingrese la descripcion del producto"></textarea>
+            <textarea class="form-control" type="text" id="exampleFormControlTextarea1" rows="3" name="descripcion" placeholder="Ingrese la descripcion del producto"></textarea>
       </div> 
     </div>
 

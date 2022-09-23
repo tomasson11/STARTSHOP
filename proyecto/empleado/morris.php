@@ -4,14 +4,14 @@ $con=conectar();
 
 session_start(); 
 //COMPRUEBA QUE EL USUARIO INICIÓ SESIÓN
-if ($_SESSION["autentificado_empleado"] != "SI") { 
+if ($_SESSION["autentificado_Administrador"] != "SI") { 
    	//SI NO HAY UNA SESION ACTIVA MANDO A INICIAR SESIÓN
    	header("Location:/starshop/index.php"); 
    	exit();
 }
 
 $uss = $_SESSION["usuario"];
-$sql = "SELECT * FROM usuario WHERE usuario_login='$uss'"; 
+$sql = "SELECT * FROM empleados WHERE usuario_login='$uss'"; 
         $resultado = mysqli_query($con,$sql) or die(mysqli_error($con));
         mysqli_data_seek ($resultado, 0);
         $datos = mysqli_fetch_array($resultado);
@@ -30,18 +30,36 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
 <!DOCTYPE html>
 <html>
 <head>
-  <?php 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Startshop Admin</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 
-  include('loyout/header.php');
-
-   ?>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="index.php" class="logo">
+    <a href="morris.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>STS</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -52,6 +70,9 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
       </a>
 
       <div class="navbar-custom-menu">
@@ -212,7 +233,7 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/user4-128x128.jpg" class="user-image" alt="User Image">
+              <img src="<?php echo $row['imagen_usuario'];?>" class="user-image" alt="User Image">
               <span class="hidden-xs"></span>
             </a>
             <ul class="dropdown-menu">
@@ -228,12 +249,10 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="editar_perfil.php" class="btn btn-default btn-flat glyphicon glyphicon-user">Perfil</a>
-                 
+                  <a href="editar_perfil.php" class="btn btn-default btn-flat">Perfil</a>
                 </div>
-
                 <div class="pull-right">
-                  <a href="/starshop/php/salir.php" class="btn btn-default btn-flat">Salir <p class="glyphicon glyphicon-log-out"></p></a>
+                  <a href="/starshop/php/salir.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
                 </div>
               </li>
             </ul>
@@ -253,60 +272,39 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+        <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p><?php echo $datos['nombre']." ".$datos['apellidos']; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
+  
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MENU DE NAVEGACION</li>
-        
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
           <i class="glyphicon glyphicon-shopping-cart"></i> <span>Mi tienda</span>
-
+          
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-          <li class="active"><a href="Productos_agregados.php"><i class="glyphicon glyphicon-ok"></i> Productos Listados</a></li>
-            <li class="active"><a href="inventario.php"><i class="glyphicon glyphicon-plus"></i>Listar Productos</a></li>
-          </ul>
-         
-         </li>
-
-
-         <li class="active treeview">
-          <a href="#">
-          <i class="glyphicon glyphicon-tasks"></i> <span>Reportes</span>
-
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
+          
+          <li class="active"><a href="index.php"><i class="fa fa-table"></i> Productos</a></li>
+            <li class="active"><a href="inventario.php"><i class="fa fa-circle-o"></i> Inventarios</a></li>
             <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
           </ul>
          
          </li>
-      
-        <!--CALENDARIO PARA EMPRENDEDORES
-        <li>
-          <a href="pages/calendar.html">
-            <i class="fa fa-calendar"></i> <span>Calendar</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
-            </span>
-          </a>
-        </li>
-        --->
-       
+          
         
+        <li class="header">REPORTES</li>
+        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -323,44 +321,75 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
 
     <!-- Main content -->
     <section class="content">
-      
-    <div>
-      <canvas id="myChart"></canvas>
+     
+    <div style="width: 80%"> 
+    <canvas id="canvas" height="600" width="600"></canvas>
     </div>
 
-   <script>
-  const labels = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-  ];
 
-  const data = {
-    labels: labels,
-    datasets: [{
-      label: 'My First dataset',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30, 45],
-    }]
-  };
-
-  const config = {
-    type: 'line',
-    data: data,
-    options: {}
-  };
-</script> 
-
-<script>
-  const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        
+    const ctx = document.getElementById('canvas').getContext('2d');
+    const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [
+          <?php
+          $id = $datos['id_empleado'];
+          $sqli = "SELECT * FROM articulo WHERE id_empleado = '$id'";
+          $result = mysqli_query($con,$sqli);
+          while ($registros = mysqli_fetch_array($result)){
+          ?>
+            '<?php echo $registros["nombre"]?>',
+          <?php
+          }
+          ?>  
+        ],
+        datasets: [{
+            label: 'cantidad',
+            data: [
+              <?php
+              $id1= $datos['id_empleado'];
+              $sqli1 = "SELECT * FROM articulo WHERE id_empleado = '$id1'";
+              $resulto = mysqli_query($con,$sqli1);
+              while ($registro = mysqli_fetch_array($resulto)){
+              ?>
+             '<?php echo $registro["stock"]?>',
+              <?php
+              }
+              ?>  
+                      
+          ],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+    
+    </script>
 
     </section>
     <!-- /.content -->
