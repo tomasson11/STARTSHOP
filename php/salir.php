@@ -1,5 +1,6 @@
 <?php
 /*
+Tomas estuvo aqui.
 include('bd.php');
 
 if(isset($_SESSION['salir'])){
