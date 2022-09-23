@@ -22,10 +22,10 @@
   </div>
 
   <!--Formulario de Login-->
-  <form action="/starshop/php/iniciar.php" method="post">
+  <form action="/STARTSHOP/php/iniciar.php" method="post">
 
 
-    <center> <img src="imagenes/LOGO_STARSHOP.png" width="190" height="190" alt="starshop"></center>
+    <center> <img src="imagenes/LOGO_STARSHOP.png" width="190" height="190" alt="STARTSHOP"></center>
 
     <label for="username">USUARIO</label>
     <input type="text" placeholder="Ingresa tu Usuario" name="usuario_login" required>

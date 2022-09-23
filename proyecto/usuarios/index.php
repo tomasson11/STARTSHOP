@@ -6,7 +6,7 @@ session_start();
 //COMPRUEBA QUE EL USUARIO INICIÓ SESIÓN
 if ($_SESSION["autentificado_usuario"] != "SI") {
   //SI NO HAY UNA SESION ACTIVA MANDO A INICIAR SESIÓN
-  header("Location:/starshop/index.php");
+  header("Location:/STARTSHOP/index.php");
   exit();
 }
 
@@ -352,7 +352,7 @@ if ($row = mysqli_fetch_array($resulta)) {
                     <a href="#" class="btn btn-default btn-flat">Perfil</a>
                   </div>
                   <div class="pull-right">
-                    <a href="/starshop/php/salir.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
+                    <a href="/STARTSHOP/php/salir.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
                   </div>
                 </li>
               </ul>
@@ -610,7 +610,7 @@ if ($row = mysqli_fetch_array($resulta)) {
       <div class="pull-right hidden-xs">
         <b>Version</b> 2.3.8
       </div>
-      <strong>Copyright &copy; 2022 <a href="http://localhost/startshop/usuarios/index.php">STARSHOP</a>.</strong> All rights
+      <strong>Copyright &copy; 2022 <a href="http://localhost/startshop/usuarios/index.php">STARTSHOP</a>.</strong> All rights
       reserved.
     </footer>
 

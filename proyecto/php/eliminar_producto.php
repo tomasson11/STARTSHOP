@@ -8,7 +8,7 @@ $sql = "DELETE FROM articulo WHERE id_articulo = $id";
 $query = mysqli_query($con,$sql);
 
 if($query){
-    header("location: starshop/proyecto/administrador/index.php");
+    header("location: STARTSHOP/proyecto/administrador/index.php");
 }
 
 ?>

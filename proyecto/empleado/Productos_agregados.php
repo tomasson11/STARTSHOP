@@ -6,7 +6,7 @@ session_start();
 //COMPRUEBA QUE EL USUARIO INICIÓ SESIÓN
 if ($_SESSION["autentificado_empleado"] != "SI") { 
    	//SI NO HAY UNA SESION ACTIVA MANDO A INICIAR SESIÓN
-   	header("Location:/starshop/index.php"); 
+   	header("Location:/STARTSHOP/index.php"); 
    	exit();
 }
 
@@ -242,7 +242,7 @@ $query="SELECT * FROM articulo WHERE id_usuario = '$id'";
                 </div>
 
                 <div class="pull-right">
-                  <a href="/starshop/php/salir.php" class="btn btn-default btn-flat">Salir <p class="glyphicon glyphicon-log-out"></p></a>
+                  <a href="/STARTSHOP/php/salir.php" class="btn btn-default btn-flat">Salir <p class="glyphicon glyphicon-log-out"></p></a>
                 </div>
               </li>
             </ul>

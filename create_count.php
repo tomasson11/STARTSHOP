@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="background">
-        <div class="shape"><center><img src="imagenes/LOGO_STARSHOP.png" width="190" height="190"  alt="starshop"></center></div>
+        <div class="shape"><center><img src="imagenes/LOGO_STARSHOP.png" width="190" height="190"  alt="STARTSHOP"></center></div>
         <div class="shape"></div>
     </div>
 

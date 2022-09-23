@@ -55,13 +55,13 @@ if (isset($_POST['start'])) {
         echo "<script language=\"JavaScript\">\n";
         echo "alert('Usuario o Contraseña incorrecto');\n";
         echo "</script>";
-        echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=/starshop/index.php'>";
+        echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=/STARTSHOP/index.php'>";
     }
 }
 
 
 if (isset($_POST['create'])) {
-    echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=/starshop/create_count.php'>";
+    echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=/STARTSHOP/create_count.php'>";
 }
 
 
@@ -202,7 +202,7 @@ if ((mysqli_num_rows($resulta)>=1)){
         echo "<script language=\"JavaScript\">\n"; 
         echo "alert('Usuario y/o contraseña incorrecta');\n"; 
         echo "</script>";
-        echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=/starshop/index.php'>"; 
+        echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=/STARTSHOP/index.php'>"; 
 //no inicio
     }
 }
@@ -256,12 +256,12 @@ if ((mysqli_num_rows($resulta)>=0) || (mysqli_num_rows($resulta1)>=0)){
         echo "<script language=\"JavaScript\">\n"; 
         echo "alert('Usuario y/o contraseña incorrecta');\n"; 
         echo "</script>";
-        echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=/starshop/index.php'>"; 
+        echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=/STARTSHOP/index.php'>"; 
     }
 }
 
 if(isset($_POST['create'])){
-    echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=/starshop/create_count.php'>"; 
+    echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=/STARTSHOP/create_count.php'>"; 
 }
 
 
