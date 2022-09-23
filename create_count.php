@@ -97,7 +97,7 @@
                                                     <!--Botones-->
 
         <button name="finalizar" type="submit">Crear Cuenta</button>
-        <button name="atras" ><--Regresar</button> 
+        <a href="index.php" style= "color: #000; text-decoration: none;"> <button name="atras" type="button">Regresar</button> </a>
 
        
 

@@ -34,7 +34,7 @@
     <input type="password" placeholder="Ingresa tu Contrase&ntilde;a" name="password_login" required>
 
     <button name="start" type="submit">Iniciar Sesión</button>
-    <button name="create" type="submit">Crear Cuenta</button>
+    <a href="create_count.php" style="color: #000; text-decoration: none;"> <button name="crear" type="button" >Crea tu cuenta</button> </a>
 
 
   </form>
