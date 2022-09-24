@@ -226,13 +226,17 @@ $result=mysqli_query($con,$sqli);
 
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo $row['imagen_usuario'];?>" class="user-image" alt="User Image">
+              
+              
+              <?php echo '<img src="data:image/jpg;base64, '.base64_encode($row['imagen_usuario']).'"  class="user-image"  /> ' 
+                  ?>
               <span class="hidden-xs"></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="dist/img/per.jpg" class="img-circle">
+              <?php echo '<img src="data:image/jpg;base64, '.base64_encode($row['imagen_usuario']).'"  class="img-circle"  /> ' 
+                  ?>
 
                 <p>
                 <?php echo $datos['nombre']." ".$datos['apellidos']; ?> - <?php echo $datos['tipo_rol'];?>

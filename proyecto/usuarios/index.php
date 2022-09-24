@@ -22,6 +22,11 @@ $resulta = mysqli_query($con, $query);
 if ($row = mysqli_fetch_array($resulta)) {
   $img = $row['imagen_usuario'];
 }
+
+$id_estado = 1;
+
+$query = "SELECT * FROM articulo WHERE id_estado = '$id_estado'";
+$resulta = mysqli_query($con, $query);
 ?>
 
 <!DOCTYPE html>
@@ -135,14 +140,14 @@ if ($row = mysqli_fetch_array($resulta)) {
             <!-- Messages: style can be found in dropdown.less-->
             <li class="dropdown messages-menu">
               <a href="../carritocompras/viewCart.php" class="dropdown-toggle cart-link" title="View Cart">
-              <i class="glyphicon glyphicon-shopping-cart"></i>
-              <!-- AGREGAR EL NÚMERO DE OBJETOS EN EL CARRITO -->
+                <i class="glyphicon glyphicon-shopping-cart"></i>
+                <!-- AGREGAR EL NÚMERO DE OBJETOS EN EL CARRITO -->
                 <span class="label label-success">4</span>
               </a>
             </li>
             <li class="dropdown messages-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
+                <i class="fa fa-envelope-o"></i>
                 <span class="label label-success">4</span>
               </a>
               <ul class="dropdown-menu">
@@ -425,17 +430,7 @@ if ($row = mysqli_fetch_array($resulta)) {
       </section>
     </aside>
 
-    <!--CALENDARIO PARA EMPRENDEDORES
-        <li>
-          <a href="pages/calendar.html">
-            <i class="fa fa-calendar"></i> <span>Calendar</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
-            </span>
-          </a>
-        </li>
-        ------------------------------------------------------------------------------------------------>
+ 
 
 
     <!-- Content Wrapper. Contains page content -->
@@ -445,168 +440,184 @@ if ($row = mysqli_fetch_array($resulta)) {
         <h1>
 
         </h1>
+        <nav class="navbar navbar-inverse" role="navigation">
+          <!-- El logotipo y el icono que despliega el menú se agrupan
+       para mostrarlos mejor en los dispositivos móviles -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Desplegar navegación</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            </a>
+
+          </div>
+
+          <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+       otro elemento que se pueda ocultar al minimizar la barra -->
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+              <li class=""><a href="index.php">Shop</a></li>
+              <li><a href="#">Novedades</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Servicios <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Restaurante</a></li>
+                  <li><a href="#">Repostería</a></li>
+                  <li><a href="#">Modistería</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Floristería</a></li>
+                  <li><a href="#"></a></li>
+
+                </ul>
+              </li>
+
+
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Destacados<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Bisutería</a></li>
+                  <li><a href="#">Joyería</a></li>
+                  <li><a href="#">Tecnología</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Licor Artesanal</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#"></a></li>
+                </ul>
+              </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-left">
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Información de Interés<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="paginas/team_startshop.php">Team StartShop</a></li>
+
+                  <li><a href="paginas/contacto.php">Contáctanos</a></li>
+
+                </ul>
+              </li>
+            </ul>
+
+
+            <ul class="nav navbar-nav navbar-left">
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  LOREM IPSUM<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="">Team StartShop</a></li>
+
+                  <li><a href="">Contáctanos</a></li>
+
+                </ul>
+              </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-left">
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Perreo HOTa<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="">Team StartShop</a></li>
+
+                  <li><a href="">Contáctanos</a></li>
+
+                </ul>
+              </li>
+            </ul>
+
+
+            <form action="" method="get" class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Buscar" name="busqueda">
+              </div>
+              <button type="submit" class="btn btn-default glyphicon glyphicon-search" name="enviar"></button>
+            </form>
+
+
+          </div>
+        </nav>
+
+
+
       </section>
+
+
 
       <!-- Main content -->
       <section class="content">
         <div class="main">
-          <div class="shop_top">
-            <div class="container">
-              <div class="row shop_box-top">
-                <div class="col-md-3 shop_box"><a href="#">
-                    <img src="dist/img/Velas.jpg" class="img-responsive" alt="" />
-                    <span class="new-box">
-                      <!--<span class="new-label">New</span>-->
-                    </span>
-                    <span class="sale-box">
-                      <span class="sale-label">Sale!</span>
-                    </span>
-                    <div class="shop_desc">
-                      <h3><a href="#">aliquam volutp</a></h3>
-                      <p>Lorem ipsum consectetuer adipiscing </p>
-                      <span class="reducedfrom">$66.00</span>
-                      <span class="actual">$12.00</span><br>
-                      <ul class="buttons">
-                        <li class="cart"><a href="#">Add To Cart</a></li>
-                        <li class="shop_btn"><a href="#">Read More</a></li>
-                        <div class="clear"> </div>
-                      </ul>
-                    </div>
-                  </a></div>
+          <div class="row ">
 
-                <div class="col-md-3 shop_box"><a href="single.html">
-                    <img src="dist/img/algodon.jpg" class="img-responsive" alt="" />
-                    <span class="new-box">
-                      <span class="new-label">New</span>
-                    </span>
-                    <div class="shop_desc">
-                      <h3><a href="#">aliquam volutp</a></h3>
-                      <p>Lorem ipsum consectetuer adipiscing </p>
-                      <span class="actual">$12.00</span><br>
-                      <ul class="buttons">
-                        <li class="cart"><a href="#">Add To Cart</a></li>
-                        <li class="shop_btn"><a href="#">Read More</a></li>
-                        <div class="clear"> </div>
-                      </ul>
-                    </div>
-                  </a></div>
-                <div class="col-md-3 shop_box"><a href="single.html">
-                    <img src="dist/img/tela.jpg" class="img-responsive" alt="" />
-                    <span class="new-box">
-                      <!--<span class="new-label">New</span>-->
-                    </span>
-                    <span class="sale-box">
-                      <span class="sale-label">Sale!</span>
-                    </span>
-                    <div class="shop_desc">
-                      <h3><a href="#">aliquam volutp</a></h3>
-                      <p>Lorem ipsum consectetuer adipiscing </p>
-                      <span class="reducedfrom">$66.00</span>
-                      <span class="actual">$12.00</span><br>
-                      <ul class="buttons">
-                        <li class="cart"><a href="#">Add To Cart</a></li>
-                        <li class="shop_btn"><a href="#">Read More</a></li>
-                        <div class="clear"> </div>
-                      </ul>
-                    </div>
-                  </a></div>
-                <div class="col-md-3 shop_box"><a href="single.html">
-                    <img src="dist/img/pic8.jpg" class="img-responsive" alt="" />
-                    <span class="new-box">
-                      <span class="new-label">New</span>
-                    </span>
-                    <div class="shop_desc">
-                      <h3><a href="#">aliquam volutp</a></h3>
-                      <p>Lorem ipsum consectetuer adipiscing </p>
-                      <span class="reducedfrom">$66.00</span>
-                      <span class="actual">$12.00</span><br>
-                      <ul class="buttons">
-                        <li class="cart"><a href="#">Add To Cart</a></li>
-                        <li class="shop_btn"><a href="#">Read More</a></li>
-                        <div class="clear"> </div>
-                      </ul>
-                    </div>
-                  </a></div>
-              </div>
-              <div class="row">
-                <div class="col-md-3 shop_box"><a href="single.html">
-                    <img src="dist/img/pic9.jpg" class="img-responsive" alt="" />
-                    <span class="new-box">
-                      <span class="new-label">New</span>
-                    </span>
-                    <div class="shop_desc">
-                      <h3><a href="#">aliquam volutp</a></h3>
-                      <p>Lorem ipsum consectetuer adipiscing </p>
-                      <span class="actual">$12.00</span><br>
-                      <ul class="buttons">
-                        <li class="cart"><a href="#">Add To Cart</a></li>
-                        <li class="shop_btn"><a href="#">Read More</a></li>
-                        <div class="clear"> </div>
-                      </ul>
-                    </div>
-                  </a></div>
-                <div class="col-md-3 shop_box"><a href="single.html">
-                    <img src="dist/img/pic10.jpg" class="img-responsive" alt="" />
-                    <span class="new-box">
-                      <span class="new-label">New</span>
-                    </span>
-                    <span class="sale-box">
-                      <!--<span class="new-label">sale</span>-->
-                    </span>
-                    <div class="shop_desc">
-                      <h3><a href="#">aliquam volutp</a></h3>
-                      <p>Lorem ipsum consectetuer adipiscing </p>
-                      <span class="actual">$12.00</span><br>
-                      <ul class="buttons">
-                        <li class="cart"><a href="#">Add To Cart</a></li>
-                        <li class="shop_btn"><a href="#">Read More</a></li>
-                        <div class="clear"> </div>
-                      </ul>
-                    </div>
-                  </a></div>
-                <div class="col-md-3 shop_box"><a href="single.html">
-                    <img src="dist/img/pic11.jpg" class="img-responsive" alt="" />
-                    <span class="new-box">
-                      <span class="new-label">New</span>
-                    </span>
-                    <div class="shop_desc">
-                      <h3><a href="#">aliquam volutp</a></h3>
-                      <p>Lorem ipsum consectetuer adipiscing </p>
-                      <span class="reducedfrom">$66.00</span>
-                      <span class="actual">$12.00</span><br>
-                      <ul class="buttons">
-                        <li class="cart"><a href="#">Add To Cart</a></li>
-                        <li class="shop_btn"><a href="#">Read More</a></li>
-                        <div class="clear"> </div>
-                      </ul>
-                    </div>
-                  </a></div>
-                <div class="col-md-3 shop_box"><a href="single.html">
-                    <img src="dist/img/pic12.jpg" class="img-responsive" alt="" />
-                    <span class="new-box">
-                      <!--<span class="new-label">New</span>-->
-                    </span>
-                    <span class="sale-box">
-                      <span class="sale-label">Sale!</span>
-                    </span>
-                    <div class="shop_desc">
-                      <h3><a href="#">aliquam volutp</a></h3>
-                      <p>Lorem ipsum consectetuer adipiscing </p>
-                      <span class="reducedfrom">$66.00</span>
-                      <span class="actual">$12.00</span><br>
-                      <ul class="buttons">
-                        <li class="cart"><a href="#">Add To Cart</a></li>
-                        <li class="shop_btn"><a href="#">Read More</a></li>
-                        <div class="clear"> </div>
-                      </ul>
-                    </div>
-                  </a></div>
-              </div>
-            </div>
+
+            <?php
+            //iniciar la carga de los datos directamente de la tabla
+
+            while ($mostrar = mysqli_fetch_array($resulta)) {
+
+            ?>
+
+
+
+
+              <div class="col-md-3 shop_box"><a href="single.html">
+              <?php echo '<img src="data:image/jpg;base64, '.base64_encode($mostrar['foto_producto']).'"  class="img-responsive" /> ' 
+                  ?>
+
+                  <span class="new-box">
+                    <!--<span class="new-label">New</span>-->
+                  </span>
+                  <span class="sale-box">
+                    <span class="sale-label">En venta</span>
+                  </span>
+
+                  <div class="shop_desc">
+                    <td><?php echo $mostrar['nombre']; ?></td>
+
+
+                    <p>
+                      <td><?php echo $mostrar['descripcion']; ?></td>
+                    </p>
+
+
+                    <span class="actual"><?php echo number_format($mostrar['precio_venta'], 2, '.', ','); ?></span><br>
+
+                    <ul class="buttons">
+                      <li class="cart btn-warning"><a href="editar.php? id=<?php echo $mostrar['id_articulo'] ?>" name="agregar">añadir a carrito</a></li>
+                      <li class="shop_btn btn-primary"><a href="paginas/producto_detallado.php? id=<?php echo $mostrar['id_articulo'] ?>" name="leer">Conoce más</a></li>
+                      <div class="clear"> </div>
+                    </ul>
+                  </div>
+                </a></div>
+
+
+
+
+
+            <?php
+            }
+            ?>
           </div>
+
         </div>
 
       </section>
+
+
 
 
 

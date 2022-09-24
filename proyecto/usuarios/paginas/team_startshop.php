@@ -226,7 +226,7 @@
        otro elemento que se pueda ocultar al minimizar la barra -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-              <li class=""><a href="../normal_user.php">Shop</a></li>
+              <li class=""><a href="../index.php">Shop</a></li>
               <li><a href="#">Novedades</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">

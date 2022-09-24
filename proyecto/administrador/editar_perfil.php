@@ -326,13 +326,15 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/user4-128x128.jpg" class="user-image" alt="User Image">
+            <?php echo '<img src="data:image/jpg;base64, '.base64_encode($row['imagen_usuario']).'"  class="user-image"  /> ' 
+                  ?>
               <span class="hidden-xs"></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="dist/img/per.jpg" class="img-circle">
+              <?php echo '<img src="data:image/jpg;base64, '.base64_encode($row['imagen_usuario']).'"  class="img-circle"  /> ' 
+                  ?>
 
                 <p>
                 <?php echo $datos['nombre']." ".$datos['apellidos']; ?> - <?php echo $datos['tipo_rol'];?>
@@ -385,8 +387,8 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
           </a>
           <ul class="treeview-menu">
           
-          <li class="active"><a href="index.php"><i class="fa fa-table"></i> Productos</a></li>
-            <li class="active"><a href="inventario.php"><i class="fa fa-circle-o"></i> Inventarios</a></li>
+          <li class="active"><a href="index.php"><i class="fa fa-table"></i> Productos Agregados</a></li>
+            <li class="active"><a href="usuarios.php"><i class="fa fa-circle-o"></i> Usuarios Registrados</a></li>
             <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
           </ul>
          
@@ -502,7 +504,8 @@ $datos=$con->query($sql);*/
   <div class="panel-heading">
     <h3 class="panel-title">
     
-<img src="dist/img/per.jpg" class="img-circle" width="190px" height="190">
+    <?php echo '<img src="data:image/jpg;base64, '.base64_encode($row['imagen_usuario']).'"  class="img-circle"  /> ' 
+                  ?>
   </div>
   <div class="panel-body">
     <form action="editar_perfil.php" method="post">
