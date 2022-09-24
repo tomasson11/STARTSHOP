@@ -134,8 +134,15 @@ if ($row = mysqli_fetch_array($resulta)) {
           <ul class="nav navbar-nav">
             <!-- Messages: style can be found in dropdown.less-->
             <li class="dropdown messages-menu">
+              <a href="../carritocompras/viewCart.php" class="dropdown-toggle cart-link" title="View Cart">
+              <i class="glyphicon glyphicon-shopping-cart"></i>
+              <!-- AGREGAR EL NÚMERO DE OBJETOS EN EL CARRITO -->
+                <span class="label label-success">4</span>
+              </a>
+            </li>
+            <li class="dropdown messages-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-envelope-o"></i>
+              <i class="fa fa-envelope-o"></i>
                 <span class="label label-success">4</span>
               </a>
               <ul class="dropdown-menu">
