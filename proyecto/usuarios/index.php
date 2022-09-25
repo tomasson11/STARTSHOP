@@ -1,6 +1,5 @@
 <?php
-include("../php/bd.php");
-
+include("headerindex.php");
 $con = conectar();
 
 if(!$_GET){
@@ -23,12 +22,6 @@ $datos = mysqli_fetch_array($resultado);
 
 $query = "SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
 $resulta = mysqli_query($con, $query);
-
-
-include("headerindex.php");
-
-
-
 
 
 ?>
