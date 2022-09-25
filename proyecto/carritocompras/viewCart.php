@@ -35,8 +35,8 @@ $cart = new Cart;
     <thead>
         <tr>
             <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
+            <th>Precio</th>
+            <th>cantidad</th>
             <th>Subtotal</th>
             <th> </th>
         </tr>

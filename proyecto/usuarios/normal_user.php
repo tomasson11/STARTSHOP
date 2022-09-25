@@ -329,18 +329,9 @@ if (isset($_GET['enviar'])) {
             </ul>
 
 
-            <ul class="nav navbar-nav navbar-left">
+            
 
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  LOREM IPSUM<b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="">Team StartShop</a></li>
-
-                  <li><a href="">Contáctanos</a></li>
-
-                </ul>
+              
               </li>
             </ul>
 
@@ -373,83 +364,74 @@ if (isset($_GET['enviar'])) {
 
 
       </section>
+ 
 
 
 
-      <?php
-      //iniciar la carga de los datos directamente de la tabla
 
-      while ($mostrar = mysqli_fetch_array($resulta)) {
 
-      ?>
 
-        <!-- Main content -->
-        <section class="container">
-          <div class="main">
 
-            <div class="row">
-              <div class="col-md-3">
-                <div class="thumbnail">
-                  <img src="..." alt="...">
-                  <div class="caption">
-                    <h3>Thumbnail label</h3>
-                    <p>...</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          <!-- Main content -->
+      <section class="content">
+        <div class="main">
+          <div class="row ">
+
+
+            <?php
+            //iniciar la carga de los datos directamente de la tabla
+
+            while ($mostrar = mysqli_fetch_array($resulta)) {
+
+            ?>
+
+
+
+
+              <div class="col-md-3 shop_box"><a href="single.html">
+              <?php echo '<img src="data:image/jpg;base64, '.base64_encode($mostrar['foto_producto']).'"  class="img-responsive" /> ' 
+                  ?>
+
+                  <span class="new-box">
+                    <!--<span class="new-label">New</span>-->
+                  </span>
+                  <span class="sale-box">
+                    <span class="sale-label">En venta</span>
+                  </span>
+
+                  <div class="shop_desc">
+                    <td><?php echo $mostrar['nombre']; ?></td>
+
+
+                    <p>
+                      <td><?php echo $mostrar['descripcion']; ?></td>
+                    </p>
+
+
+                    <span class="actual"><?php echo number_format($mostrar['precio_venta'], 2, '.', ','); ?></span><br>
+
+                    <ul class="buttons">
+                      <li class="cart btn-warning"><a href="editar.php? id=<?php echo $mostrar['id_articulo'] ?>" name="agregar">añadir a carrito</a></li>
+                      <li class="shop_btn btn-primary"><a href="paginas/producto_detallado.php? id=<?php echo $mostrar['id_articulo'] ?>" name="leer">Conoce más</a></li>
+                      <div class="clear"> </div>
+                    </ul>
                   </div>
-                </div>
-              </div>
-            </div>
+                </a></div>
 
 
 
 
 
-
-
-            <div class="shop_top">
-              <div class="container">
-                <div class="row shop_box-top">
-                  <div class="col-md-3 shop_box"><a href="#">
-                      <img src="dist/img/tela.jpg" class="img-responsive" alt="" />
-
-                      <span class="new-box">
-                        <!--<span class="new-label">New</span>-->
-                      </span>
-                      <span class="sale-box">
-                        <span class="sale-label">Sale!</span>
-                      </span>
-                      <div class="shop_desc">
-                        <h3><a href="#">
-                            <td><?php echo $mostrar['nombre']; ?></td>
-                          </a></h3>
-                        <p>
-                          <td><?php echo $mostrar['descripcion']; ?></td>
-                        </p>
-
-                        <span class="actual"><?php echo number_format($mostrar['precio_venta'], 2, '.', ','); ?></span><br>
-                        <ul class="buttons">
-                          <li class="cart"><a href="editar.php? id=<?php echo $mostrar['id_articulo'] ?>" name="agregar">añadir a carrito</a></li>
-                          <li class="shop_btn"><a href="paginas/producto_detallado.php? id=<?php echo $mostrar['id_articulo'] ?>" name="leer">Conoce más</a></li>
-                          <div class="clear"> </div>
-                        </ul>
-                      </div>
-                    </a></div>
-
-
-                <?php
-              }
-                ?>
-                </div>
-              </div>
-            </div>
+            <?php
+            }
+            ?>
           </div>
 
+        </div>
 
+      </section>
 
-
-
-
-          <center>
+      <center>
             <nav aria-label="">
               <ul class="pagination pagination-lg">
                 <li>
@@ -470,6 +452,8 @@ if (isset($_GET['enviar'])) {
               </ul>
             </nav>
             <center>
+
+
 
 
 

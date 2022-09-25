@@ -127,7 +127,7 @@ $con=conectar();
                   <a href="../../create_count.php" class="btn btn-default glyphicon glyphicon-user">Crear Cuenta</a>
                 </div>
                 <div class="pull-right">
-                  <a href="../../index.php" class="btn btn-default glyphicon glyphicon-log-in">Iniciar</a>
+                  <a href="../../../index.php" class="btn btn-default glyphicon glyphicon-log-in">Iniciar</a>
                 </div>
               </li>
             </ul>
@@ -160,87 +160,106 @@ $con=conectar();
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-
-    <nav class="navbar navbar-inverse" role="navigation" >
-  <!-- El logotipo y el icono que despliega el menú se agrupan
+    <nav class="navbar navbar-inverse" role="navigation">
+          <!-- El logotipo y el icono que despliega el menú se agrupan
        para mostrarlos mejor en los dispositivos móviles -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse"
-            data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Desplegar navegación</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    
-    </a>
-  
-  </div>
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Desplegar navegación</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
 
-  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+            </a>
+
+          </div>
+
+          <!-- Agrupar los enlaces de navegación, los formularios y cualquier
        otro elemento que se pueda ocultar al minimizar la barra -->
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav">
-      <li class=""><a href="../normal_user.php">Shop</a></li>
-      <li><a href="#">Novedades</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Servicios <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Restaurante</a></li>
-          <li><a href="#">Repostería</a></li>
-          <li><a href="#">Modistería</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Floristería</a></li>
-          <li><a href="#"></a></li>
-         
-        </ul>
-      </li>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+              <li class=""><a href="../index.php">Shop</a></li>
+              <li><a href="#">Novedades</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Servicios <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Restaurante</a></li>
+                  <li><a href="#">Repostería</a></li>
+                  <li><a href="#">Modistería</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Floristería</a></li>
+                  <li><a href="#"></a></li>
+
+                </ul>
+              </li>
 
 
 
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-         Destacados<b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Bisutería</a></li>
-          <li><a href="#">Joyería</a></li>
-          <li><a href="#">Tecnología</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Licor Artesanal</a></li>
-          <li class="divider"></li>
-          <li><a href="#"></a></li>
-        </ul>
-      </li>
-    </ul>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Destacados<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Bisutería</a></li>
+                  <li><a href="#">Joyería</a></li>
+                  <li><a href="#">Tecnología</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Licor Artesanal</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#"></a></li>
+                </ul>
+              </li>
+            </ul>
 
-    
+            <ul class="nav navbar-nav navbar-left">
 
-    <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Buscar">
-      </div>
-      <button type="submit" class="btn btn-default glyphicon glyphicon-search"></button>
-    </form>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Información de Interés<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="team_startshop.php">Team StartShop</a></li>
 
-    <ul class="nav navbar-nav navbar-right">
-      
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-         Información de Interés<b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a href="../paginas/team_startshop.php">Team StartShop</a></li>
-          
-          <li><a href="../paginas/contacto.php">Contáctanos</a></li>
-        
-        </ul>
-      </li>
-    </ul>
-  </div>
-</nav>
+                  <li><a href="contacto.php">Contáctanos</a></li>
+
+                </ul>
+              </li>
+            </ul>
+
+
+            
+              </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-left">
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  Hola<b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="team_startshop.php">Team StartShop</a></li>
+
+                  <li><a href="contacto.php">Contáctanos</a></li>
+
+                </ul>
+              </li>
+            </ul>
+
+
+            <form action="" method="get" class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Buscar" name="busqueda">
+              </div>
+              <button type="submit" class="btn btn-default glyphicon glyphicon-search" name="enviar"></button>
+            </form>
+
+
+          </div>
+        </nav>
 
 
     

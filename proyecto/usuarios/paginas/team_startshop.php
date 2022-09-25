@@ -188,19 +188,6 @@
 
 
 
-    <!--CALENDARIO PARA EMPRENDEDORES
-        <li>
-          <a href="pages/calendar.html">
-            <i class="fa fa-calendar"></i> <span>Calendar</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
-            </span>
-          </a>
-        </li>
-        ------------------------------------------------------------------------------------------------>
-
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -268,27 +255,16 @@
                   Información de Interés<b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="paginas/team_startshop.php">Team StartShop</a></li>
+                  <li><a href="team_startshop.php">Team StartShop</a></li>
 
-                  <li><a href="paginas/contacto.php">Contáctanos</a></li>
+                  <li><a href="contacto.php">Contáctanos</a></li>
 
                 </ul>
               </li>
             </ul>
 
 
-            <ul class="nav navbar-nav navbar-left">
-
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Información de Interés<b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="paginas/team_startshop.php">Team StartShop</a></li>
-
-                  <li><a href="../paginas/contacto.php">Contáctanos</a></li>
-
-                </ul>
+            
               </li>
             </ul>
 
@@ -299,9 +275,9 @@
                   Hola<b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="paginas/team_startshop.php">Team StartShop</a></li>
+                  <li><a href="team_startshop.php">Team StartShop</a></li>
 
-                  <li><a href="paginas/contacto.php">Contáctanos</a></li>
+                  <li><a href="contacto.php">Contáctanos</a></li>
 
                 </ul>
               </li>

@@ -345,13 +345,15 @@ $resulta = mysqli_query($con, $query);
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="dist/img/user4-128x128.jpg" class="user-image" alt="User Image">
+              <?php echo '<img src="data:image/jpg;base64, '.base64_encode($row['imagen_usuario']).'"  class="user-image"  /> ' 
+                  ?>
                 <span class="hidden-xs"></span>
               </a>
               <ul class="dropdown-menu">
                 <!-- User image -->
                 <li class="user-header">
-                  <img src="dist/img/per.jpg" class="img-circle">
+                <?php echo '<img src="data:image/jpg;base64, '.base64_encode($row['imagen_usuario']).'"  class="user-image"  /> ' 
+                  ?>
 
                   <p>
                     <?php echo $datos['nombre'] . " " . $datos['apellidos']; ?> - <?php echo $datos['tipo_rol']; ?>
@@ -525,18 +527,7 @@ $resulta = mysqli_query($con, $query);
               </li>
             </ul>
 
-            <ul class="nav navbar-nav navbar-left">
-
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Perreo HOTa<b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="">Team StartShop</a></li>
-
-                  <li><a href="">Contáctanos</a></li>
-
-                </ul>
+          
               </li>
             </ul>
 
@@ -616,6 +607,28 @@ $resulta = mysqli_query($con, $query);
         </div>
 
       </section>
+
+      <center>
+            <nav aria-label="">
+              <ul class="pagination pagination-lg">
+                <li>
+                  <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                  <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <center>
 
 
 
