@@ -1,19 +1,136 @@
 <?php
+include("../php/bd.php");
+
+$con = conectar();
+
+if(!$_GET){
+  header('Location:index.php?pagina=1');
+}
+
+session_start();
+//COMPRUEBA QUE EL USUARIO INICIÓ SESIÓN
+if ($_SESSION["autentificado_usuario"] != "SI") {
+  //SI NO HAY UNA SESION ACTIVA MANDO A INICIAR SESIÓN
+  header("Location:/STARTSHOP/index.php");
+  exit();
+}
+
+$uss = $_SESSION["usuario"];
+$sql = "SELECT * FROM usuario WHERE usuario_login='$uss'";
+$resultado = mysqli_query($con, $sql) or die(mysqli_error($con));
+mysqli_data_seek($resultado, 0);
+$datos = mysqli_fetch_array($resultado);
+
+$query = "SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
+$resulta = mysqli_query($con, $query);
 
 
 include("headerindex.php");
 
 
 
-$id_estado = 1;
 
-$query = "SELECT * FROM articulo WHERE id_estado = '$id_estado'";
-$resulta = mysqli_query($con, $query);
+
 ?>
 
 <!DOCTYPE html>
 <html>
 
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Startshop-Usuarios
+  </title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link href="bootstrap/css/bootstraps.css" rel='stylesheet' type='text/css' />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="plugins/morris/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <script type="application/x-javascript">
+    addEventListener("load", function() {
+      setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  </script>
+  <script src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/responsive-nav.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".dropdown img.flag").addClass("flagvisibility");
+
+      $(".dropdown dt a").click(function() {
+        $(".dropdown dd ul").toggle();
+      });
+
+      $(".dropdown dd ul li a").click(function() {
+        var text = $(this).html();
+        $(".dropdown dt a span").html(text);
+        $(".dropdown dd ul").hide();
+        $("#result").html("Selected value is: " + getSelectedValue("sample"));
+      });
+
+      function getSelectedValue(id) {
+        return $("#" + id).find("dt a span.value").html();
+      }
+
+      $(document).bind('click', function(e) {
+        var $clicked = $(e.target);
+        if (!$clicked.parents().hasClass("dropdown"))
+          $(".dropdown dd ul").hide();
+      });
+
+
+      $("#flagSwitcher").click(function() {
+        $(".dropdown img.flag").toggleClass("flagvisibility");
+      });
+    });
+  </script>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+
+            <!-- Control Sidebar Toggle Button -->
+            <!--<li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>-->
+          </ul>
+        </div>
+      </nav>
+    </header>
 
     <!-- Left side column. contains the logo and sidebar -->
     <aside class="main-sidebar">
@@ -25,7 +142,7 @@ $resulta = mysqli_query($con, $query);
             <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
           </div>
           <div class="pull-left info">
-            <p><?php echo $datos['nombre'] . " " . $datos['apellidos']; ?></p>
+            <p><?php echo $datos['nombre'] . " " . $datos['apellidos'];?></p>
             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
           </div>
         </div>
@@ -67,7 +184,7 @@ $resulta = mysqli_query($con, $query);
       </section>
     </aside>
 
- 
+
 
 
     <!-- Content Wrapper. Contains page content -->
@@ -162,8 +279,8 @@ $resulta = mysqli_query($con, $query);
               </li>
             </ul>
 
-          
-              </li>
+
+            </li>
             </ul>
 
 
@@ -191,17 +308,30 @@ $resulta = mysqli_query($con, $query);
 
 
             <?php
+
+            $sql = 'SELECT * FROM articulo';
+            $sentencia = mysqli_query($con, $sql);
+
+            $articulos_x_pagina = 8;
+            $total_articulos_db = mysqli_num_rows($sentencia);
+
+            $paginas = ceil($total_articulos_db/$articulos_x_pagina);
             //iniciar la carga de los datos directamente de la tabla
 
-            while ($mostrar = mysqli_fetch_array($resulta)) {
+            if($_GET['pagina']>$paginas || $_GET['pagina']<=0){
+              header('Location:index.php?pagina=1');
+            }
+
+            $iniciar = ($_GET['pagina']-1)* $articulos_x_pagina;
+            $query = sprintf("SELECT * FROM articulo WHERE id_estado = '1' LIMIT %s,%s", $iniciar, $articulos_x_pagina);
+            $sentencia_articulos = mysqli_query($con, $query);
+
+
+            while ($mostrar = mysqli_fetch_array($sentencia_articulos)) {
 
             ?>
-
-
-
-
               <div class="col-md-3 shop_box"><a href="single.html">
-              <?php echo '<img src="data:image/jpg;base64, '.base64_encode($mostrar['foto_producto']).'"  class="img-responsive" /> ' 
+                  <?php echo '<img width="100%" heigth="70%"    src="data:image/jpg;base64, ' . base64_encode($mostrar['foto_producto']) . '"  class="img-responsive"  /> '
                   ?>
 
                   <span class="new-box">
@@ -229,11 +359,6 @@ $resulta = mysqli_query($con, $query);
                     </ul>
                   </div>
                 </a></div>
-
-
-
-
-
             <?php
             }
             ?>
@@ -244,32 +369,32 @@ $resulta = mysqli_query($con, $query);
       </section>
 
       <center>
-            <nav aria-label="">
-              <ul class="pagination pagination-lg">
-                <li>
-                  <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                  <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <center>
+        <nav aria-label="">
+          <ul class="pagination pagination-lg">
+            <li>
+              <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+              <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <center>
 
 
 
 
 
-      <!-- /.content -->
+          <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">

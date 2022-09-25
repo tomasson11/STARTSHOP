@@ -329,10 +329,10 @@ if (isset($_GET['enviar'])) {
             </ul>
 
 
-            
 
-              
-              </li>
+
+
+            </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-left">
@@ -364,7 +364,6 @@ if (isset($_GET['enviar'])) {
 
 
       </section>
- 
 
 
 
@@ -372,7 +371,8 @@ if (isset($_GET['enviar'])) {
 
 
 
-          <!-- Main content -->
+
+      <!-- Main content -->
       <section class="content">
         <div class="main">
           <div class="row ">
@@ -389,7 +389,7 @@ if (isset($_GET['enviar'])) {
 
 
               <div class="col-md-3 shop_box"><a href="single.html">
-              <?php echo '<img src="data:image/jpg;base64, '.base64_encode($mostrar['foto_producto']).'"  class="img-responsive" /> ' 
+                  <?php echo '<img src="data:image/jpg;base64, ' . base64_encode($mostrar['foto_producto']) . '"  class="img-responsive" /> '
                   ?>
 
                   <span class="new-box">
@@ -432,39 +432,39 @@ if (isset($_GET['enviar'])) {
       </section>
 
       <center>
-            <nav aria-label="">
-              <ul class="pagination pagination-lg">
-                <li>
-                  <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                  <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <center>
+        <nav aria-label="">
+          <ul class="pagination pagination-lg">
+            <li>
+              <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+              <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <center>
 
 
 
 
 
 
-        </section>
+          </section>
 
 
 
 
 
-        <!-- /.content -->
+          <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">

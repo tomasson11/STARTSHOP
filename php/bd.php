@@ -19,8 +19,31 @@ function conectar()
 }
 
 
+
+
 /*
 $conexion=mysqli_connect("localhost","root","","tablas")or die(
     "error de conexion");
     */
-?>
+
+
+/*
+ 
+
+ function conectar (){
+	$usuario = "root";
+	$password = "";
+	$servidor = "localhost";
+	$basededatos = "starshop_project";
+	 try {
+			$conexion = new PDO('mysql:host='( $servidor, $usuario, $password ) or die ("No se ha podido conectar al servidor de Base de datos"));
+ 
+	 }
+	 catch (PDOException $e) {
+		 echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+		 exit;
+	 }
+	 return $conexion;
+  }*/
+ 
+  ?>
