@@ -264,8 +264,8 @@
             </ul>
 
 
-            
-              </li>
+
+            </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-left">
@@ -357,11 +357,10 @@
             </div>
           </a>
         </div>
-        
+
 
       </section>
 
-        
 
 
 
@@ -369,21 +368,22 @@
 
 
 
-    <!-- /.content -->
-  </div>
 
-
-
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.8
+      <!-- /.content -->
     </div>
-    <strong>Copyright &copy; 2022 <a href="http://localhost/startshop/usuarios/index.php">STARTSHOP</a>.</strong> All rights
-    reserved.
-  </footer>
 
-  <div class="control-sidebar-bg"></div>
+
+
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+      <div class="pull-right hidden-xs">
+        <b>Version</b> 2.3.8
+      </div>
+      <strong>Copyright &copy; 2022 <a href="http://localhost/startshop/usuarios/index.php">STARTSHOP</a>.</strong> All rights
+      reserved.
+    </footer>
+
+    <div class="control-sidebar-bg"></div>
   </div>
   <!-- ./wrapper -->
 
