@@ -89,13 +89,15 @@
 
 <body class="hold-transition skin-yellow sidebar-mini">
   <div class="wrapper">
-
-    <header class="main-header">
+  <header class="main-header">
       <!-- Logo -->
       <a href="index.php" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>Shop</b></span>
+        <span class="logo-mini"><b>STS</b></span>
         <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>STARTSHOP</b></span>
+
+
 
       </a>
       <!-- Header Navbar: style can be found in header.less -->
@@ -123,64 +125,34 @@
                   <img src="../dist/img/user.png" class="img-circle">
 
 
-
-                  <!-- Control Sidebar Toggle Button -->
-                  <!--<li>
+                </li>
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                  <div class="pull-left">
+                    <a href="../../../create_count.php" class="btn btn-default glyphicon glyphicon-user">Crear Cuenta</a>
+                  </div>
+                  <div class="pull-right">
+                    <a href="../../../index.php" class="btn btn-default glyphicon glyphicon-log-in">Iniciar</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <!-- Control Sidebar Toggle Button -->
+            <!--<li>
             <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
           </li>-->
-              </ul>
+          </ul>
         </div>
       </nav>
     </header>
+
 
 
     <!-- Left side column. contains the logo and sidebar -->
     <aside class="main-sidebar">
       <!-- sidebar: style can be found in sidebar.less -->
       <section class="sidebar">
-        <!-- Sidebar user panel -->
-        <div class="user-panel">
-          <div class="pull-left image">
-            <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-          </div>
-          <div class="pull-left info">
-            <p><?php echo $datos['nombre'] . " " . $datos['apellidos']; ?></p>
-            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-          </div>
-        </div>
-        <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu">
-          <li class="header">MENU DE NAVEGACION</li>
-
-          <li class="active treeview">
-            <a href="#">
-              <i class="glyphicon glyphicon-shopping-cart"></i> <span>Mi tienda</span>
-
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="active"><a href="Productos_agregados.php"><i class="glyphicon glyphicon-ok"></i> Productos Listados</a></li>
-              <li class="active"><a href="inventario.php"><i class="glyphicon glyphicon-plus"></i>Listar Productos</a></li>
-            </ul>
-
-          </li>
-
-
-          <li class="active treeview">
-            <a href="#">
-              <i class="glyphicon glyphicon-tasks"></i> <span>Reportes</span>
-
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
-            </ul>
-
-          </li>
+  
 
 
       </section>
@@ -188,12 +160,9 @@
 
 
 
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <section class="content-header">
-
-
         <nav class="navbar navbar-inverse" role="navigation">
           <!-- El logotipo y el icono que despliega el menú se agrupan
        para mostrarlos mejor en los dispositivos móviles -->
@@ -209,11 +178,12 @@
 
           </div>
 
+
           <!-- Agrupar los enlaces de navegación, los formularios y cualquier
        otro elemento que se pueda ocultar al minimizar la barra -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-              <li class=""><a href="../index.php">Shop</a></li>
+              <li class=""><a href="../normal_user.php">Shop</a></li>
               <li><a href="#">Novedades</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">

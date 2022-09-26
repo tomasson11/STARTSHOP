@@ -128,8 +128,7 @@ if (isset($_GET['enviar'])) {
 
 <body class="hold-transition skin-yellow sidebar-mini">
   <div class="wrapper">
-
-    <header class="main-header">
+  <header class="main-header">
       <!-- Logo -->
       <a href="index.php" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -185,54 +184,6 @@ if (isset($_GET['enviar'])) {
         </div>
       </nav>
     </header>
-    <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar">
-      <!-- sidebar: style can be found in sidebar.less -->
-      <section class="sidebar">
-        <!-- Sidebar user panel -->
-        <div class="user-panel">
-          <div class="pull-left image">
-
-            <img src="dist/img/StartShop.png" style="width:100%" width="" alt="User Image">
-          </div>
-          <div class="pull-left info">
-            <p></p>
-            <a href="#"><i class="fa fa-circle text-success"></i></a>
-          </div>
-        </div>
-        <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu">
-          <li class="header">MENU DE NAVEGACION</li>
-
-          <li class="active treeview">
-            <a href="#">
-              <i class="glyphicon glyphicon-shopping-cart"></i> <span>Mi tienda</span>
-
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="active"><a href="Productos_agregados.php"><i class="glyphicon glyphicon-ok"></i> Productos Listados</a></li>
-              <li class="active"><a href="inventario.php"><i class="glyphicon glyphicon-plus"></i>Listar Productos</a></li>
-            </ul>
-
-          </li>
-
-
-          <li class="active treeview">
-            <a href="#">
-              <i class="glyphicon glyphicon-tasks"></i> <span>Reportes</span>
-
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
-            </ul>
-
-          </li>
 
 
       </section>

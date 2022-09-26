@@ -19,6 +19,7 @@ $con = conectar();
   <link href="../bootstrap/css/bootstraps.css" rel='stylesheet' type='text/css' />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!-- Bootstrap 3.3.6 -->
+
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -94,22 +95,25 @@ $con = conectar();
   </script>
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-yellow sidebar-mini">
   <div class="wrapper">
 
-    <header class="main-header">
+  <header class="main-header">
       <!-- Logo -->
       <a href="index.php" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>STS</b></span>
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg"><b>STARTSHOP</b></span>
+
+
+
       </a>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top">
         <!-- Sidebar toggle button-->
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-          <span class="sr-only">Toggle navigation</span>
+          <span class="sr-only"></span>
         </a>
 
         <div class="navbar-custom-menu">
@@ -134,7 +138,7 @@ $con = conectar();
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="../../create_count.php" class="btn btn-default glyphicon glyphicon-user">Crear Cuenta</a>
+                    <a href="../../../create_count.php" class="btn btn-default glyphicon glyphicon-user">Crear Cuenta</a>
                   </div>
                   <div class="pull-right">
                     <a href="../../../index.php" class="btn btn-default glyphicon glyphicon-log-in">Iniciar</a>
@@ -153,17 +157,15 @@ $con = conectar();
 
 
 
-    <!--CALENDARIO PARA EMPRENDEDORES
-        <li>
-          <a href="pages/calendar.html">
-            <i class="fa fa-calendar"></i> <span>Calendar</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
-            </span>
-          </a>
-        </li>
-        ------------------------------------------------------------------------------------------------>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+  
+
+
+      </section>
+    </aside>
 
 
     <!-- Content Wrapper. Contains page content -->
@@ -189,7 +191,7 @@ $con = conectar();
        otro elemento que se pueda ocultar al minimizar la barra -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-              <li class=""><a href="../index.php">Shop</a></li>
+              <li class=""><a href="../normal_user.php">Shop</a></li>
               <li><a href="#">Novedades</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
