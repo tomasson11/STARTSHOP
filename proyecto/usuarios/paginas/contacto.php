@@ -1,8 +1,6 @@
 <?php
 include("../../php/bd.php");
-$con = conectar();
-
-
+include("../header.php");
 ?>
 
 

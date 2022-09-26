@@ -1,4 +1,5 @@
 <?php
+include("../php/bd.php");
 $con = conectar();
 
 session_start();

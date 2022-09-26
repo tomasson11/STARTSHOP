@@ -1,6 +1,5 @@
 <?php
 
-
 function conectar()
 {
    	$usuario = "root";
@@ -17,10 +16,4 @@ function conectar()
    return 	$conexion;
 
 }
-
-
-/*
-$conexion=mysqli_connect("localhost","root","","tablas")or die(
-    "error de conexion");
-    */
 ?>
