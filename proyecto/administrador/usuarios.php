@@ -36,42 +36,33 @@ include("headeradmin.php");
           <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p><?php echo $datos['nombre']." ".$datos['apellidos']; ?></p>
+          <p><?php echo $datos['nombre'] . " " . $datos['apellidos']; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MENU DE NAVEGACION</li>
-        
+
         <li class="active treeview">
           <a href="#">
-          <i class="glyphicon glyphicon-shopping-cart"></i> <span>Mi tienda</span>
+            <i class="glyphicon glyphicon-shopping-cart"></i> <span>Mi tienda</span>
 
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-          
-          <li class="active"><a href="index.php"><i class="fa fa-table"></i>USUARIOS</a></li>
-            <li class="active"><a href="usuarios.php"><i class="fa fa-circle-o"></i>ARTICULOS</a></li>
+
+            <li class="active"><a href="index.php"><i class="fa fa-table"></i>ARTICULOS</a></li>
+            <li class="active"><a href="usuarios.php"><i class="fa fa-circle-o"></i>USUARIOS</a></li>
+
           </ul>
-         
-         </li>
-      
-        <!--CALENDARIO PARA EMPRENDEDORES
-        <li>
-          <a href="pages/calendar.html">
-            <i class="fa fa-calendar"></i> <span>Calendar</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
-            </span>
-          </a>
+
         </li>
-        --->
-       
+
+
+
         <li class="header">REPORTES</li>
       </ul>
     </section>
