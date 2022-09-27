@@ -1,10 +1,14 @@
 <?php
-include("../../php/bd.php");
+
 include("../header.php");
+
+
 ?>
 
 <!DOCTYPE html>
-<html><head>
+<html>
+
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Startshop-Usuarios
@@ -80,126 +84,9 @@ include("../header.php");
         });
      </script>
 </head>
-
-<<<<<<< HEAD
-<body class="hold-transition skin-yellow sidebar-mini">
-  <div class="wrapper">
-  <header class="main-header">
-      <!-- Logo -->
-      <a href="index.php" class="logo">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>STS</b></span>
-        <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>STARTSHOP</b></span>
+  <body>
 
 
-
-      </a>
-      <!-- Header Navbar: style can be found in header.less -->
-      <nav class="navbar navbar-static-top">
-        <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-          <span class="sr-only"></span>
-        </a>
-
-        <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
-            <!-- Messages: style can be found in dropdown.less-->
-
-
-
-            <!-- User Account: style can be found in dropdown.less -->
-            <li class="dropdown user user-menu">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="../dist/img/user.png" class="user-image" alt="User Image">
-                <span class="hidden-xs"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <!-- User image -->
-                <li class="user-header">
-                  <img src="../dist/img/user.png" class="img-circle">
-
-
-                </li>
-                <!-- Menu Footer-->
-                <li class="user-footer">
-                  <div class="pull-left">
-                    <a href="../../../create_count.php" class="btn btn-default glyphicon glyphicon-user">Crear Cuenta</a>
-                  </div>
-                  <div class="pull-right">
-                    <a href="../../../index.php" class="btn btn-default glyphicon glyphicon-log-in">Iniciar</a>
-                  </div>
-                </li>
-              </ul>
-            </li>
-            <!-- Control Sidebar Toggle Button -->
-            <!--<li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>-->
-          </ul>
-        </div>
-      </nav>
-    </header>
-=======
->>>>>>> 87a5840e70ba1b96c66a3db9dd20106ea30b7f0c
-
-
-
-    <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar">
-      <!-- sidebar: style can be found in sidebar.less -->
-      <section class="sidebar">
-<<<<<<< HEAD
-  
-=======
-        <!-- Sidebar user panel -->
-        <div class="user-panel">
-          <div class="pull-left image">
-            <img src="../dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-          </div>
-          <div class="pull-left info">
-            <p> </p>
-            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-          </div>
-        </div>
-        <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu">
-          <li class="header">MENU DE NAVEGACION</li>
-
-          <li class="active treeview">
-            <a href="#">
-              <i class="glyphicon glyphicon-shopping-cart"></i> <span>Mi tienda</span>
-
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="active"><a href="Productos_agregados.php"><i class="glyphicon glyphicon-ok"></i> Productos Listados</a></li>
-              <li class="active"><a href="inventario.php"><i class="glyphicon glyphicon-plus"></i>Listar Productos</a></li>
-            </ul>
-
-          </li>
-
-
-          <li class="active treeview">
-            <a href="#">
-              <i class="glyphicon glyphicon-tasks"></i> <span>Reportes</span>
-
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
-            </ul>
-
-          </li>
->>>>>>> 87a5840e70ba1b96c66a3db9dd20106ea30b7f0c
-
-
-      </section>
-    </aside>
 
 
 
@@ -226,7 +113,7 @@ include("../header.php");
        otro elemento que se pueda ocultar al minimizar la barra -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-              <li class=""><a href="../normal_user.php">Shop</a></li>
+              <li class=""><a href="normal_user.php">Shop</a></li>
               <li><a href="#">Novedades</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">

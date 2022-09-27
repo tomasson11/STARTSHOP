@@ -30,10 +30,10 @@
 
         
         <label for="username">Nombres</label>
-        <input type="text" placeholder="Ingresa tus Nombres" name="nombres" minlength="2" maxlength="20" >
+        <input type="text" placeholder="Ingresa tus Nombres" name="nombres" minlength="2" maxlength="20" required>
 
         <label for="username">Apellidos</label>
-        <input type="text" placeholder="Ingresa tus Apellidos" name="apellidos" minlength="2" maxlength="20"  >
+        <input type="text" placeholder="Ingresa tus Apellidos" name="apellidos" minlength="2" maxlength="20" required >
 
 
                  <!--SE LLAMA EL TIPO DE DOCUMENTO DIRECTAMENTE DE DB-->    
@@ -63,27 +63,27 @@
 
 
         <label for="Num_documento">Num Documento</label>
-        <input type="int" placeholder="Ingresa tu Documento" name="num_documento" minlength="7" maxlength="10" >
+        <input type="int" placeholder="Ingresa tu Documento" name="num_documento" minlength="7" maxlength="10" required >
        
         <label for="Fecha_-nacimiento">Fecha Nacimiento</label>
-        <input type="date" placeholder="" name="fecha_nacimiento" min="1950-01-01">
+        <input type="date" placeholder="" name="fecha_nacimiento" min="1950-01-01"required>
 
         <label for="Direccion">Dirección</label>
-        <input type="text" placeholder="Ingresa tu Dirección" name="direccion"  >
+        <input type="text" placeholder="Ingresa tu Dirección" name="direccion" required >
 
 
         <label for="Telefono">Teléfono Celular</label>
-        <input type="int" placeholder="Ingresa tu Teléfono" name="telefono"  maxlength="10" >
+        <input type="int" placeholder="Ingresa tu Teléfono" name="telefono"  maxlength="10" required>
 
         <label for="Email">Email</label>
-        <input type="email" name="email"  placeholder="Ingresa tu Email"  >
+        <input type="email" name="email"  placeholder="Ingresa tu Email" required >
         
 
         <label for="Usuario">CREA UN NOMBRE DE USUARIO CON EL CUAL SIEMPRE INICIARAS SESION</label>
         <input type="text" name="name_usuario"  minlength="3" maxlength="15">
 
         <label for="Contraseña">CONTRASEÑA DEL USUARIO</label>
-        <input type="password" name="password_usuario"  minlength="7" maxlength="15" >
+        <input type="password" name="password_usuario"  minlength="7" maxlength="15" required>
         
 
         
@@ -97,7 +97,7 @@
                                                     <!--Botones-->
 
         <button name="finalizar" type="submit">Crear Cuenta</button>
-        <a href="index.php" style= "color: #000; text-decoration: none;"> <button name="atras" type="button">Regresar</button> </a>
+        <a href="index.php" style= "color: #000; text-decoration: none;"> <button type="button">Regresar</button> </a>
 
        
 

@@ -1,5 +1,5 @@
 <?php
-include("../../php/bd.php");
+
 include("../header.php");
 ?>
 
@@ -96,62 +96,7 @@ include("../header.php");
 <body class="hold-transition skin-yellow sidebar-mini">
   <div class="wrapper">
 
-  <header class="main-header">
-      <!-- Logo -->
-      <a href="index.php" class="logo">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>STS</b></span>
-        <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>STARTSHOP</b></span>
-
-
-
-      </a>
-      <!-- Header Navbar: style can be found in header.less -->
-      <nav class="navbar navbar-static-top">
-        <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-          <span class="sr-only"></span>
-        </a>
-
-        <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
-            <!-- Messages: style can be found in dropdown.less-->
-
-
-
-            <!-- User Account: style can be found in dropdown.less -->
-            <li class="dropdown user user-menu">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="../dist/img/user.png" class="user-image" alt="User Image">
-                <span class="hidden-xs"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <!-- User image -->
-                <li class="user-header">
-                  <img src="../dist/img/user.png" class="img-circle">
-
-
-                </li>
-                <!-- Menu Footer-->
-                <li class="user-footer">
-                  <div class="pull-left">
-                    <a href="../../../create_count.php" class="btn btn-default glyphicon glyphicon-user">Crear Cuenta</a>
-                  </div>
-                  <div class="pull-right">
-                    <a href="../../../index.php" class="btn btn-default glyphicon glyphicon-log-in">Iniciar</a>
-                  </div>
-                </li>
-              </ul>
-            </li>
-            <!-- Control Sidebar Toggle Button -->
-            <!--<li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>-->
-          </ul>
-        </div>
-      </nav>
-    </header>
+  
 
 
 
@@ -189,7 +134,7 @@ include("../header.php");
        otro elemento que se pueda ocultar al minimizar la barra -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-              <li class=""><a href="../normal_user.php">Shop</a></li>
+              <li class=""><a href="normal_user.php">Shop</a></li>
               <li><a href="#">Novedades</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -251,9 +196,9 @@ include("../header.php");
                   Hola<b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="team_startshop.php">Team StartShop</a></li>
+                  <li><a href="">Team StartShop</a></li>
 
-                  <li><a href="contacto.php">Contáctanos</a></li>
+                  <li><a href="">Contáctanos</a></li>
 
                 </ul>
               </li>

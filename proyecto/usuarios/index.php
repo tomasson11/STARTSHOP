@@ -1,28 +1,9 @@
 <?php
 include("headerindex.php");
-$con = conectar();
 
 if(!$_GET){
   header('Location:index.php?pagina=1');
 }
-
-session_start();
-//COMPRUEBA QUE EL USUARIO INICIÓ SESIÓN
-if ($_SESSION["autentificado_usuario"] != "SI") {
-  //SI NO HAY UNA SESION ACTIVA MANDO A INICIAR SESIÓN
-  header("Location:/STARTSHOP/index.php");
-  exit();
-}
-
-$uss = $_SESSION["usuario"];
-$sql = "SELECT * FROM usuario WHERE usuario_login='$uss'";
-$resultado = mysqli_query($con, $sql) or die(mysqli_error($con));
-mysqli_data_seek($resultado, 0);
-$datos = mysqli_fetch_array($resultado);
-
-$query = "SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
-$resulta = mysqli_query($con, $query);
-
 
 ?>
 
@@ -116,14 +97,7 @@ $resulta = mysqli_query($con, $query);
 
 <body class="hold-transition skin-blue sidebar-mini">
 
-            <!-- Control Sidebar Toggle Button -->
-            <!--<li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>-->
-          </ul>
-        </div>
-      </nav>
-    </header>
+     
 
     <!-- Left side column. contains the logo and sidebar -->
     <aside class="main-sidebar">
@@ -141,38 +115,23 @@ $resulta = mysqli_query($con, $query);
         </div>
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-          <li class="header">MENU DE NAVEGACION</li>
+          <li class="header">Apoyamos el emprendimiento</li>
 
           <li class="active treeview">
             <a href="#">
-              <i class="glyphicon glyphicon-shopping-cart"></i> <span>Mi tienda</span>
+              <i class="glyphicon glyphicon-shopping-cart"></i> mi actividad<span></span>
 
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="active"><a href="Productos_agregados.php"><i class="glyphicon glyphicon-ok"></i> Productos Listados</a></li>
-              <li class="active"><a href="inventario.php"><i class="glyphicon glyphicon-plus"></i>Listar Productos</a></li>
+              <li class="active"><a href=""><i class="glyphicon glyphicon-ok"></i>Mi carrito</a></li>
+              <li class="active"><a href=""><i class="glyphicon glyphicon-plus"></i>Historial de compras</li>
+              <li class="active"><a href=""><i class="glyphicon glyphicon-plus"></i>Facturas</li>
             </ul>
 
-          </li>
-
-
-          <li class="active treeview">
-            <a href="#">
-              <i class="glyphicon glyphicon-tasks"></i> <span>Reportes</span>
-
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
-            </ul>
-
-          </li>
-
+        
 
       </section>
     </aside>
@@ -300,12 +259,12 @@ $resulta = mysqli_query($con, $query);
           <div class="row ">
 
 
-            <?php
+            <?php 
 
             $sql = 'SELECT * FROM articulo';
             $sentencia = mysqli_query($con, $sql);
 
-            $articulos_x_pagina = 8;
+            $articulos_x_pagina = 12;
             $total_articulos_db = mysqli_num_rows($sentencia);
 
             $paginas = ceil($total_articulos_db/$articulos_x_pagina);
@@ -320,7 +279,10 @@ $resulta = mysqli_query($con, $query);
             $sentencia_articulos = mysqli_query($con, $query);
 
 
+
+
             while ($mostrar = mysqli_fetch_array($sentencia_articulos)) {
+
 
             ?>
               <div class="col-md-3 shop_box"><a href="single.html">
@@ -362,7 +324,7 @@ $resulta = mysqli_query($con, $query);
       </section>
 
       <center>
-        <nav aria-label="">
+        <!--<nav aria-label="">
           <ul class="pagination pagination-lg">
             <li>
               <a href="#" aria-label="Previous">
@@ -380,7 +342,48 @@ $resulta = mysqli_query($con, $query);
               </a>
             </li>
           </ul>
-        </nav>
+        </nav>-->
+        
+        <li class="page-item">
+          <?php 
+         /* if($_REQUEST["nume"] == "1" ) {$_REQUEST["nume"] == "0";
+            echo "";
+            }else{
+              if($pagina>1)
+              $ant = $_REQUEST["nume"] - 1;
+              echo "<a class='page-link' aria-label= 'Previous' href='index.php?nume=1'> <span aria-hidden='true'>&laquo; </span><span class ='sr-only'> Previus</span></a>";
+              echo "<li class='page-item' > <a  class='page-link' href='index.php? nume=".($pagina-1)."' > ".$ant."</a></li>";
+            }
+            echo "<li class='page-item active' > <a  class='page-link' >" .$_REQUEST ["nume"]."</a></li>";
+
+            $sigui = $_REQUEST["nume"] + 1;
+            $ultima = $num_registros / $registros;
+            if($ultima==$_REQUEST["nume"]+1){
+
+              $ultima =="";}
+              if($pagina<$paginas && $paginas>1){
+                echo "<li class='page-item' > <a  class='page-link' href='index.php? nume=".($pagina+1)."' > ".$sigui."</a></li>";
+              }
+              if($pagina<paginas && $paginas>1){
+                echo "<li class='page-item'> <a class='page-link' aria-label= 'Next' href='index.php?nume=" . ceil($ultima). "'> <span aria-hidden='true'>&laquo; </span><span class ='sr-only'> Next</span></a> </li>";
+              }
+
+              
+              
+            }
+*/
+              
+            
+
+
+
+            
+              
+             
+              ?>
+            </li>
+        
+
         <center>
 
 

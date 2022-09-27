@@ -18,5 +18,5 @@ session_destroy();
         echo "<script language=\"JavaScript\">\n"; 
         echo "alert('Sesion cerrada ¡Hasta pronto!');\n"; 
         echo "</script>";
-        echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=/STARTSHOP/proyecto/usuarios/normal_user.php'>"; 
+        echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=/STARTSHOP/proyecto/usuarios/paginas/normal_user.php'>"; 
 ?>

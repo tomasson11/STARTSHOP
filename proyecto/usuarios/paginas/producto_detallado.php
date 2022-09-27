@@ -1,10 +1,17 @@
 <?php
 
-include("header.php");
+
+
+include("../../php/bd.php");
+$con = conectar();
+
+
+
+
+
+
 
 $id_producto = isset($_GET['id']) ? ($_GET['id']) : '';
-
-
 
 
 if ($id_producto == '') {
@@ -14,8 +21,8 @@ if ($id_producto == '') {
 } else {
 
   $sqli = "SELECT * from articulo where id_articulo='$id_producto' ";
-  $result = mysqli_query($con, $sqli);
-  $datosproducto = mysqli_fetch_array($result);
+  $res = mysqli_query($con, $sqli);
+  $datosproducto = mysqli_fetch_array($res);
 }
 $precio =  $datosproducto['precio_venta'];
 $descuento =  $datosproducto['descuento'];
@@ -25,17 +32,47 @@ $precio_desc = $precio - (($precio * $descuento) / 100);
 
 
 
+
+
+
 ?>
 
 
 
-
-
 <!DOCTYPE html>
-<html>
+<html><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Startshop-Usuarios
+  </title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link href="../bootstrap/css/bootstraps.css" rel='stylesheet' type='text/css' />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="../plugins/iCheck/flat/blue.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="../plugins/morris/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="../plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="../plugins/datepicker/datepicker3.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
-
-<<<<<<< HEAD
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -44,51 +81,43 @@ $precio_desc = $precio - (($precio * $descuento) / 100);
   <![endif]-->
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-  <script type="application/x-javascript">
-    addEventListener("load", function() {
-      setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
-      window.scrollTo(0, 1);
-    }
-  </script>
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
   <script src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/responsive-nav.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-      $(".dropdown img.flag").addClass("flagvisibility");
+            $(".dropdown img.flag").addClass("flagvisibility");
 
-      $(".dropdown dt a").click(function() {
-        $(".dropdown dd ul").toggle();
-      });
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+                        
+            $(".dropdown dd ul li a").click(function() {
+                var text = $(this).html();
+                $(".dropdown dt a span").html(text);
+                $(".dropdown dd ul").hide();
+                $("#result").html("Selected value is: " + getSelectedValue("sample"));
+            });
+                        
+            function getSelectedValue(id) {
+                return $("#" + id).find("dt a span.value").html();
+            }
 
-      $(".dropdown dd ul li a").click(function() {
-        var text = $(this).html();
-        $(".dropdown dt a span").html(text);
-        $(".dropdown dd ul").hide();
-        $("#result").html("Selected value is: " + getSelectedValue("sample"));
-      });
-
-      function getSelectedValue(id) {
-        return $("#" + id).find("dt a span.value").html();
-      }
-
-      $(document).bind('click', function(e) {
-        var $clicked = $(e.target);
-        if (!$clicked.parents().hasClass("dropdown"))
-          $(".dropdown dd ul").hide();
-      });
+            $(document).bind('click', function(e) {
+                var $clicked = $(e.target);
+                if (! $clicked.parents().hasClass("dropdown"))
+                    $(".dropdown dd ul").hide();
+            });
 
 
-      $("#flagSwitcher").click(function() {
-        $(".dropdown img.flag").toggleClass("flagvisibility");
-      });
-    });
-  </script>
+            $("#flagSwitcher").click(function() {
+                $(".dropdown img.flag").toggleClass("flagvisibility");
+            });
+        });
+     </script>
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-yellow sidebar-mini">
   <div class="wrapper">
 
   <header class="main-header">
@@ -147,58 +176,7 @@ $precio_desc = $precio - (($precio * $descuento) / 100);
         </div>
       </nav>
     </header>
-=======
 
-    <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar">
-      <!-- sidebar: style can be found in sidebar.less -->
-      <section class="sidebar">
-        <!-- Sidebar user panel -->
-        <div class="user-panel">
-          <div class="pull-left image">
-            <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-          </div>
-          <div class="pull-left info">
-            <p><?php echo $datos['nombre'] . " " . $datos['apellidos']; ?></p>
-            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-          </div>
-        </div>
-        <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu">
-          <li class="header">MENU DE NAVEGACION</li>
-
-          <li class="active treeview">
-            <a href="#">
-              <i class="glyphicon glyphicon-shopping-cart"></i> <span>Mi tienda</span>
-
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="active"><a href="Productos_agregados.php"><i class="glyphicon glyphicon-ok"></i> Productos Listados</a></li>
-              <li class="active"><a href="inventario.php"><i class="glyphicon glyphicon-plus"></i>Listar Productos</a></li>
-            </ul>
-
-          </li>
-
-
-          <li class="active treeview">
-            <a href="#">
-              <i class="glyphicon glyphicon-tasks"></i> <span>Reportes</span>
-
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
-            </ul>
-
-          </li>
-
-
->>>>>>> 87a5840e70ba1b96c66a3db9dd20106ea30b7f0c
       </section>
     </aside>
 

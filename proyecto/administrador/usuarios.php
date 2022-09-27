@@ -22,12 +22,9 @@ include("headeradmin.php");
 
    ?>
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
 
- 
-  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
+ <!-- Left side column. contains the logo and sidebar -->
+ <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->

@@ -4,9 +4,6 @@ include("headeradmin.php");
 ?>
 
 
-<!DOCTYPE html>
-
-<html>
 
 
 
@@ -58,6 +55,8 @@ include("headeradmin.php");
     </section>
     <!-- /.sidebar -->
   </aside>
+
+  
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
