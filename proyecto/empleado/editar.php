@@ -5,6 +5,24 @@ $con=conectar();
 
 
 
+<<<<<<< HEAD
+=======
+$uss = $_SESSION["Usuario"];
+$sql = "SELECT * FROM usuario WHERE usuario_login='$uss'"; 
+        $resultado = mysqli_query($con,$sql) or die(mysqli_error($con));
+        mysqli_data_seek ($resultado, 0);
+        $datos = mysqli_fetch_array($resultado);
+
+        $id1 = $datos['id_usuario'];
+
+$query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'"; 
+        $resulta=mysqli_query($con,$query);
+
+        /*if ($row = mysqli_fetch_array($resulta)) {
+              $img = $row['imagen_usuario'];
+            }   */ 
+            
+>>>>>>> 4bedf3dc2afe0c21790f968dcf168a4b07ca0806
 $id = $_GET['id'];
 $sqli="SELECT * from articulo where id_articulo='$id'";
 $result=mysqli_query($con,$sqli);
@@ -30,29 +48,38 @@ if (isset($_POST['cerrar'])){
 if (isset($_POST['guardar_cambios'])){
 
 $id = "";  
-$categoria = ""; 
-$codigo = "";  
-$nombre = "";
-$precio = "";
-$stock = "";
-$fecha = "";
-$descripcion = "";
+$categoria=""; 
+$descuento="";
+$nombre="";
+$precio="";
+$stock="";
+$fecha="";
+$descripcion="";
+$e="";
+$imagen="";
 $estado = 1;
+$id_articulo= $id;
+$id_usuario= $id1;
 
 if ($_POST){  
   $id = $_POST['id'];
-  $categoria = $_POST['categoria_producto']; 
-	$codigo = $_POST['code_producto'];  
-	$nombre = $_POST['name_producto'];
-	$precio = $_POST['precio'];
-	$stock = $_POST['stock'];
-	$fecha = $_POST['fecha_creacion'];
-	$descripcion = $_POST['descripcion'];
+  $categoria=$_POST['categoria_producto']; 
+  $descuento=$_POST['descuento'];
+  $nombre=$_POST['name_producto'];
+  $e = $_FILES['imagen_articulo'];
+  $imagen = addslashes(file_get_contents($e));
+  $precio=$_POST['precio'];
+  $stock=$_POST['stock'];
+  $fecha=$_POST['fecha_creacion'];
+  $descripcion=$_POST['descripcion'];
   $estado = 1;
+  $id_articulo= $id;
+  $id_usuario= $id1;
+
 	
 
-$sql2="UPDATE articulo SET  id_articulo = '$id', nombre_categoria = '$categoria', codigo ='$codigo', nombre = '$nombre', precio_venta = '$precio',
- stock = '$stock', fecha_creacion = '$fecha', descripcion = '$descripcion', id_estado = '$estado' where id_articulo ='$id' ";
+$sql2="UPDATE articulo SET  id_articulo = '$id', id_usuario = '$id1', nombre_categoria = '$categoria', nombre = '$nombre', precio_venta = '$precio', descuento = '$descuento',
+ stock = '$stock', fecha_creacion = '$fecha', descripcion = '$descripcion', foto_producto = '$imagen', id_estado = '$estado' where id_articulo ='$id' ";
 
 $resultado_editar=mysqli_query($con,$sql2) or die(mysqli_error($con));
 
@@ -194,8 +221,8 @@ mysqli_close($con);
 
         <div class="col-md-6">
           <div class="form-group">
-            <label for="">Codigo</label>
-            <input type="text" readonly class="form-control" value="<?php echo  $datosproducto['codigo']?>" name="code_producto" placeholder="Ingrese el codigo del producto">
+            <label for="">Descuento</label>
+            <input type="number" readonly class="form-control" value="<?php echo  $datosproducto['descuento']?>" name="descuento" placeholder="Ingrese el descuento del producto">
       </div> 
            
       
@@ -250,8 +277,16 @@ mysqli_close($con);
           <div class="form-group">
             <label for="">ID</label>
             <input type="number" readonly class="form-control" value="<?php echo  $datosproducto['id_articulo']; ?>" name="id" placeholder="Ingrese la cantidad de productos">
-      </div> 
+      </div>
     </div>
+
+    <div class="col-md-6">
+    <div class="form-group">
+    <label class="col-sm-2 control-label">FOTO</label>
+
+			        <input type="file" class="form-control" name="imagen_articulo" multiple >
+    </div>
+    </div>   
 
     <div class="row">
       <div class="ol-md-12">

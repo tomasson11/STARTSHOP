@@ -81,20 +81,23 @@ include("header.php");
 
 if (isset($_POST['crear'])){
 $categoria=""; 
-$codigo="";  
+$descuento="";
 $nombre="";
 $precio="";
 $stock="";
 $fecha="";
 $descripcion="";
+$e="";
+$imagen="";
 $estado = 1;
 $id_usuario= $id;
 
 if ($_POST) {
 $categoria=$_POST['categoria_producto']; 
-$codigo=$_POST['code_producto'];  
+$descuento=$_POST['descuento'];
 $nombre=$_POST['name_producto'];
-
+$e = $_FILES['imagen_articulo']['tmp_name'];
+$imagen = addslashes(file_get_contents($e));
 $precio=$_POST['precio'];
 $stock=$_POST['stock'];
 $fecha=$_POST['fecha_creacion'];
@@ -102,9 +105,9 @@ $descripcion=$_POST['descripcion'];
 $estado = 1;
 $id_usuario= $id;
 
-$sql="INSERT INTO `articulo`(`id_articulo`, `id_usuario`, `nombre_categoria`, `codigo`, `nombre`,
- `precio_venta`, `stock`, `fecha_creacion`, `descripcion`, `id_estado`)
-    VALUES ('', '$id_usuario', '$categoria' , '$codigo' , '$nombre', '$precio', '$stock', '$fecha', '$descripcion', '$estado' )";
+$sql="INSERT INTO `articulo`(`id_articulo`, `id_usuario`, `nombre_categoria`, `nombre`,
+ `precio_venta`, `descuento`, `stock`, `fecha_creacion`, `descripcion`, `foto_producto`, `id_estado`)
+    VALUES ('', '$id_usuario', '$categoria' , '$nombre', '$precio', '$descuento', '$stock', '$fecha', '$descripcion', '$imagen', '$estado' )";
 $datos=$con->query($sql);
 }
 }
@@ -124,7 +127,7 @@ $datos=$con->query($sql);*/
       Aquí puedes agregar tus productos</h3>
   </div>
   <div class="panel-body">
-    <form action="inventario.php" method="post">
+    <form action="inventario.php" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
@@ -140,8 +143,8 @@ $datos=$con->query($sql);*/
 
         <div class="col-md-6">
           <div class="form-group">
-            <label for="">Codigo</label>
-            <input type="text" class="form-control" name="code_producto" placeholder="Ingrese el codigo del producto">
+            <label for="">descuento</label>
+            <input type="number" class="form-control" name="descuento" placeholder="Ingrese el descuento del producto">
       </div> 
            
       
@@ -189,7 +192,16 @@ $datos=$con->query($sql);*/
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Descripcion</label>
             <textarea class="form-control" type="text" id="exampleFormControlTextarea1" rows="3" name="descripcion" placeholder="Ingrese la descripcion del producto"></textarea>
-      </div> 
+      </div>   
+    </div>
+
+    <div class="col-md-12">
+    <div class="form-group">
+			        <label class="col-sm-2 control-label">Sube una imagen para mostrar en tu perfil</label>
+			        <div class="col-sm-8">
+			        <input type="file" class="form-control" name="imagen_articulo" multiple >
+		</div>
+    </div>
     </div>
 
     <div class="row">
