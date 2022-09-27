@@ -342,8 +342,6 @@ $resulta = mysqli_query($con, $query);
                       <thead>
                         <tr>
                           <th>ID</th>
-
-                          <th>CODIGO</th>
                           <th>NOMBRE</th>
                           <th>PRECIO</th>
                           <th>STOCK</th>
@@ -363,8 +361,6 @@ $resulta = mysqli_query($con, $query);
 
                         <tr>
                           <td><?php echo $mostrar['id_articulo']; ?></td>
-
-                          <td><?php echo $mostrar['codigo']; ?></td>
                           <td><?php echo $mostrar['nombre']; ?></td>
                           <td><?php echo $mostrar['precio_venta']; ?></td>
                           <td><?php echo $mostrar['stock']; ?></td>

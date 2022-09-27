@@ -383,13 +383,9 @@ $sql = "SELECT * FROM usuario WHERE usuario_login='$uss'";
 </section>
 
     <!-- Main content -->
-    <section class="content">
+    <section class="content"
 
-    <style>
-      body{
-        background-color: 24292e;
-      }
-    </style>
+    >
 
     <canvas id="canvas" style="position: relative; height: 80vh; width: 80vw;"></canvas>
     </div>
@@ -415,7 +411,7 @@ $sql = "SELECT * FROM usuario WHERE usuario_login='$uss'";
           ?>  
         ],
         datasets: [{
-            label: 'cantidad',
+            label: 'Stock de productos',
             data: [
               <?php
               $id1= $datos['id_usuario'];
@@ -429,22 +425,8 @@ $sql = "SELECT * FROM usuario WHERE usuario_login='$uss'";
               ?>  
                       
           ],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
+            backgroundColor: ['#6bf1ab','#63d69f','#438c6c','#509c7f','#1f794e','#34444c'],
+            borderColor: ['black'],
             borderWidth: 1
         }]
     },

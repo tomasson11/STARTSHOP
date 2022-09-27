@@ -59,7 +59,7 @@ if (isset($_POST['finalizar'])) {
 else {
     $Consulta = "INSERT INTO usuario (id_usuario, tipo_rol, nombre, apellidos,
      tipo_documento, num_documento, fecha_nacimiento, direccion, telefono, email, id_estado, usuario_login, password_login, imagen_usuario)values('', '$rol', '$nombres', '$apellidos',
-    '$tipo_documento','$num_documento','$fecha_nacimiento','$direccion','$telefono','$email','$estado','$name_usuario','$password_usuario', '$$imgContenido')";
+    '$tipo_documento','$num_documento','$fecha_nacimiento','$direccion','$telefono','$email','$estado','$name_usuario','$password_usuario', '$imgContenido')";
     $result = mysqli_query($con, $Consulta);
 
 
