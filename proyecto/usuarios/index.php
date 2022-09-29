@@ -260,7 +260,7 @@ if(!$_GET){
 
 
             <?php 
-
+/*
             $sql = 'SELECT * FROM articulo';
             $sentencia = mysqli_query($con, $sql);
 
@@ -316,6 +316,7 @@ if(!$_GET){
                 </a></div>
             <?php
             }
+            */
             ?>
           </div>
 

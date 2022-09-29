@@ -13,15 +13,6 @@ $con = conectar();
 
 
 
-$query = "SELECT * FROM articulo WHERE id_estado = '1'";
-$resulta = mysqli_query($con, $query);
-
-
-
-
-
-
-
 /*if (isset($_GET['enviar'])) {
   $busqueda = $_GET['busqueda'];
 
@@ -57,6 +48,8 @@ $resulta = mysqli_query($con, $query);
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- iCheck -->
   <link rel="stylesheet" href="../plugins/iCheck/flat/blue.css">
   <!-- Morris chart -->
@@ -222,7 +215,7 @@ $resulta = mysqli_query($con, $query);
 
             <form action="" method="get" class="navbar-form navbar-right" role="search">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Buscar" name="busqueda">
+                <input onkeyup="buscar_ahora($('#busqueda').val());" type="text" class="form-control" placeholder="Buscar..." name="busqueda" id="busqueda">
               </div>
               <button type="submit" class="btn btn-default glyphicon glyphicon-search" name="enviar"></button>
             </form>
@@ -246,57 +239,7 @@ $resulta = mysqli_query($con, $query);
         <div class="main">
           <div class="row ">
 
-
-            <?php
-            //iniciar la carga de los datos directamente de la tabla
-
-            while ($mostrar = mysqli_fetch_array($resulta)) {
-
-            ?>
-
-
-
-
-              <div class="col-md-3 shop_box"><a href="single.html">
-                  <?php echo '<img src="data:image/jpg;base64, ' . base64_encode($mostrar['foto_producto']) . '"  class="img-responsive" /> '
-                  ?>
-
-                  <span class="new-box">
-                    <!--<span class="new-label">New</span>-->
-                  </span>
-                  <span class="sale-box">
-                    <span class="sale-label">En venta</span>
-                  </span>
-
-                  <div class="shop_desc">
-                    <td><?php echo $mostrar['nombre']; ?></td>
-
-
-                    <p>
-                      <td><?php echo $mostrar['descripcion']; ?></td>
-                    </p>
-
-
-                    <span class="actual"><?php echo number_format($mostrar['precio_venta'], 2, '.', ','); ?></span><br>
-
-                    <ul class="buttons">
-                      <li class="cart btn-warning"><a href="editar.php? id=<?php echo $mostrar['id_articulo'] ?>" name="agregar">añadir a carrito</a></li>
-                      <li class="shop_btn btn-primary"><a href="producto_detallado.php? id=<?php echo $mostrar['id_articulo'] ?>" name="leer">Conoce más</a></li>
-                      <div class="clear"> </div>
-                    </ul>
-                  </div>
-                </a>
-                <br>
-                <BR>
-              </div>
-
-               
-
-
-
-            <?php
-            }
-            ?>
+          <div id="datos_buscador" ></div>
        
           </div>
 
@@ -304,33 +247,25 @@ $resulta = mysqli_query($con, $query);
 
       </section>
 
-      <center>
-        <nav aria-label="">
-          <ul class="pagination pagination-lg">
-            <li>
-              <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-              <a href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <center>
+      <script type="text/javascript"> 
 
+      function buscar_ahora(busqueda){
+      var parametros = {"busqueda":busqueda};
+      $.ajax({
+      data:parametros,
+      type: 'POST',
+      url: 'buscador.php',
+      success: function (data) {
+      document.getElementById("datos_buscador").innerHTML = data;
+      }
+      });   
+      }
+      buscar_ahora();
+      </script>
 
-
-
-
-
+  <?php
+  
+  ?>
           </section>
 
 
