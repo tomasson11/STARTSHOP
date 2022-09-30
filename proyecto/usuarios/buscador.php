@@ -1,6 +1,6 @@
 <?php
 
-include("../../php/bd.php");
+include("../php/bd.php");
 $con = conectar();
             //iniciar la carga de los datos directamente de la tabla
 $articulos = mysqli_query($con, "SELECT * FROM articulo WHERE nombre LIKE LOWER('%".$_POST['busqueda']."%')");

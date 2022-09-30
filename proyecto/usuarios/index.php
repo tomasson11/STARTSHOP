@@ -1,9 +1,6 @@
 <?php
 include("headerindex.php");
 
-if(!$_GET){
-  header('Location:index.php?pagina=1');
-}
 
 ?>
 
@@ -30,6 +27,7 @@ if(!$_GET){
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- iCheck -->
   <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
   <!-- Morris chart -->
@@ -238,7 +236,7 @@ if(!$_GET){
 
             <form action="" method="get" class="navbar-form navbar-right" role="search">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Buscar" name="busqueda">
+                <input onkeyup="buscar_ahora($('#busqueda').val());" type="text" class="form-control" placeholder="Buscar..." name="busqueda" id="busqueda">
               </div>
               <button type="submit" class="btn btn-default glyphicon glyphicon-search" name="enviar"></button>
             </form>
@@ -258,137 +256,28 @@ if(!$_GET){
         <div class="main">
           <div class="row ">
 
-
-            <?php 
-/*
-            $sql = 'SELECT * FROM articulo';
-            $sentencia = mysqli_query($con, $sql);
-
-            $articulos_x_pagina = 12;
-            $total_articulos_db = mysqli_num_rows($sentencia);
-
-            $paginas = ceil($total_articulos_db/$articulos_x_pagina);
-            //iniciar la carga de los datos directamente de la tabla
-
-            if($_GET['pagina']>$paginas || $_GET['pagina']<=0){
-              header('Location:index.php?pagina=1');
-            }
-
-            $iniciar = ($_GET['pagina']-1)* $articulos_x_pagina;
-            $query = sprintf("SELECT * FROM articulo WHERE id_estado = '1' LIMIT %s,%s", $iniciar, $articulos_x_pagina);
-            $sentencia_articulos = mysqli_query($con, $query);
+          <div id="datos_buscador" ></div>
 
 
-
-
-            while ($mostrar = mysqli_fetch_array($sentencia_articulos)) {
-
-
-            ?>
-              <div class="col-md-3 shop_box"><a href="single.html">
-                  <?php echo '<img width="100%" heigth="70%"    src="data:image/jpg;base64, ' . base64_encode($mostrar['foto_producto']) . '"  class="img-responsive"  /> '
-                  ?>
-
-                  <span class="new-box">
-                    <!--<span class="new-label">New</span>-->
-                  </span>
-                  <span class="sale-box">
-                    <span class="sale-label">En venta</span>
-                  </span>
-
-                  <div class="shop_desc">
-                    <td><?php echo $mostrar['nombre']; ?></td>
-
-
-                    <p>
-                      <td><?php echo $mostrar['descripcion']; ?></td>
-                    </p>
-
-
-                    <span class="actual"><?php echo number_format($mostrar['precio_venta'], 2, '.', ','); ?></span><br>
-
-                    <ul class="buttons">
-                      <li class="cart btn-warning"><a href="editar.php? id=<?php echo $mostrar['id_articulo'] ?>" name="agregar">añadir a carrito</a></li>
-                      <li class="shop_btn btn-primary"><a href="paginas/producto_detallado.php? id=<?php echo $mostrar['id_articulo'] ?>" name="leer">Conoce más</a></li>
-                      <div class="clear"> </div>
-                    </ul>
-                  </div>
-                </a></div>
-            <?php
-            }
-            */
-            ?>
           </div>
+  </section>
+  
 
-        </div>
+  <script type="text/javascript"> 
 
-      </section>
-
-      <center>
-        <!--<nav aria-label="">
-          <ul class="pagination pagination-lg">
-            <li>
-              <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li>
-              <a href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </nav>-->
-        
-        <li class="page-item">
-          <?php 
-         /* if($_REQUEST["nume"] == "1" ) {$_REQUEST["nume"] == "0";
-            echo "";
-            }else{
-              if($pagina>1)
-              $ant = $_REQUEST["nume"] - 1;
-              echo "<a class='page-link' aria-label= 'Previous' href='index.php?nume=1'> <span aria-hidden='true'>&laquo; </span><span class ='sr-only'> Previus</span></a>";
-              echo "<li class='page-item' > <a  class='page-link' href='index.php? nume=".($pagina-1)."' > ".$ant."</a></li>";
-            }
-            echo "<li class='page-item active' > <a  class='page-link' >" .$_REQUEST ["nume"]."</a></li>";
-
-            $sigui = $_REQUEST["nume"] + 1;
-            $ultima = $num_registros / $registros;
-            if($ultima==$_REQUEST["nume"]+1){
-
-              $ultima =="";}
-              if($pagina<$paginas && $paginas>1){
-                echo "<li class='page-item' > <a  class='page-link' href='index.php? nume=".($pagina+1)."' > ".$sigui."</a></li>";
-              }
-              if($pagina<paginas && $paginas>1){
-                echo "<li class='page-item'> <a class='page-link' aria-label= 'Next' href='index.php?nume=" . ceil($ultima). "'> <span aria-hidden='true'>&laquo; </span><span class ='sr-only'> Next</span></a> </li>";
-              }
-
-              
-              
-            }
-*/
-              
-            
-
-
-
-            
-              
-             
-              ?>
-            </li>
-        
-
-        <center>
-
-
-
+      function buscar_ahora(busqueda){
+      var parametros = {"busqueda":busqueda};
+      $.ajax({
+      data:parametros,
+      type: 'POST',
+      url: 'buscador.php',
+      success: function (data) {
+      document.getElementById("datos_buscador").innerHTML = data;
+      }
+      });   
+      }
+      buscar_ahora();
+      </script>
 
 
           <!-- /.content -->

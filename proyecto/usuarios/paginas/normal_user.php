@@ -254,7 +254,7 @@ $con = conectar();
       $.ajax({
       data:parametros,
       type: 'POST',
-      url: 'buscador.php',
+      url: '../buscador.php',
       success: function (data) {
       document.getElementById("datos_buscador").innerHTML = data;
       }
@@ -266,7 +266,7 @@ $con = conectar();
   <?php
   
   ?>
-          </section>
+  
 
 
 
