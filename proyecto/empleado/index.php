@@ -14,7 +14,8 @@ include("header.php");
         <!-- Sidebar user panel -->
         <div class="user-panel">
           <div class="pull-left image">
-            <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+          <?php echo '<img src="data:image/jpg;base64, '.base64_encode($datos['imagen_usuario']).'" class="img-circle" /> '
+          ?> 
           </div>
           <div class="pull-left info">
             <p><?php echo $datos['nombre'] . " " . $datos['apellidos']; ?></p>

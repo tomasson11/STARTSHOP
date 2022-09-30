@@ -12,7 +12,7 @@ include("header.php");
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-        <?php echo '<img src="data:image/jpg;base64, '.base64_encode($row['imagen_usuario']).'"  class="img-circle" class="user-image" /> ' 
+        <?php echo '<img src="data:image/jpg;base64, '.base64_encode($datos['imagen_usuario']).'"  class="img-circle" class="user-image" /> ' 
                   ?>
         </div>
         <div class="pull-left info">
@@ -34,41 +34,14 @@ include("header.php");
           </a>
           <ul class="treeview-menu">
           <li class="active"><a href="index.php"><i class="fa fa-table"></i> Productos</a></li>
-            <li class="active"><a href="inventario.php"><i class="fa fa-circle-o"></i> Inventarios</a></li>
-            <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
+            <li class="active"><a href="inventario.php"><i class="glyphicon glyphicon-folder-close"></i> Inventarios</a></li>
           </ul>
         </li>
 
-        
-        
-        <!--TABLAS PARA COMPRAS              
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
-          </ul>
-        </li>
-        ----------------------------------------------------------------------------------------------->
-
-        <!--CALENDARIO PARA EMPRENDEDORES
-        <li>
-          <a href="pages/calendar.html">
-            <i class="fa fa-calendar"></i> <span>Calendar</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
-            </span>
-          </a>
-        </li>
-        ------------------------------------------------------------------------------------------------>
         <li class="header">REPORTES</li>
+        <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-signal"></i> Estadisticas</a></li>
       </ul>
+
     </section>
     <!-- /.sidebar -->
   </aside>
