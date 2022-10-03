@@ -34,11 +34,21 @@ $articulos = mysqli_query($con, "SELECT * FROM articulo WHERE nombre LIKE LOWER(
 
                     <span class="actual"><?php echo number_format($mostrar['precio_venta'], 2, '.', ','); ?></span><br>
 
-                    <ul class="buttons">
-                      <li class="cart btn-warning"><a href="editar.php? id=<?php echo $mostrar['id_articulo'] ?>" name="agregar">añadir a carrito</a></li>
-                      <li class="shop_btn btn-primary"><a href="producto_detallado.php? id=<?php echo $mostrar['id_articulo'] ?>" name="leer">Conoce más</a></li>
-                      <div class="clear"> </div>
-                    </ul>
+                    <form action="" method="post">
+                     <input type="hidden" name="id" id="id" value="<?php echo openssl_encrypt($mostrar['id_articulo'],COD,KEY); ?>">
+                     <input type="hidden" name="nombre" id="nombre" value="<?php echo openssl_encrypt($mostrar['nombre'],COD,KEY); ?>">
+                     <input type="hidden" name="precio" id="precio" value="<?php echo openssl_encrypt($mostrar['precio_venta'],COD,KEY); ?>">
+                     <input type="hidden" name="cantidad" id="cantidad" value="<?php echo openssl_encrypt(1,COD,KEY); ?>">
+                     
+
+                    <button class="cart btn-warning" 
+                    name="btnAccion"
+                    value="AGREGAR"
+                    type="submit"
+                    >
+                    Agregar al carrito
+                    </button>
+                    </form>
                   </div>
                 </a>
                 <br>

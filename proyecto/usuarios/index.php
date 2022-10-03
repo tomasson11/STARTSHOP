@@ -1,5 +1,6 @@
 <?php
 include("headerindex.php");
+include("carrito.php");
 
 
 ?>
@@ -228,28 +229,29 @@ include("headerindex.php");
                 </ul>
               </li>
             </ul>
-
-
             </li>
             </ul>
 
+          
+   
 
-            <form action="" method="get" class="navbar-form navbar-right" role="search">
+            <form action="" method="post" class="navbar-form navbar-right" role="search">
               <div class="form-group">
                 <input onkeyup="buscar_ahora($('#busqueda').val());" type="text" class="form-control" placeholder="Buscar..." name="busqueda" id="busqueda">
               </div>
               <button type="submit" class="btn btn-default glyphicon glyphicon-search" name="enviar"></button>
             </form>
-
-
-          </div>
+          </div>  
         </nav>
 
 
 
       </section>
-
-
+     <?php if($mensaje!=""){?>
+      <div class="alert alert-success">
+        <?php echo $mensaje; ?>
+      </div>
+      <?php }?>
 
       <!-- Main content -->
       <section class="content">

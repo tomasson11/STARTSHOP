@@ -6,6 +6,8 @@ function conectar()
 	$password = "";
 	$servidor = "localhost";
 	$basededatos = "starshop_project";
+	define("KEY","develoteca");
+	define("COD","AES-128-ECB");
 	
 	// creación de la conexión a la base de datos con mysql_connect()
 	$conexion = mysqli_connect( $servidor, $usuario, $password ) or die ("No se ha podido conectar al servidor de Base de datos");

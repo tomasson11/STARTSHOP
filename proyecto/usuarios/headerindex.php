@@ -134,10 +134,14 @@ if ($row = mysqli_fetch_array($resulta)) {
           <ul class="nav navbar-nav">
             <!-- Messages: style can be found in dropdown.less-->
             <li class="dropdown messages-menu">
-              <a href="../carritocompras/viewCart.php" class="dropdown-toggle cart-link" title="View Cart">
+              <a href="viewCart.php" class="dropdown-toggle cart-link" title="View Cart">
                 <i class="glyphicon glyphicon-shopping-cart"></i>
                 <!-- AGREGAR EL NÚMERO DE OBJETOS EN EL CARRITO -->
-                <span class="label label-success">4</span>
+                <span class="label label-success"><?php 
+
+                    echo (empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO']);
+
+                    ?></span>
               </a>
             </li>
             <li class="dropdown messages-menu">
