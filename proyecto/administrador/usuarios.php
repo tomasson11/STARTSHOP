@@ -1,131 +1,198 @@
 <?php
 
 
- 
-include("headeradmin.php"); 
+
+include("headeradmin.php");
 
 
-      
+
+
+
+
 
 ?>
 
 
 <!DOCTYPE html>
 <html>
+
 <head>
 
 
 
-  <?php 
+  <?php
 
   include('loyout/header.php');
 
-   ?>
+  ?>
 </head>
 
- <!-- Left side column. contains the logo and sidebar -->
- <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p><?php echo $datos['nombre'] . " " . $datos['apellidos']; ?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <?php echo '<img src="data:image/jpg;base64, ' . base64_encode($datos['imagen_usuario']) . '"  class="img-circle"  /> '
+        ?>
+      </div>
+      <div class="pull-left info">
+        <p><?php echo $datos['nombre'] . " " . $datos['apellidos']; ?></p>
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+      </div>
+    </div>
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+      <li class="header">Administración General</li>
+
+      <li class="active treeview">
+        <a href="#">
+          <i class="glyphicon glyphicon-shopping-cart"></i> <span>Informes</span>
+
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+
+          <li class="active"><a href="index.php"><i class="glyphicon glyphicon-gift"></i>ARTICULOS</a></li>
+          <li class="active"><a href="usuarios.php"><i class="glyphicon glyphicon-user"></i>USUARIOS</a></li>
+
+        </ul>
+
+      </li>
+
+
+
+
+    </ul>
+  </section>
+
+
+  <!-- /.sidebar -->
+</aside>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+
+  <section class="content-header">
+
+
+    <div class="row">
+      <!-- ./col -->
+      <div class="col-lg-6 col-xs-5">
+        <!-- small box -->
+        <div class="small-box bg-green">
+          <div class="inner">
+            <h3><?php echo $rowcount2; ?><sup style="font-size: 20px"></sup></h3>
+
+            <p>Empleados Registrados</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+          <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu">
-        <li class="header">MENU DE NAVEGACION</li>
+      <!-- ./col -->
+      <div class="col-lg-6 col-xs-5">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+          <div class="inner">
+            <h3><?php echo $rowcount; ?> </h3>
 
-        <li class="active treeview">
-          <a href="#">
-            <i class="glyphicon glyphicon-shopping-cart"></i> <span>Mi tienda</span>
-
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-
-            <li class="active"><a href="index.php"><i class="fa fa-table"></i>ARTICULOS</a></li>
-            <li class="active"><a href="usuarios.php"><i class="fa fa-circle-o"></i>USUARIOS</a></li>
-
-          </ul>
-
-        </li>
+            <p>Usuarios Registrados</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+          <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+    </div>
 
 
+    <!-- ./col -->
 
-        <li class="header">REPORTES</li>
-      </ul>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
 
-<section class="content-header">
 
-  <h1><center>
-     PRODUCTOS AGREGADOS
-  </h1></center>			
+
+    <center>
+      <h1>
+        Tabla General Usuarios
+      </h1>
+    </center>
 
     <!-- Main content -->
     <section class="content">
 
-     <!-- Main content -->
-     <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              
+
+      <!-- Main content -->
+      <section class="content">
+
+      <a href="index.php"><button type="" class="glyphicon glyphicon-home" name="home"></button></a>
+        <form action="" method="post" class="navbar-form navbar-right" role="search">
+          <tr>
+        
+            <td>
+            <div class="form-group">
+              <input onkeyup="buscar_ahora($('#busqueda').val());" type="text" class="form-control" placeholder="Buscar..." name="busqueda" id="busqueda">
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>ROL</th>
-                  <th>NOMBRE</th>
-                  <th>APELLIDOS</th>
-                  <th>TIPO DOCU</th>
-                  <th>NUM. DOCU</th>
-                  <th>FEC. NACIMIENTO</th>
-                  <th>DIRECCION</th>
-                  <th>TELEFONO</th>
-                  <th>EMAIL</th>
-                  <th>ESTADO</th>
-                </tr>
-                </thead>
+            <button type="submit" class="btn btn-default glyphicon glyphicon-search" name="enviar"></button>
+            </td>
+          </tr>
+        </form>
 
-                <?php
-                        //iniciar la carga de los datos directamente de la tabla
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="box">
+              <div class="box-header">
 
-                while ($mostrar=mysqli_fetch_array($result2)){
+              </div>
 
-                ?> 
-                
-                <tr>
-                <td><?php echo $mostrar['id_usuario']; ?></td>
-                <td><?php echo $mostrar['tipo_rol']; ?></td>
-                <td><?php echo $mostrar['nombre']; ?></td>
-                <td><?php echo $mostrar['apellidos']; ?></td>
-                <td><?php echo $mostrar['tipo_documento']; ?></td>
-                <td><?php echo $mostrar['num_documento']; ?></td>
-                <td><?php echo $mostrar['fecha_nacimiento']; ?></td>
-                <td><?php echo $mostrar['direccion']; ?></td>
-                <td><?php echo $mostrar['telefono']; ?></td>
-                <td><?php echo $mostrar['email']; ?></td>
-                <td><?php echo $mostrar['id_estado']; ?></td>
-                  <!------
+              <!-- /.box-header -->
+              <div class="box-body">
+
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>NI</th>
+                      <th>ROL</th>
+                      <th>NOMBRE</th>
+                      <th>APELLIDOS</th>
+                      <th>TIPO DOCU</th>
+                      <th>NUM. DOCU</th>
+                      <th>FEC. NACIMIENTO</th>
+                      <th>DIRECCION</th>
+                      <th>TELEFONO</th>
+                      <th>EMAIL</th>
+                      <th>ESTADO</th>
+                    </tr>
+                  </thead>
+
+                  <?php
+                  //iniciar la carga de los datos directamente de la tabla
+
+                  while ($mostrar = mysqli_fetch_array($result2)) {
+
+                  ?>
+
+                    <tr>
+                      <td><?php echo $mostrar['id_usuario']; ?></td>
+                      <td><?php echo $mostrar['tipo_rol']; ?></td>
+                      <td><?php echo $mostrar['nombre']; ?></td>
+                      <td><?php echo $mostrar['apellidos']; ?></td>
+                      <td><?php echo $mostrar['tipo_documento']; ?></td>
+                      <td><?php echo $mostrar['num_documento']; ?></td>
+                      <td><?php echo $mostrar['fecha_nacimiento']; ?></td>
+                      <td><?php echo $mostrar['direccion']; ?></td>
+                      <td><?php echo $mostrar['telefono']; ?></td>
+                      <td><?php echo $mostrar['email']; ?></td>
+                      <td><?php echo $mostrar['id_estado']; ?></td>
+                      <!------
                 <td>
 
         
@@ -142,155 +209,31 @@ include("headeradmin.php");
                             
                             </td>
                             --->
-                </tr>
+                    </tr>
 
-                <?php
-                }
-                ?>    
-              </table>
+                  <?php
+                  }
+                  ?>
+                </table>
 
-
-
-  
-                  <!--MODAL DESPLAZAMIENTO PARA EDITAR PRODUCTO-->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <form>
-
-                          <div class="row">
-          <div class="col-md-12">
-
-          <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            Edición de productos</h3>
-        </div>
-        <div class="panel-body">
-
-          <form action="index.php" method="post">
-            <div class="row">
-              
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="">Nombre</label>
-                  <input  value="<?php echo $mostrar['nombre']?>" type="text" class="form-control" name="name_producto"  placeholder="Ingrese el nombre del producto">
-                </div>
-
-                  <div class="form-group">
-                  <label for="">Precio</label>
-                  <input type="number" class="form-control"  value="<?php echo $mostrar['precio_venta']?>" name="precio" id="precio" placeholder="Ingrese el precio del producto">
-            </div> 
-                </div> 
-
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="">Codigo</label>
-                  <input type="text" class="form-control" name="code_producto" value="<?php echo $mostrar['codigo']?>" placeholder="Ingrese el codigo del producto">
-            </div> 
-                
-            
-                <div class="form-group">
-                <label for="">categoria</label>
-                <select name="categoria_producto" class="form-control">
-            <option id="opcion" value="value="<?php echo $mostrar['nombre_categoria']?>></option>
-            <?php
-            include("php/bd.php");
-            $con = conectar();
-
-            $query = "SELECT * FROM categoria";
-            $resulta = mysqli_query($con, $query);
-
-            while ($row = mysqli_fetch_array($resulta)) {
-
-              $tipo = $row['nombre_categoria'];
-
-              echo "<option value='$tipo'>$tipo</option>";
-            }
-            ?>
-          </select>
+              </div>
+              <!-- /.box-body -->
             </div>
-                </div>  
-            
-                <div class="col-md-6">
-                <div class="form-group">
-                  <label for="">Stock</label>
-                  <input type="number" class="form-control" name="stock" value="<?php echo $mostrar['stock']; ?>" id="stock" placeholder="Ingrese la cantidad de productos">
-            </div> 
-          </div>
+            <!-- /.box -->
+      </section>
 
-          <div class="col-md-6">
-                <div class="form-group">
-                  <label for="">Fecha</label>
-                  <input type="date" class="form-control" min="2022-09-10" name="fecha_creacion" id="fecha" placeholder="Ingrese el codigo del producto">
-          
-          <!--<input type="date" id="start" name="trip-start"
-          value="2018-07-22"
-            min="2018-01-01" max="2018-12-31">-->
-                </div> 
-          </div>
-
-          <div class="col-md-12">
-                <div class="form-group">
-                  <label for="exampleFormControlTextarea1">Descripcion</label>
-                  <textarea class="form-control" type="text" value="<?php echo $mostrar['descripcion']; ?>" id="exampleFormControlTextarea1" id="descrpcion" rows="3" name="descripcion" placeholder="Ingrese la descripcion del producto"></textarea>
-            </div> 
-          </div>
-
-          <div class="row">
-            <div class="ol-md-12">
-            
-          </div>
-          </div>
-          </form>
-        </div>
-      </div>
-      </div>
-                </div>  
-                          </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default glyphicon glyphicon-remove-circle" data-dismiss="modal"></button>
-
-                         
-                            <button type="button" class="btn btn-success">Guardar Cambios</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-
-
-
-
-
-
-              
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-    </section>
-
-    <!-- /.content -->
+      <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<footer class="main-footer">
+  <div class="pull-right hidden-xs">
+    <b>StartShop</b> 2022
   </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>StartShop</b> 2022
-    </div>
-    <strong>Copyright &copy; 2022 <a href="http://localhost/startshop/usuarios/index.php">STARSHOP</a>.</strong> All rights
-    reserved.
-  </footer>
-  
-  <div class="control-sidebar-bg"></div>
+  <strong>Copyright &copy; 2022 <a href="http://localhost/startshop/usuarios/index.php">STARSHOP</a>.</strong> All rights
+  reserved.
+</footer>
+
+<div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
 
@@ -335,7 +278,7 @@ include("headeradmin.php");
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 <script>
-  $(function () {
+  $(function() {
     $("#example1").DataTable();
     $('#example2').DataTable({
       "paging": true,
@@ -352,4 +295,5 @@ include("headeradmin.php");
 
 
 </body>
+
 </html>

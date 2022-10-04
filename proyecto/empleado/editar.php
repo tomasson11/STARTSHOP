@@ -132,7 +132,7 @@ mysqli_close($con);
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-        <span class="sr-only">Toggle navigation</span>
+        <span class="sr-only"></span>
       </a>
 
       <div class="navbar-custom-menu">
@@ -395,7 +395,7 @@ mysqli_close($con);
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">MENU DE NAVEGACION</li>
+        <li class="header">Disfruta tu espacio</li>
         
         <li class="active treeview">
           <a href="#">
@@ -408,39 +408,15 @@ mysqli_close($con);
           
           <li class="active"><a href="index.php"><i class="fa fa-table"></i> Productos</a></li>
             <li class="active"><a href="inventario.php"><i class="fa fa-circle-o"></i> Inventarios</a></li>
-            <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
+
           </ul>
          
          </li>
         
         
-        <!--TABLAS PARA COMPRAS              
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
-          </ul>
-        </li>
-        ----------------------------------------------------------------------------------------------->
-
-        <!--CALENDARIO PARA EMPRENDEDORES
-        <li>
-          <a href="pages/calendar.html">
-            <i class="fa fa-calendar"></i> <span>Calendar</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
-            </span>
-          </a>
-        </li>
-        ------------------------------------------------------------------------------------------------>
+ 
         <li class="header">REPORTES</li>
+        <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

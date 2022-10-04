@@ -1,5 +1,8 @@
 <?php
-include("../headerindex.php");
+
+
+include("../header.php");
+
 
 
 
@@ -93,21 +96,21 @@ include("../headerindex.php");
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-        <?php echo '<img src="data:image/jpg;base64, '.base64_encode($datos['imagen_usuario']).'"  class="img-circle"  /> ' 
-        ?>
+        <img src="../dist/img/starshop.png"  class="img-circle"  /> ' 
+        
         </div>
         <div class="pull-left info">
-          <p><?php echo $datos['nombre'] . " " . $datos['apellidos']; ?></p>
+          <p></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">Apoyamos el emprendimiento</li>
+        <li class="header">MENU DE NAVEGACION</li>
 
         <li class="active treeview">
           <a href="#">
-            <i class="glyphicon glyphicon-shopping-cart"></i> <span>Información de interés </span>
+          <i class="glyphicon glyphicon-shopping-cart"></i> <span>Información de interés </span>
 
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -115,8 +118,8 @@ include("../headerindex.php");
           </a>
           <ul class="treeview-menu">
 
-          <li class="active"><a href="team_startshop.php"><i class="glyphicon glyphicon-gift"></i>Team StartShop</a></li>
-          <li class="active"><a href="contacto.php"><i class="glyphicon glyphicon-earphone"></i>Contáctanos</a></li>
+          <li class="active"><a href="team_startshopv.php"><i class="glyphicon glyphicon-gift"></i>Team StartShop</a></li>
+          <li class="active"><a href="contactov.php"><i class="glyphicon glyphicon-earphone"></i>Contáctanos</a></li>
 
           </ul>
 
@@ -161,7 +164,7 @@ include("../headerindex.php");
        otro elemento que se pueda ocultar al minimizar la barra -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-              <li class=""><a href="../index.php">Shop</a></li>
+              <li class=""><a href="normal_user.php">Shop</a></li>
               <li><a href="#">Novedades</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">

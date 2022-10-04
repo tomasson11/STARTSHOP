@@ -28,7 +28,9 @@ $con = conectar();
 
 
 <!DOCTYPE html>
-<html><head>
+<html>
+
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Startshop-Usuarios
@@ -36,7 +38,7 @@ $con = conectar();
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link href="../bootstrap/css/bootstraps.css" rel='stylesheet' type='text/css' />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -71,219 +73,269 @@ $con = conectar();
   <![endif]-->
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+  <script type="application/x-javascript">
+    addEventListener("load", function() {
+      setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  </script>
   <script src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/responsive-nav.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-            $(".dropdown img.flag").addClass("flagvisibility");
+      $(".dropdown img.flag").addClass("flagvisibility");
 
-            $(".dropdown dt a").click(function() {
-                $(".dropdown dd ul").toggle();
-            });
-                        
-            $(".dropdown dd ul li a").click(function() {
-                var text = $(this).html();
-                $(".dropdown dt a span").html(text);
-                $(".dropdown dd ul").hide();
-                $("#result").html("Selected value is: " + getSelectedValue("sample"));
-            });
-                        
-            function getSelectedValue(id) {
-                return $("#" + id).find("dt a span.value").html();
-            }
+      $(".dropdown dt a").click(function() {
+        $(".dropdown dd ul").toggle();
+      });
 
-            $(document).bind('click', function(e) {
-                var $clicked = $(e.target);
-                if (! $clicked.parents().hasClass("dropdown"))
-                    $(".dropdown dd ul").hide();
-            });
+      $(".dropdown dd ul li a").click(function() {
+        var text = $(this).html();
+        $(".dropdown dt a span").html(text);
+        $(".dropdown dd ul").hide();
+        $("#result").html("Selected value is: " + getSelectedValue("sample"));
+      });
+
+      function getSelectedValue(id) {
+        return $("#" + id).find("dt a span.value").html();
+      }
+
+      $(document).bind('click', function(e) {
+        var $clicked = $(e.target);
+        if (!$clicked.parents().hasClass("dropdown"))
+          $(".dropdown dd ul").hide();
+      });
 
 
-            $("#flagSwitcher").click(function() {
-                $(".dropdown img.flag").toggleClass("flagvisibility");
-            });
-        });
-     </script>
+      $("#flagSwitcher").click(function() {
+        $(".dropdown img.flag").toggleClass("flagvisibility");
+      });
+    });
+  </script>
 </head>
 
-<body class="hold-transition skin-yellow sidebar-mini">
-  <div class="wrapper">
+<body>
 
- 
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="../dist/img/starshop.png" class="img-circle" /> '
 
-      </section>
-    </aside>
+        </div>
+        <div class="pull-left info">
+          <p></p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">
+        <li class="header">Apoyamos el emprendimiento</li>
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
+        <li class="active treeview">
+          <a href="#">
+            <i class="glyphicon glyphicon-shopping-cart"></i> <span>Información de interés </span>
+
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+
+          <li class="active"><a href="team_startshopv.php"><i class="glyphicon glyphicon-gift"></i>Team StartShop</a></li>
+          <li class="active"><a href="contactov.php"><i class="glyphicon glyphicon-earphone"></i>Contáctanos</a></li>
+
+          </ul>
+
+        </li>
 
 
-        <nav class="navbar navbar-inverse" role="navigation">
-          <!-- El logotipo y el icono que despliega el menú se agrupan
+
+      
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+
+
+      <nav class="navbar navbar-inverse" role="navigation">
+        <!-- El logotipo y el icono que despliega el menú se agrupan
        para mostrarlos mejor en los dispositivos móviles -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-              <span class="sr-only">Desplegar navegación</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Desplegar navegación</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
 
-            </a>
-
-          </div>
-
-          <!-- Agrupar los enlaces de navegación, los formularios y cualquier
-       otro elemento que se pueda ocultar al minimizar la barra -->
-          <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-              <li class=""><a href="normal_user.php">Shop</a></li>
-              <li><a href="#">Novedades</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Servicios <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Restaurante</a></li>
-                  <li><a href="#">Repostería</a></li>
-                  <li><a href="#">Modistería</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Floristería</a></li>
-                  <li><a href="#"></a></li>
-
-                </ul>
-              </li>
-
-
-
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Destacados<b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Bisutería</a></li>
-                  <li><a href="#">Joyería</a></li>
-                  <li><a href="#">Tecnología</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Licor Artesanal</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#"></a></li>
-                </ul>
-              </li>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-left">
-
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Información de Interés<b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="team_startshop.php">Team StartShop</a></li>
-
-                  <li><a href="contacto.php">Contáctanos</a></li>
-
-                </ul>
-              </li>
-            </ul>
-
-
-
-
-
-            </li>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-left">
-
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Perreo HOTa<b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="">Team StartShop</a></li>
-
-                  <li><a href="">Contáctanos</a></li>
-
-                </ul>
-              </li>
-            </ul>
-
-
-            <form action="" method="get" class="navbar-form navbar-right" role="search">
-              <div class="form-group">
-                <input onkeyup="buscar_ahora($('#busqueda').val());" type="text" class="form-control" placeholder="Buscar..." name="busqueda" id="busqueda">
-              </div>
-              <button type="submit" class="btn btn-default glyphicon glyphicon-search" name="enviar"></button>
-            </form>
-
-
-          </div>
-        </nav>
-
-
-      </section>
-
-
-
-
-
-
-
-
-      <!-- Main content -->
-      <section class="content">
-        <div class="main">
-          <div class="row ">
-
-          <div id="datos_buscador" ></div>
-       
-          </div>
+          </a>
 
         </div>
 
-      </section>
+        <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+       otro elemento que se pueda ocultar al minimizar la barra -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li class=""><a href="normal_user.php">Shop</a></li>
+            <li><a href="#">Novedades</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Servicios <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Restaurante</a></li>
+                <li><a href="#">Repostería</a></li>
+                <li><a href="#">Modistería</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Floristería</a></li>
+                <li><a href="#"></a></li>
 
-      <script type="text/javascript"> 
+              </ul>
+            </li>
 
-      function buscar_ahora(busqueda){
-      var parametros = {"busqueda":busqueda};
-      $.ajax({
-      data:parametros,
-      type: 'POST',
-      url: '../buscador.php',
-      success: function (data) {
-      document.getElementById("datos_buscador").innerHTML = data;
-      }
-      });   
+
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Destacados<b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Bisutería</a></li>
+                <li><a href="#">Joyería</a></li>
+                <li><a href="#">Tecnología</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Licor Artesanal</a></li>
+                <li class="divider"></li>
+                <li><a href="#"></a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-left">
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Información de Interés<b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="team_startshopv.php">Team StartShop</a></li>
+
+                <li><a href="contacto.php">Contáctanos</a></li>
+
+              </ul>
+            </li>
+          </ul>
+
+
+
+
+
+          </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-left">
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Perreo HOTa<b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="">Team StartShop</a></li>
+
+                <li><a href="">Contáctanos</a></li>
+
+              </ul>
+            </li>
+          </ul>
+
+
+          <form action="" method="get" class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input onkeyup="buscar_ahora($('#busqueda').val());" type="text" class="form-control" placeholder="Buscar..." name="busqueda" id="busqueda">
+            </div>
+            <button type="submit" class="btn btn-default glyphicon glyphicon-search" name="enviar"></button>
+          </form>
+
+
+        </div>
+      </nav>
+
+
+    </section>
+
+
+
+
+
+
+
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="main">
+        <div class="row ">
+
+          <div id="datos_buscador"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <script type="text/javascript">
+      function buscar_ahora(busqueda) {
+        var parametros = {
+          "busqueda": busqueda
+        };
+        $.ajax({
+          data: parametros,
+          type: 'POST',
+          url: '../buscador.php',
+          success: function(data) {
+            document.getElementById("datos_buscador").innerHTML = data;
+          }
+        });
       }
       buscar_ahora();
-      </script>
+    </script>
 
-  <?php
-  
-  ?>
-  
+    <?php
 
+    ?>
 
 
 
 
-          <!-- /.content -->
+
+
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.3.8
     </div>
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-      <div class="pull-right hidden-xs">
-        <b>Version</b> 2.3.8
-      </div>
-      <strong>Copyright &copy; 2022 <a href="http://localhost/startshop/usuarios/index.php">STARTSHOP</a>.</strong> All rights
-      reserved.
-    </footer>
+    <strong>Copyright &copy; 2022 <a href="http://localhost/startshop/usuarios/index.php">STARTSHOP</a>.</strong> All rights
+    reserved.
+  </footer>
 
-    <div class="control-sidebar-bg"></div>
+  <div class="control-sidebar-bg"></div>
   </div>
   <!-- ./wrapper -->
 

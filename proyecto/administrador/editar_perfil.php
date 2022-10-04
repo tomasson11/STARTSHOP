@@ -70,7 +70,7 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
               // MENSAJES DE ERROR AL EDITAR
 
               } if($nombre=="" || $apellido=="" || $tipo_documento=="" ||
-               $num_documento=="" || telefono==""
+               $num_documento=="" || $telefono==""
                   ||  $fecha==""||
                   $direccion=="" || $email=="");
                   {
@@ -367,7 +367,8 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+        <?php echo '<img src="data:image/jpg;base64, '.base64_encode($datos['imagen_usuario']).'"  class="img-circle"  /> ' 
+        ?>
         </div>
         <div class="pull-left info">
           <p><?php echo $datos['nombre']." ".$datos['apellidos']; ?></p>
@@ -380,67 +381,21 @@ $query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
         
         <li class="active treeview">
           <a href="#">
-          <i class="fa fa-dashboard"></i> <span>Mi tieda</span>
+
+         <i class="glyphicon glyphicon-shopping-cart"></i> <span>Informes</span>
+
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-          
-          <li class="active"><a href="index.php"><i class="fa fa-table"></i> Productos Agregados</a></li>
-            <li class="active"><a href="usuarios.php"><i class="fa fa-circle-o"></i> Usuarios Registrados</a></li>
-            <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
-          </ul>
-         
-         </li>
+
+            <li class="active"><a href="index.php"><i class="glyphicon glyphicon-gift"></i>ARTICULOS</a></li>
+            <li class="active"><a href="usuarios.php"><i class="glyphicon glyphicon-user"></i>USUARIOS</a></li>
+
 
   
 
-  
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Charts</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-            <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-          </ul>
-        </li>
-        
-        
-        <!--TABLAS PARA COMPRAS              
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-            <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
-          </ul>
-        </li>
-        ----------------------------------------------------------------------------------------------->
-
-        <!--CALENDARIO PARA EMPRENDEDORES
-        <li>
-          <a href="pages/calendar.html">
-            <i class="fa fa-calendar"></i> <span>Calendar</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
-            </span>
-          </a>
-        </li>
-        ------------------------------------------------------------------------------------------------>
-        <li class="header">Cuenta</li>
       </ul>
     </section>
     <!-- /.sidebar -->

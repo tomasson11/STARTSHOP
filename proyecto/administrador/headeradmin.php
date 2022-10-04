@@ -23,11 +23,32 @@ $sqli2="SELECT * from usuario";
 $result2=mysqli_query($con,$sqli2);        
 
 
+ 
+
+
+/* aqui se hacen las consultas para mostar informacion importante como cantidad de usuarios y articulos registrados */
+$t = "SELECT * FROM usuario";
+if ($r=mysqli_query($con,$t)) {
+    $rowcount=mysqli_num_rows($r);
+    
+}
+
+$t2 = "SELECT * FROM articulo";
+if ($r2=mysqli_query($con,$t2)) {
+    $rowcount2=mysqli_num_rows($r2);
+    
+}
+$t3 = "SELECT * FROM usuario ";
+if ($r3=mysqli_query($con,$t3)) {
+    $rowcount3=mysqli_num_rows($r3);
+    
+}
+
+
 
 
 
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -40,6 +61,7 @@ $result2=mysqli_query($con,$sqli2);
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
+  
 
   <header class="main-header">
     <!-- Logo -->
@@ -138,6 +160,47 @@ $result2=mysqli_query($con,$sqli2);
           <!-- Notifications: style can be found in dropdown.less -->
           
           <!-- Tasks: style can be found in dropdown.less -->
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">10</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have 10 notifications</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
+                      page and may cause design problems
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-red"></i> 5 new members joined
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-user text-red"></i> You changed your username
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">View all</a></li>
+            </ul>
+          </li>
           <li class="dropdown tasks-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-flag-o"></i>
@@ -227,14 +290,14 @@ $result2=mysqli_query($con,$sqli2);
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               
               
-              <?php echo '<img src="data:image/jpg;base64, '.base64_encode($row['imagen_usuario']).'"  class="user-image"  /> ' 
+              <?php echo '<img src="data:image/jpg;base64, '.base64_encode($datos['imagen_usuario']).'"  class="user-image"  /> ' 
                   ?>
               <span class="hidden-xs"></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-              <?php echo '<img src="data:image/jpg;base64, '.base64_encode($row['imagen_usuario']).'"  class="img-circle"  /> ' 
+              <?php echo '<img src="data:image/jpg;base64, '.base64_encode($datos['imagen_usuario']).'"  class="img-circle"  /> ' 
                   ?>
 
                 <p>
@@ -261,3 +324,4 @@ $result2=mysqli_query($con,$sqli2);
       </div>
     </nav>
   </header>
+  

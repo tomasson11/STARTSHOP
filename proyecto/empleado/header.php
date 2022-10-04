@@ -269,33 +269,35 @@ $resulta = mysqli_query($con, $query);
             </li>
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              
+              
               <?php echo '<img src="data:image/jpg;base64, '.base64_encode($datos['imagen_usuario']).'"  class="user-image"  /> ' 
                   ?>
-                <span class="hidden-xs"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <!-- User image -->
-                <li class="user-header">
-                <?php echo '<img src="data:image/jpg;base64, '.base64_encode($datos['imagen_usuario']).'"  class="user-image"  /> ' 
+              <span class="hidden-xs"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+              <?php echo '<img src="data:image/jpg;base64, '.base64_encode($datos['imagen_usuario']).'"  class="img-circle"  /> ' 
                   ?>
 
-                  <p>
-                    <?php echo $datos['nombre'] . " " . $datos['apellidos']; ?> - <?php echo $datos['tipo_rol']; ?>
-                    <small><?php echo $datos['email']; ?></small>
-                  </p>
-                </li>
-                <!-- Menu Footer-->
-                <li class="user-footer">
-                  <div class="pull-left">
-                    <a href="editar_perfil.php" class="btn btn-default btn-flat">Perfil</a>
-                  </div>
-                  <div class="pull-right">
-                    <a href="/STARTSHOP/php/salir.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
-                  </div>
-                </li>
-              </ul>
-            </li>
+                <p>
+                <?php echo $datos['nombre']." ".$datos['apellidos']; ?> - <?php echo $datos['tipo_rol'];?>
+                  <small><?php echo $datos['email'];?></small>
+                </p>
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="editar_perfil.php" class="btn btn-default btn-flat">Perfil</a>
+                </div>
+                <div class="pull-right">
+                  <a href="/STARTSHOP/php/salir.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
+                </div>
+              </li>
+            </ul>
+          </li>
             <!-- Control Sidebar Toggle Button -->
             <!--<li>
             <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>

@@ -1,5 +1,5 @@
 <?php
-include("../php/bd.php");
+include("../../php/bd.php");
 $con = conectar();
 
 session_start();
@@ -21,6 +21,101 @@ $resulta = mysqli_query($con, $query);
 
 if ($row = mysqli_fetch_array($resulta)) {
   $img = $row['imagen_usuario'];
+}
+
+
+
+
+$mensaje="";
+
+if(isset($_POST['btnAccion'])){
+   
+    switch($_POST['btnAccion']){
+
+        case 'AGREGAR' :
+
+            if(is_numeric( openssl_decrypt($_POST['id'], COD, KEY))){
+                $ID=openssl_decrypt($_POST['id'], COD, KEY);
+                $mensaje.="OK ID CORRECTO".$ID."</br>";
+
+            }else{
+                $mensaje.="Upss... ID INCORRECTO".$ID."</br>";
+            }
+
+            if(is_string(openssl_decrypt($_POST['nombre'], COD, KEY))){
+                $NOMBRE=openssl_decrypt($_POST['nombre'], COD, KEY);
+                $mensaje.="OK NOMBRE".$NOMBRE."</br>";
+            }else{ $mensaje.="upss... algo pasa con el nombre"."</br>";  break;}
+
+            if(is_numeric( openssl_decrypt($_POST['cantidad'], COD, KEY))){
+                $CANTIDAD=openssl_decrypt($_POST['cantidad'], COD, KEY);
+                $mensaje.="OK CANTIDAD".$CANTIDAD."</br>";
+            }else{ $mensaje.="upss... algo pasa con la cantidad"."</br>";  break;}
+
+            if(is_numeric( openssl_decrypt($_POST['precio'], COD, KEY))){
+                $PRECIO=openssl_decrypt($_POST['precio'], COD, KEY);
+                $mensaje.="OK PRECIO".$PRECIO. "</br>";
+            }else{ $mensaje.="upss... algo pasa con el precio"."</br>";  break;}    
+
+            if(!isset($_SESSION['CARRITO'])){
+                $producto=array(
+                    'ID'=>$ID,
+                    'NOMBRE'=>$NOMBRE,
+                    'CANTIDAD'=>$CANTIDAD,
+                    'PRECIO'=>$PRECIO
+                );
+
+                $_SESSION['CARRITO'][0]=$producto;
+                $mensaje= "Producto agregado al carrito";
+
+            }else{
+
+                $idProductos=array_column($_SESSION['CARRITO'],"ID");
+
+                if(in_array($ID,$idProductos)){
+                    echo "<script>alert('El producto ya ha sido seleccionado');</script>";
+                    $mensaje="";        
+
+                }else{
+
+
+                $numeroproductos=count($_SESSION['CARRITO']);
+                $producto=array(
+                    'ID'=>$ID,
+                    'NOMBRE'=>$NOMBRE,
+                    'CANTIDAD'=>$CANTIDAD,
+                    'PRECIO'=>$PRECIO
+                );
+
+                $_SESSION['CARRITO'][$numeroproductos]=$producto; 
+                $mensaje= "Producto agregado al carrito";
+               }
+            }
+            // $mensaje= print_r($_SESSION, true);
+            
+
+        break;
+        case "Eliminar" :
+
+            if(is_numeric( openssl_decrypt($_POST['id'], COD, KEY))){
+                $ID=openssl_decrypt($_POST['id'], COD, KEY);
+                
+                foreach($_SESSION['CARRITO'] as $indice=>$producto){
+                    
+                    if($producto['ID']==$ID){
+                        unset($_SESSION['CARRITO'][$indice]); 
+                        echo "<script>alert('ELEMENTO BORRADO...');</script>";
+
+                    }
+
+                }
+
+            }
+
+        break;    
+
+}    
+
 }
 
 
@@ -342,38 +437,37 @@ if ($row = mysqli_fetch_array($resulta)) {
               </ul>
             </li>
             <!-- User Account: style can be found in dropdown.less -->
+            <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              
+              
               <?php echo '<img src="data:image/jpg;base64, '.base64_encode($datos['imagen_usuario']).'"  class="user-image"  /> ' 
                   ?>
-                <span class="hidden-xs"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <!-- User image -->
-                <li class="user-header">
-                <?php echo '<img src="data:image/jpg;base64, '.base64_encode($datos['imagen_usuario']).'"  class="user-image"  /> ' 
+              <span class="hidden-xs"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+              <?php echo '<img src="data:image/jpg;base64, '.base64_encode($datos['imagen_usuario']).'"  class="img-circle"  /> ' 
                   ?>
 
-                  <p>
-                    <?php echo $datos['nombre'] . " " . $datos['apellidos']; ?> - <?php echo $datos['tipo_rol']; ?>
-                    <small><?php echo $datos['email']; ?></small>
-                  </p>
-                </li>
-                <!-- Menu Footer-->
-                <li class="user-footer">
-                  <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">Perfil</a>
-                  </div>
-                  <div class="pull-right">
-                    <a href="/STARTSHOP/php/salir.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
-                  </div>
-                </li>
-              </ul>
-            </li>
-            <!-- Control Sidebar Toggle Button -->
-            <!--<li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>-->
+                <p>
+                <?php echo $datos['nombre']." ".$datos['apellidos']; ?> - <?php echo $datos['tipo_rol'];?>
+                  <small><?php echo $datos['email'];?></small>
+                </p>
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="editar_perfil.php" class="btn btn-default btn-flat">Perfil</a>
+                </div>
+                <div class="pull-right">
+                  <a href="/STARTSHOP/php/salir.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
+                </div>
+              </li>
+            </ul>
+          </li>
           </ul>
         </div>
       </nav>

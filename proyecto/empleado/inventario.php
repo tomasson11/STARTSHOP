@@ -40,7 +40,7 @@ include("header.php");
         </div>
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-          <li class="header">MENU DE NAVEGACION</li>
+          <li class="header">Disfruta tu espacio</li>
 
           <li class="active treeview">
             <a href="#">
@@ -54,12 +54,13 @@ include("header.php");
 
               <li class="active"><a href="index.php"><i class="fa fa-table"></i> Productos</a></li>
               <li class="active"><a href="inventario.php"><i class="fa fa-circle-o"></i> Inventarios</a></li>
-              <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
+             
             </ul>
 
           </li>
 
         <li class="header">REPORTES</li>
+        <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
       </ul>
     </section>
     <!-- /.sidebar -->
