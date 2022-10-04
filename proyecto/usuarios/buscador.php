@@ -49,6 +49,7 @@ $articulos = mysqli_query($con, "SELECT * FROM articulo WHERE nombre LIKE LOWER(
                     Agregar al carrito
                     </button>
                     </form>
+
                   </div>
                 </a>
                 <br>
