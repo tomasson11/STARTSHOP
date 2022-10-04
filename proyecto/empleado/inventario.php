@@ -40,27 +40,26 @@ include("header.php");
         </div>
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-          <li class="header">MENU DE NAVEGACION</li>
-
-          <li class="active treeview">
-            <a href="#">
-              <i class="glyphicon glyphicon-shopping-cart"></i> <span>Mi tienda</span>
-
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-
-              <li class="active"><a href="index.php"><i class="fa fa-table"></i> Productos</a></li>
-              <li class="active"><a href="inventario.php"><i class="fa fa-circle-o"></i> Inventarios</a></li>
-              <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
-            </ul>
-
-          </li>
+        <li class="header">MENU DE NAVEGACION</li>
+        
+        <li class="active treeview">
+          <a href="#">
+          <i class="glyphicon glyphicon-shopping-cart"></i> <span>Mi tienda</span>
+          
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+          <li class="active"><a href="index.php"><i class="fa fa-table"></i> Productos</a></li>
+            <li class="active"><a href="inventario.php"><i class="glyphicon glyphicon-folder-close"></i> Inventarios</a></li>
+          </ul>
+        </li>
 
         <li class="header">REPORTES</li>
+        <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-signal"></i> Estadisticas</a></li>
       </ul>
+
     </section>
     <!-- /.sidebar -->
   </aside>

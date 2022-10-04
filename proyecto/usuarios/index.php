@@ -199,41 +199,9 @@ include("carrito.php");
               </li>
             </ul>
 
-            <ul class="nav navbar-nav navbar-left">
-
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Información de Interés<b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="paginas/team_startshop.php">Team StartShop</a></li>
-
-                  <li><a href="paginas/contacto.php">Contáctanos</a></li>
-
-                </ul>
-              </li>
-            </ul>
+        
 
 
-            <ul class="nav navbar-nav navbar-left">
-
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  LOREM IPSUM<b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="">Team StartShop</a></li>
-
-                  <li><a href="">Contáctanos</a></li>
-
-                </ul>
-              </li>
-            </ul>
-            </li>
-            </ul>
-
-          
-   
 
             <form action="" method="post" class="navbar-form navbar-right" role="search">
               <div class="form-group">
@@ -247,6 +215,7 @@ include("carrito.php");
 
 
       </section>
+      
      <?php if($mensaje!=""){?>
       <div class="alert alert-success">
         <?php echo $mensaje; ?>
