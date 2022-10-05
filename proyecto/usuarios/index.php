@@ -186,78 +186,7 @@ include("headerindex.php");
                 <li><a href="#">Floristería</a></li>
                 <li><a href="#"></a></li>
 
-<<<<<<< HEAD
-              </ul>
-            </li>
 
-
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Destacados<b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Bisutería</a></li>
-                <li><a href="#">Joyería</a></li>
-                <li><a href="#">Tecnología</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Licor Artesanal</a></li>
-                <li class="divider"></li>
-                <li><a href="#"></a></li>
-              </ul>
-            </li>
-          </ul>
-
-          <ul class="nav navbar-nav navbar-left">
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Información de Interés<b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="paginas/team_startshop.php">Team StartShop</a></li>
-
-                <li><a href="paginas/contacto.php">Contáctanos</a></li>
-
-              </ul>
-            </li>
-          </ul>
-
-
-          <ul class="nav navbar-nav navbar-left">
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                LOREM IPSUM<b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="">Team StartShop</a></li>
-
-                <li><a href="">Contáctanos</a></li>
-
-              </ul>
-            </li>
-          </ul>
-          </li>
-          </ul>
-
-
-
-
-          <form action="" method="post" class="navbar-form navbar-right" role="search">
-            <div class="form-group">
-              <input onkeyup="buscar_ahora($('#busqueda').val());" type="text" class="form-control" placeholder="Buscar..." name="busqueda" id="busqueda">
-            </div>
-            <button type="submit" class="btn btn-default glyphicon glyphicon-search" name="enviar"></button>
-          </form>
-        </div>
-      </nav>
-
-
-
-    </section>
-    <?php if ($mensaje != "") { ?>
-=======
                 </ul>
               </li>
 
@@ -297,7 +226,7 @@ include("headerindex.php");
       </section>
       
      <?php if($mensaje!=""){?>
->>>>>>> 1897aff83fe8889fb4aa2e0244b6cf83c37a1455
+
       <div class="alert alert-success">
         <?php echo $mensaje; ?>
       </div>

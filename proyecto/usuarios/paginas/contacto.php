@@ -96,15 +96,15 @@ include("../headerindex.php");
 
 <body class="hold-transition skin-yellow sidebar-mini">
 
- <!-- Left side column. contains the logo and sidebar -->
- <aside class="main-sidebar">
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-        <?php echo '<img src="data:image/jpg;base64, '.base64_encode($datos['imagen_usuario']).'"  class="img-circle"  /> ' 
-        ?>
+          <?php echo '<img src="data:image/jpg;base64, ' . base64_encode($datos['imagen_usuario']) . '"  class="img-circle"  /> '
+          ?>
         </div>
         <div class="pull-left info">
           <p><?php echo $datos['nombre'] . " " . $datos['apellidos']; ?></p>
@@ -125,8 +125,8 @@ include("../headerindex.php");
           </a>
           <ul class="treeview-menu">
 
-          <li class="active"><a href="team_startshop.php"><i class="glyphicon glyphicon-gift"></i>Team StartShop</a></li>
-          <li class="active"><a href="contacto.php"><i class="glyphicon glyphicon-earphone"></i>Contáctanos</a></li>
+            <li class="active"><a href="team_startshop.php"><i class="glyphicon glyphicon-gift"></i>Team StartShop</a></li>
+            <li class="active"><a href="contacto.php"><i class="glyphicon glyphicon-earphone"></i>Contáctanos</a></li>
 
           </ul>
 
@@ -134,184 +134,215 @@ include("../headerindex.php");
 
 
 
-      
+
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
 
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <nav class="navbar navbar-inverse" role="navigation">
-          <!-- El logotipo y el icono que despliega el menú se agrupan
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <nav class="navbar navbar-inverse" role="navigation">
+        <!-- El logotipo y el icono que despliega el menú se agrupan
        para mostrarlos mejor en los dispositivos móviles -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-              <span class="sr-only">Desplegar navegación</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Desplegar navegación</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
 
-            </a>
+          </a>
 
-          </div>
+        </div>
 
-          <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+        <!-- Agrupar los enlaces de navegación, los formularios y cualquier
        otro elemento que se pueda ocultar al minimizar la barra -->
-          <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-              <li class=""><a href="../index.php">Shop</a></li>
-              <li><a href="#">Novedades</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Servicios <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Restaurante</a></li>
-                  <li><a href="#">Repostería</a></li>
-                  <li><a href="#">Modistería</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Floristería</a></li>
-                  <li><a href="#"></a></li>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li class=""><a href="../index.php">Shop</a></li>
+            <li><a href="#">Novedades</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Servicios <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Restaurante</a></li>
+                <li><a href="#">Repostería</a></li>
+                <li><a href="#">Modistería</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Floristería</a></li>
+                <li><a href="#"></a></li>
 
-                </ul>
-              </li>
-
-
-
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Destacados<b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Bisutería</a></li>
-                  <li><a href="#">Joyería</a></li>
-                  <li><a href="#">Tecnología</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Licor Artesanal</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#"></a></li>
-                </ul>
-              </li>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-left">
-
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Información de Interés<b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="team_startshop.php">Team StartShop</a></li>
-
-                  <li><a href="contacto.php">Contáctanos</a></li>
-
-                </ul>
-              </li>
-            </ul>
-
-
-
+              </ul>
             </li>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-left">
-
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Hola<b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="">Team StartShop</a></li>
-
-                  <li><a href="">Contáctanos</a></li>
-
-                </ul>
-              </li>
-            </ul>
 
 
-            <form action="" method="get" class="navbar-form navbar-right" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Buscar" name="busqueda">
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Destacados<b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Bisutería</a></li>
+                <li><a href="#">Joyería</a></li>
+                <li><a href="#">Tecnología</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Licor Artesanal</a></li>
+                <li class="divider"></li>
+                <li><a href="#"></a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-left">
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Información de Interés<b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="team_startshop.php">Team StartShop</a></li>
+
+                <li><a href="contacto.php">Contáctanos</a></li>
+
+              </ul>
+            </li>
+          </ul>
+
+
+
+          </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-left">
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Hola<b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="">Team StartShop</a></li>
+
+                <li><a href="">Contáctanos</a></li>
+
+              </ul>
+            </li>
+          </ul>
+
+
+          <form action="" method="get" class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Buscar" name="busqueda">
+            </div>
+            <button type="submit" class="btn btn-default glyphicon glyphicon-search" name="enviar"></button>
+          </form>
+
+
+        </div>
+      </nav>
+
+
+
+
+
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="wrap">
+        <div class="row col-lg-5">
+          <div class="col-7 col-sm-6 col-lg-5">
+            <img src="https://cdn.glitch.me/aa746bf3-a6c3-4002-b05c-06b267451fe0%2Fundraw_message_sent_re_q2kl.svg?v=1635881296678" width="300px" height="300px" />
+          </div>
+        </div>
+        <div class="row col-lg-5">
+
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="ejemplo_email_3" class="col-lg-2 control-label">correo</label>
+              <div class="col-lg-10">
+                <input type="email" class="form-control" id="ejemplo_email_3" placeholder="ejemplo_email@gmail.com">
               </div>
-              <button type="submit" class="btn btn-default glyphicon glyphicon-search" name="enviar"></button>
-            </form>
+            </div>
+            <div class="form-group">
+              <label for="ejemplo_password_3" class="col-lg-2 control-label">Comentario</label>
+              <div class="col-lg-10">
+                <textarea class="form-control" rows="3" placeholder="Quisiera ..."></textarea>
+              </div>
+            </div>
+            <div class="form-group container mt-5 mb-5">
+              <div class="col-lg-offset-2 col-lg-10">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </div>
+            </div>
 
+          </form>
 
-          </div>
-        </nav>
+        </div>
 
-
-
-
-
-      </section>
-
-      <!-- Main content -->
-      <section class="content">
-
-        <div class="container mt-5 mb-5 text-center" id="contactos">
-          <h4>
-            AQUI NOS VEMOS
-          </h4>
+        <div class="row col-lg-5">
+          <h3>
+            acercate y disfruta de la mejor experiencia que tiene tu papeleria de confianza
+          </h3>
           <p>
-            Cl. 19 #18-105
-            Cl. 19 #18-105, Yarumal, Antioquia
+            la ardilla de oro tiene una gran variedad de utilidades para que tu aprendizaje sea algo mas divertido.
           </p>
-          <div class="responsive-iframe">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.3895258640277!2d-75.41857824978023!3d6.9632920949447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44f3ec2f86ec2b%3A0x639374d89ffee331!2sCl.%2019%20%2318-105%2C%20Yarumal%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1635842750039!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-          </div>
         </div>
-      </section>
-      <main>
-        <div class="container mt-5 mb-5">
-          <div class="row">
-            <div class="col-12 col-sm-6 col-lg-5">
-              <img src="https://cdn.glitch.me/aa746bf3-a6c3-4002-b05c-06b267451fe0%2Fundraw_message_sent_re_q2kl.svg?v=1635881296678" width="400px" height="400px" />
+
+        <div class="row col-lg-9">
+
+          <div class="container mt-5 mb-5 text-center" id="contactos">
+            <div class="responsive-iframe">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.3895258640277!2d-75.41857824978023!3d6.9632920949447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44f3ec2f86ec2b%3A0x639374d89ffee331!2sCl.%2019%20%2318-105%2C%20Yarumal%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1635842750039!5m2!1ses!2sco" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <div class="col-12 col-sm-6">
-              <h3>
-                acercate y disfruta de la mejor experiencia que tiene tu papeleria de confianza
-              </h3>
-              <p>
-                la ardilla de oro tiene una gran variedad de utilidades para que tu aprendizaje sea algo mas divertido.
-              </p>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">CORREO ELECTRONICO</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">INQUIETUD</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            <button type="submit" class="btn btn-primary mt-2">Enviar</button>
+
           </div>
         </div>
 
-        </section>
 
 
-
-
-
-        <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-      <div class="pull-right hidden-xs">
-        <b>Version</b> 2.3.8
       </div>
-      <strong>Copyright &copy; 2022 <a href="http://localhost/startshop/usuarios/index.php">STARTSHOP</a>.</strong> All rights
-      reserved.
-    </footer>
 
-    <div class="control-sidebar-bg"></div>
+
+
+  </section>
+
+  <div class="container mt-5 mb-5">
+
+
+
+
+
+  </div>
+
+
+
+  </div>
+
+  </section>
+  </main>
+
+
+
+
+
+  <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.3.8
+    </div>
+    <strong>Copyright &copy; 2022 <a href="http://localhost/startshop/usuarios/index.php">STARTSHOP</a>.</strong> All rights
+    reserved.
+  </footer>
+
+  <div class="control-sidebar-bg"></div>
   </div>
   <!-- ./wrapper -->
 

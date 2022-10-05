@@ -260,7 +260,7 @@ include("../headerindex.php");
 
               <p> Es un chico con grandes aspiraciones,
                 cursa el grado 11 y actualmente está terminando
-                la media técnica en infromática. quiere seguir aprendiendo sobre el
+                la media técnica en informática. quiere seguir aprendiendo sobre el
                 mundo de la programación </p>
 
             </div>
