@@ -1,8 +1,6 @@
 <?php
-include("../php/bd.php");
-$con = conectar();
-
-include("carrito.php");
+include '../php/bd.php';
+include 'carrito.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,6 +20,8 @@ include("carrito.php");
 <body>
 <div class="container">
     <h1>Shopping Cart</h1>
+    <br>
+    
     <?php if(!empty($_SESSION['CARRITO'])) { ?>
     <table class="table table-light table-bordered">
     <tbody>
@@ -60,18 +60,41 @@ include("carrito.php");
             <td align="right"><h3><?php echo number_format($total,2);?></h3></td>
             <td></td>
         </tr>
+            <td colspan="5">
+                <form action="pagar.php" method="POST">
+                <div class="alert alert-success">    
+                <div class="form-group">
+                    <label for="my-input">Correo de contacto:</label>
+                    <input id="email" name="email" class="form-control" type="email" placeholder="Por favor escribe tu correo" required>
+                </div>
+                <small id="emailHelp" class="form-text text-muted">
+                    La factura se enviara a este correo.
+
+                </small>
+                </div>
+
+                <button class="btn btn-primary btn-lg btn-block" type="submit" name="btnAccion" value="proceder"><i class="glyphicon glyphicon-menu-left"></i>
+                 proceder
+                </button>
+                </form>
+
+
+            </td>
+        <tr>
+
+        </tr>
     </tbody>
     <tfoot>
         <tr>
-            <td><a href="../usuarios/index.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Regresar</a></td>
+            <td><a href="../usuarios/index.php" class="btn btn-warning btn-lg "><i class="glyphicon glyphicon-menu-left"></i> Regresar</a></td>
             <td colspan="2"></td>
             <td></td>
-            <td><a href="#" class="btn btn-success btn-block">Continuar<i class="glyphicon glyphicon-menu-right"></i></a></td>
-        </tr>
+            
+         </tr>
     </tfoot>
     </table>
     <?php }else{?>
-
+        
         <div class="alert alert-success">
 
         no hay productos en el carrito...

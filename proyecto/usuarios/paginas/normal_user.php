@@ -126,21 +126,21 @@ $con = conectar();
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../dist/img/starshop.png" class="img-circle" /> '
+        <img src="../dist/img/usuario.png" class="img-circle">
 
         </div>
         <div class="pull-left info">
-          <p></p>
+          <p>Usuario</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">Apoyamos el emprendimiento</li>
+        <li class="header">MENU DE NAVEGACION</li>
 
         <li class="active treeview">
           <a href="#">
-            <i class="glyphicon glyphicon-shopping-cart"></i> <span>Información de interés </span>
+            <i class="glyphicon glyphicon-shopping-cart"></i> <span>Información</span>
 
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -148,7 +148,7 @@ $con = conectar();
           </a>
           <ul class="treeview-menu">
 
-          <li class="active"><a href="team_startshopv.php"><i class="glyphicon glyphicon-gift"></i>Team StartShop</a></li>
+          <li class="active"><a href="team_startshopv.php"><i class="glyphicon glyphicon-gift"></i>Team</a></li>
           <li class="active"><a href="contactov.php"><i class="glyphicon glyphicon-earphone"></i>Contáctanos</a></li>
 
           </ul>
@@ -225,44 +225,6 @@ $con = conectar();
               </ul>
             </li>
           </ul>
-
-          <ul class="nav navbar-nav navbar-left">
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Información de Interés<b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="team_startshopv.php">Team StartShop</a></li>
-
-                <li><a href="contacto.php">Contáctanos</a></li>
-
-              </ul>
-            </li>
-          </ul>
-
-
-
-
-
-          </li>
-          </ul>
-
-          <ul class="nav navbar-nav navbar-left">
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Perreo HOTa<b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="">Team StartShop</a></li>
-
-                <li><a href="">Contáctanos</a></li>
-
-              </ul>
-            </li>
-          </ul>
-
 
           <form action="" method="get" class="navbar-form navbar-right" role="search">
             <div class="form-group">
