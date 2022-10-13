@@ -24,7 +24,26 @@ if ($row = mysqli_fetch_array($resulta)) {
 }
 
 
+//enviar mensaje o inquietud
 
+if (isset($_POST['enviar_comentario'])) {
+ 
+  $correo = $_POST['correo'];
+  $fecha = $_POST['hora'];
+  $mensaje = $_POST['mensaje'];
+
+  $insertar_mensaje = "INSERT INTO contactanos (id_mensaje, id_usuario,correo, mensaje,fecha_mensaje )values('', '$uss', '$correo', '$mensaje' , '$fecha')";
+  $resu = mysqli_query($con, $insertar_mensaje);
+
+  if ($resu) {
+    echo "<script language=\"JavaScript\">\n";
+    echo "alert(' Comentario enviado correctamente');\n";
+    echo "</script>";
+    echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL= paginas/contacto.php'>";
+    mysqli_close($con);
+    exit;
+  }
+}
 
 $mensaje="";
 
@@ -117,6 +136,7 @@ if(isset($_POST['btnAccion'])){
 }    
 
 }
+
 
 
 ?>

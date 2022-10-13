@@ -1,6 +1,9 @@
 <?php
 
 
+
+
+
 include("../headerindex.php");
 ?>
 
@@ -261,23 +264,33 @@ include("../headerindex.php");
           </div>
         </div>
         <div class="row col-lg-5">
+          <?php 
+            date_default_timezone_set('America/Bogota');  
+            $DateAndTime = date("Y-m-d H:i:s ");  
+            ?>
 
-          <form class="form-horizontal" role="form">
+          <form action="../headerindex.php" method="post" class="form-horizontal" role="form">
             <div class="form-group">
+
+          
+                <input type="hidden" name="hora" value="<?= $DateAndTime ?>" class="form-control" id="ejemplo_email_3" placeholder="ejemplo_email@gmail.com">
+             
+
               <label for="ejemplo_email_3" class="col-lg-2 control-label">correo</label>
+
               <div class="col-lg-10">
-                <input type="email" class="form-control" id="ejemplo_email_3" placeholder="ejemplo_email@gmail.com">
+                <input type="email" required name="correo" class="form-control" id="ejemplo_email_3" placeholder="ejemplo_email@gmail.com">
               </div>
             </div>
             <div class="form-group">
               <label for="ejemplo_password_3" class="col-lg-2 control-label">Comentario</label>
               <div class="col-lg-10">
-                <textarea class="form-control" rows="3" placeholder="Quisiera ..."></textarea>
+                <textarea class="form-control" required rows="3" name="mensaje" placeholder="Quisiera ..."></textarea>
               </div>
             </div>
             <div class="form-group container mt-5 mb-5">
               <div class="col-lg-offset-2 col-lg-10">
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button name="enviar_comentario" type="submit" class="btn btn-primary">Enviar</button>
               </div>
             </div>
 
@@ -286,46 +299,27 @@ include("../headerindex.php");
         </div>
 
         <div class="row col-lg-5">
-          <h3>
-            acercate y disfruta de la mejor experiencia que tiene tu papeleria de confianza
-          </h3>
-          <p>
-            la ardilla de oro tiene una gran variedad de utilidades para que tu aprendizaje sea algo mas divertido.
-          </p>
+          <center>
+            <h3>
+              Ingresa un correo para eneviarte una respuesta
+            </h3>
+          </center>
+          <center>
+            <p>
+
+            </p>
+          </center>
         </div>
 
-        <div class="row col-lg-9">
-
-          <div class="container mt-5 mb-5 text-center" id="contactos">
-            <div class="responsive-iframe">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.3895258640277!2d-75.41857824978023!3d6.9632920949447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44f3ec2f86ec2b%3A0x639374d89ffee331!2sCl.%2019%20%2318-105%2C%20Yarumal%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1635842750039!5m2!1ses!2sco" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-
-          </div>
-        </div>
-
+        <br>
 
 
       </div>
 
 
-
   </section>
 
-  <div class="container mt-5 mb-5">
-
-
-
-
-
-  </div>
-
-
-
-  </div>
-
-  </section>
-  </main>
+ 
 
 
 

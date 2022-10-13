@@ -40,29 +40,6 @@ include("header.php");
         </div>
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-<<<<<<< HEAD
-          <li class="header">Disfruta tu espacio</li>
-
-          <li class="active treeview">
-            <a href="#">
-              <i class="glyphicon glyphicon-shopping-cart"></i> <span>Mi tienda</span>
-
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-
-              <li class="active"><a href="index.php"><i class="fa fa-table"></i> Productos</a></li>
-              <li class="active"><a href="inventario.php"><i class="fa fa-circle-o"></i> Inventarios</a></li>
-             
-            </ul>
-
-          </li>
-
-        <li class="header">REPORTES</li>
-        <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
-=======
         <li class="header">MENU DE NAVEGACION</li>
         
         <li class="active treeview">
@@ -76,12 +53,12 @@ include("header.php");
           <ul class="treeview-menu">
           <li class="active"><a href="index.php"><i class="fa fa-table"></i> Productos</a></li>
             <li class="active"><a href="inventario.php"><i class="glyphicon glyphicon-folder-close"></i> Inventarios</a></li>
+            <li class="active"><a href="contacto.php"><i class="glyphicon glyphicon-earphone"></i>Contactanos</a></li>
           </ul>
         </li>
 
         <li class="header">REPORTES</li>
-        <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-signal"></i> Estadisticas</a></li>
->>>>>>> 1897aff83fe8889fb4aa2e0244b6cf83c37a1455
+        <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
       </ul>
 
     </section>
@@ -156,19 +133,19 @@ $datos=$con->query($sql);*/
         <div class="col-md-6">
           <div class="form-group">
             <label for="">Nombres</label>
-            <input type="text" max="20" class="form-control" name="name_producto" placeholder="Ingrese el nombre del producto">
+            <input type="text" max="20" required  class="form-control" name="name_producto" placeholder="Ingrese el nombre del producto">
           </div>
 
             <div class="form-group">
             <label for="">Precio</label>
-            <input type="number" class="form-control" name="precio" placeholder="Ingrese el precio del producto">
+            <input type="number" class="form-control" required name="precio" placeholder="Ingrese el precio del producto">
       </div> 
           </div> 
 
         <div class="col-md-6">
           <div class="form-group">
             <label for="">descuento</label>
-            <input type="number" class="form-control" name="descuento" placeholder="Ingrese el descuento del producto">
+            <input type="number" class="form-control" required name="descuento" placeholder="Ingrese el descuento del producto">
       </div> 
            
       
@@ -197,14 +174,14 @@ $datos=$con->query($sql);*/
           <div class="col-md-6">
           <div class="form-group">
             <label for="">Stock</label>
-            <input type="number" class="form-control" name="stock" placeholder="Ingrese la cantidad de productos">
+            <input type="number" class="form-control" required name="stock" placeholder="Ingrese la cantidad de productos">
       </div> 
     </div>
 
     <div class="col-md-6">
           <div class="form-group">
             <label for="">Fecha</label>
-            <input type="date" class="form-control" min="2022-09-10" name="fecha_creacion" placeholder="Ingrese el codigo del producto">
+            <input type="date" class="form-control" required min="2022-09-10" name="fecha_creacion" placeholder="Ingrese el codigo del producto">
     
     <!--<input type="date" id="start" name="trip-start"
     value="2018-07-22"
@@ -215,7 +192,7 @@ $datos=$con->query($sql);*/
     <div class="col-md-12">
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Descripcion</label>
-            <textarea class="form-control" type="text" id="exampleFormControlTextarea1" rows="3" name="descripcion" placeholder="Ingrese la descripcion del producto"></textarea>
+            <textarea class="form-control" type="text" required id="exampleFormControlTextarea1" rows="3" name="descripcion" placeholder="Ingrese la descripcion del producto"></textarea>
       </div>   
     </div>
 
@@ -223,7 +200,7 @@ $datos=$con->query($sql);*/
     <div class="form-group">
 			        <label class="col-sm-2 control-label">Sube una imagen para mostrar en tu perfil</label>
 			        <div class="col-sm-8">
-			        <input type="file" class="form-control" name="imagen_articulo" multiple >
+			        <input type="file" class="form-control" required name="imagen_articulo" multiple >
 		</div>
     </div>
     </div>

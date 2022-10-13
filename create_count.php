@@ -83,7 +83,7 @@
         <input type="text" name="name_usuario"  minlength="3" maxlength="15">
 
         <label for="Contraseña">CONTRASEÑA DEL USUARIO</label>
-        <input type="password" name="password_usuario"  minlength="7" maxlength="15" required>
+        <input type="password" name="password_usuario"  minlength="7" maxlength="100" required>
         
 
         

@@ -198,7 +198,7 @@ include("../header.php");
                         </li>
                     </ul>
 
-                   
+
 
                     <ul class="nav navbar-nav navbar-left">
 
@@ -235,53 +235,76 @@ include("../header.php");
 
         <!-- Main content -->
         <section class="content">
+        <div class="wrap">
+        <div class="row col-lg-5">
+          <div class="col-7 col-sm-6 col-lg-5">
+            <img src="https://cdn.glitch.me/aa746bf3-a6c3-4002-b05c-06b267451fe0%2Fundraw_message_sent_re_q2kl.svg?v=1635881296678" width="300px" height="300px" />
+          </div>
+        </div>
+        <div class="row col-lg-5">
 
-            <div class="container mt-5 mb-5 text-center" id="contactos">
-                <h4>
-                    AQUI NOS VEMOS
-                </h4>
-                <p>
-                    Cl. 19 #18-105
-                    Cl. 19 #18-105, Yarumal, Antioquia
-                </p>
-                <div class="responsive-iframe">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.3895258640277!2d-75.41857824978023!3d6.9632920949447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44f3ec2f86ec2b%3A0x639374d89ffee331!2sCl.%2019%20%2318-105%2C%20Yarumal%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1635842750039!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
+        <?php 
+            date_default_timezone_set('America/Bogota');  
+            $DateAndTime = date("Y-m-d H:i:s ");  
+            ?>
+
+          <form action="" method="post" class="form-horizontal" role="form">
+            <div class="form-group">
+
+          
+                <input type="hidden" name="hora" value="<?= $DateAndTime ?>" class="form-control" id="ejemplo_email_3" placeholder="ejemplo_email@gmail.com">
+             
+
+              <label for="ejemplo_email_3" class="col-lg-2 control-label">correo</label>
+
+              <div class="col-lg-10">
+                <input type="email" required name="correo" class="form-control" id="ejemplo_email_3" placeholder="ejemplo_email@gmail.com">
+              </div>
             </div>
+            <div class="form-group">
+              <label for="ejemplo_password_3" class="col-lg-2 control-label">Comentario</label>
+              <div class="col-lg-10">
+                <textarea class="form-control" required rows="3" name="mensaje" placeholder="Quisiera ..."></textarea>
+              </div>
+            </div>
+            <div class="form-group container mt-5 mb-5">
+              <div class="col-lg-offset-2 col-lg-10">
+ 
+                <a href="../../../index.php" style="color: #000; text-decoration: none;"> <button name="enviar_comentario" type="button" class="btn btn-primary" >Enviar</button> </a>
+
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+
+        <div class="row col-lg-5">
+          <center>
+            <h3>
+              Ingresa un correo para eneviarte una respuesta
+            </h3>
+          </center>
+          <center>
+            <p>
+
+            </p>
+          </center>
+        </div>
+
+        <br>
+
+
+      </div>
+
+
         </section>
-        <main>
-            <div class="container mt-5 mb-5">
-                <div class="row">
-                    <div class="col-12 col-sm-6 col-lg-5">
-                        <img src="https://cdn.glitch.me/aa746bf3-a6c3-4002-b05c-06b267451fe0%2Fundraw_message_sent_re_q2kl.svg?v=1635881296678" width="400px" height="400px" />
-                    </div>
-                    <div class="col-12 col-sm-6">
-                        <h3>
-                            acercate y disfruta de la mejor experiencia que tiene tu papeleria de confianza
-                        </h3>
-                        <p>
-                            la ardilla de oro tiene una gran variedad de utilidades para que tu aprendizaje sea algo mas divertido.
-                        </p>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">CORREO ELECTRONICO</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">INQUIETUD</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    <button type="submit" class="btn btn-primary mt-2">Enviar</button>
-                </div>
-            </div>
-
-            </section>
 
 
 
 
 
-            <!-- /.content -->
+        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">

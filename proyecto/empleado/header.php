@@ -1,7 +1,5 @@
 <?php
 include("../php/bd.php");
-
-
 $con = conectar();
 
 session_start();
@@ -27,6 +25,32 @@ $id = $datos['id_usuario'];
 
 $query = "SELECT * FROM articulo WHERE id_usuario = '$id'";
 $resulta = mysqli_query($con, $query);
+
+
+
+
+
+//enviar mensaje o inquietud
+
+if (isset($_POST['enviar_comentario'])) {
+ 
+  $correo = $_POST['correo'];
+  $fecha = $_POST['hora'];
+  $mensaje = $_POST['mensaje'];
+  
+
+  $insertar_mensaje = "INSERT INTO contactanos (id_mensaje, id_usuario,correo, mensaje,fecha_mensaje )values('', '$uss', '$correo', '$mensaje' , '$fecha')";
+  $resu = mysqli_query($con, $insertar_mensaje);
+
+  if ($resu) {
+    echo "<script language=\"JavaScript\">\n";
+    echo "alert(' Comentario enviado correctamente');\n";
+    echo "</script>";
+    echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL= contacto.php'>";
+    mysqli_close($con);
+    exit;
+  }
+}
 
 /*$query="SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'"; 
         $resulta=mysqli_query($con,$query);
