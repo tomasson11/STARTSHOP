@@ -1,6 +1,6 @@
 <?php
 
-include ("../php/bd.php");
+include ("../php/config.php");
 $con=conectar();
 
 session_start();

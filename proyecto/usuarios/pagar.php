@@ -19,44 +19,14 @@ include ("carrito.php");
 </body>
 </html>
 <?php
-if($_POST){
+$total=0;
+foreach($_SESSION['CARRITO'] as $indice=>$producto){
 
-    $total=0;
-    $SID=session_id();
-    $Correo=$_POST['email'];
-
-    foreach($_SESSION['CARRITO'] as $indice=>$producto){
-
-        $total=$total+($producto['PRECIO']*$producto['CANTIDAD']);
-
-    }
-
-        $sentencia = $pdo->prepare("INSERT INTO venta (id_venta, id_usuario, clavetransaccion, paypaldatos, fecha, correo, total, status_ve) 
-        VALUES (NULL, '15', :ClaveTransaccion, '', NOW(), :Correo, :Total, 'pendiente');");
-
-        $sentencia->bindParam(":ClaveTransaccion", $SID);
-        $sentencia->bindParam(":Correo", $Correo);
-        $sentencia->bindParam(":Total", $total);
-        $sentencia->execute();
-        $idVenta=$pdo->lastInsertId() ;
-
-        foreach($_SESSION['CARRITO'] as $indice=>$producto){
-
-        $sentencia=$pdo->prepare("INSERT INTO detalle_venta (id_detalle_venta, id_venta, id_articulo, cantidad, precio, adquirido) 
-        VALUES (NULL,:IDVENTA, :IDPRODUCTO, :cantidad, :precio, '0');");
-
-        $sentencia->bindParam(":IDVENTA", $idVenta);
-        $sentencia->bindParam(":IDPRODUCTO", $producto['ID']);
-        $sentencia->bindParam(":cantidad", $producto['CANTIDAD']);
-        $sentencia->bindParam(":precio", $producto['PRECIO']);
-        $sentencia->execute();
-
-        }
+$total=$total+($producto['PRECIO']*$producto['CANTIDAD']);
 
 }
 ?>
-
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AV8BqABniBMpfvjum0FFpMVftTNzFT5NUqmbgZVbtlbpXLsC7tAmglg_tuWvLmVqrgBzKRVDh1K3Mo6G&currency=USD"></script>
 
 <style>
 
@@ -90,46 +60,41 @@ if($_POST){
 
 <script>
 
-    paypal.button.render({
-
-    env: 'sandbox', //sandbox | production
-
-    style:{
-        label: 'checkout',
-        size: 'responsive',
+paypal.Buttons({
+       style:{
         shape: 'pill',
-        color: 'gold'
-    },
+        label: 'pay',
+       },
 
-    client: {
-        sandbox: 'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXLewfBP4-8aqX3PiV8e1GWU6LiB2CUXLkA59kJXE7M6R',
-        production: '<insert production client id>'
-    },
+       createOrder: function(data,actions){
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: <?php echo $total;?>
+              
+            }
+          }]
+        })
+       },
+       onApprove: function(data,actions){
+        let URL ='validar.php'
+          actions.order.capture().then(function (detalles){
 
-    paymen: function(data, actions){
-        return actions.payment.create({
-            paymen: {
-                transactions: [
-                    {
-                        amount: {total: '<?php echo $total;?>', currency: 'USD'}
-                      }
-                    ]
-                }
+            console.log(detalles)
 
-            });
-    },
-    
-    onAuthorize: function(data, actions){
-        return actions.payment.execute().then(function() {
-            window.alert('Payment complete!');
+            window.location="validar.php?id="+detalles.id+"&status="+detalles.status+"&creacion="+detalles.create_time+"&email="+detalles.payer.email_address+"&nombre="+detalles.payer.name.given_name+"&apellido="
+            +detalles.payer.name.surname+"&id_cliente="+detalles.payer.payer_id
         });
-    }
-},   '#paypal-button-container');
 
-</script>
+       },
 
-
-
+       onCancel: function(data){
+        alert("Pago cancelado");
+        console.log(data);
+       }
+      
+            
+      }).render('#paypal-button-container');
 
 </script>
 

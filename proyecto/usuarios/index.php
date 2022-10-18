@@ -211,7 +211,7 @@ include("headerindex.php");
 
             <form action="" method="post" class="navbar-form navbar-right" role="search">
               <div class="form-group">
-                <input onkeyup="buscar_ahora($('#busqueda').val());" type="text" class="form-control" placeholder="Buscar..." name="busqueda" id="busqueda">
+                <input class="form-control" placeholder="Buscar..." name="buscar" onkeyup="buscar_ahora($('#buscar').val());" id="buscar" type="search">
               </div>
               <button type="submit" class="btn btn-default glyphicon glyphicon-search" name="enviar"></button>
             </form>
@@ -222,12 +222,6 @@ include("headerindex.php");
 
       </section>
       
-     <?php if($mensaje!=""){?>
-      <div class="alert alert-success">
-        <?php echo $mensaje; ?>
-      </div>
-    <?php } ?>
-
     <!-- Main content -->
     <section class="content">
       <div class="main">
@@ -235,20 +229,20 @@ include("headerindex.php");
 
           <div id="datos_buscador"></div>
 
+          
+
 
         </div>
     </section>
 
 
     <script type="text/javascript">
-      function buscar_ahora(busqueda) {
-        var parametros = {
-          "busqueda": busqueda
-        };
+      function buscar_ahora(buscar) {
+        var parametros = {"buscar":buscar};
         $.ajax({
           data: parametros,
           type: 'POST',
-          url: 'buscador.php',
+          url: 'buscador.php?buscar=',
           success: function(data) {
             document.getElementById("datos_buscador").innerHTML = data;
           }

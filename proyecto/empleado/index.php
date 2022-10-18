@@ -137,7 +137,7 @@ include("header.php");
 
                             <a href="php/eliminar_producto.php? id=<?php echo $mostrar['id_articulo'] ?> id_estado=<?php echo $mostrar['id_estado'] ?>" class="btn btn-danger glyphicon glyphicon-trash"></a>
 
-                            <a href="php/estado.php? id=<?php echo $mostrar['id_articulo'] ?>" class="btn btn-warning" name="cambiar_estado">estado</a>
+                            <a href="php/estado.php? id=<?php echo $mostrar['id_articulo']?>&estado=<?php echo $mostrar['id_estado']?>" class="btn btn-warning" name="cambiar_estado">estado</a>
 
 
 

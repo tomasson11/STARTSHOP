@@ -6,7 +6,7 @@ include("../header.php");
 
 
 
-include("../../php/bd.php");
+include("../../php/config.php");
 $con = conectar();
 
 

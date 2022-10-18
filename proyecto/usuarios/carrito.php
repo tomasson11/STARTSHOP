@@ -1,3 +1,4 @@
+
 <?php 
 session_start();
 
@@ -66,7 +67,17 @@ if(isset($_POST['btnAccion'])){
                 $mensaje= "Producto agregado al carrito";
                }
             }
-            // $mensaje= print_r($_SESSION, true);
+            if(isset($producto['CANTIDAD'])){
+                $id=$producto['ID'];
+                $cuantos=$producto['CANTIDAD'];
+                if($cuantos<1){
+                    $_SESSION['CARRITO']['ID'];
+                }else{
+                    $_SESSION['CARRITO'][$id]['CANTIDAD']=$cuantos;
+        
+        
+                }
+            }
             
 
         break;
@@ -87,10 +98,12 @@ if(isset($_POST['btnAccion'])){
 
             }
 
-        break;    
-
+        break;  
+        
 }    
 
 }
+
+
 
 ?>
