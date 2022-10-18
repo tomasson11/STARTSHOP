@@ -37,9 +37,10 @@ if (isset($_POST['enviar_comentario'])) {
   $correo = $_POST['correo'];
   $fecha = $_POST['hora'];
   $mensaje = $_POST['mensaje'];
+  $ids="$id";
   
 
-  $insertar_mensaje = "INSERT INTO contactanos (id_mensaje, id_usuario,correo, mensaje,fecha_mensaje )values('', '$uss', '$correo', '$mensaje' , '$fecha')";
+  $insertar_mensaje = "INSERT INTO `contactanos`(`id_mensaje`, `id_usuario`, `correo`, `mensaje`, `fecha_mensaje`)values('', '$ids', '$correo', '$mensaje' , '$fecha')";
   $resu = mysqli_query($con, $insertar_mensaje);
 
   if ($resu) {

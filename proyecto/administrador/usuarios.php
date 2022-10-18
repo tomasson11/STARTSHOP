@@ -212,6 +212,7 @@ include("headeradmin.php");
                   <thead>
                     <tr>
                       <th class="success">NI</th>
+                      <th class="success">TE</th>
                       <th class="success">ROL</th>
                       <th class="success">NOMBRE</th>
                       <th class="success">APELLIDOS</th>
@@ -220,7 +221,7 @@ include("headeradmin.php");
                       <th class="success">FEC. NACIMIENTO</th>
                       <th class="success">DIRECCION</th>
                       <th class="success">TELEFONO</th>
-                      <th class="success">EMAIL</th>
+               
                       <th class="success">ACCIONES</th>
                  
                     </tr>
@@ -235,6 +236,7 @@ include("headeradmin.php");
 
                     <tr>
                       <td><?php echo $mostrar['id_usuario']; ?></td>
+                      <td><?php echo $mostrar['id_estado']; ?></td>
                       <td ><?php echo $mostrar['tipo_rol']; ?></td>
                       <td><?php echo $mostrar['nombre']; ?></td>
                       <td><?php echo $mostrar['apellidos']; ?></td>
@@ -243,7 +245,7 @@ include("headeradmin.php");
                       <td><?php echo $mostrar['fecha_nacimiento']; ?></td>
                       <td><?php echo $mostrar['direccion']; ?></td>
                       <td><?php echo $mostrar['telefono']; ?></td>
-                      <td><?php echo $mostrar['email']; ?></td>
+                   
                      
                   
                 <td>
@@ -251,11 +253,12 @@ include("headeradmin.php");
         
                                     
 
-                            <a href="php/eliminar_producto.php? id=<?php echo $mostrar['id_articulo'] ?>"
-                            class="btn btn-danger glyphicon glyphicon-trash"></a>
+                            
 
-                            <a href="php/estado.php? id=<?php echo $mostrar['id_articulo'] ?>"
-                            class="btn btn-warning" name="cambiar_estado">estado</a>
+                            <a href="editar_usuario.php? id_usuario=<?php echo $mostrar['id_usuario']; ?> "  class="btn btn-info">Editar</a>
+             
+                          
+                          
 
                            
                             

@@ -60,128 +60,124 @@ if (empty($_REQUEST['id'])) {
 
   if (isset($_POST['guardar_cambios'])) {
 
+    if (empty($_FILES['imagen_articulo']['tmp_name'])) {
+      $id = "";
+      $categoria = "";
+      $descuento = "";
+      $nombre = "";
+      $precio = "";
+      $stock = "";
+      $fecha = "";
+      $descripcion = "";
 
-        if (isset ( $_FILES [ 'imagen_articulo' ][ 'tmp_name' ])) {
-          $id = "";
-          $categoria = "";
-          $descuento = "";
-          $nombre = "";
-          $precio = "";
-          $stock = "";
-          $fecha = "";
-          $descripcion = "";
-          $e = "";
-          $imagen = "";
-          $estado = 1;
-          $id_articulo = $id;
-          $id_usuario = $id1;
-      
-          if ($_POST) {
-            $id = $_POST['id'];
-            $categoria = $_POST['categoria_producto'];
-            $descuento = $_POST['descuento'];
-            $nombre = $_POST['name_producto'];
+      $estado = "";
+      $id_articulo = $id;
+      $id_usuario = $id1;
 
-            $e = $_FILES['imagen_articulo'];
-            $imagen = addslashes(file_get_contents($e));
-
-            $precio = $_POST['precio'];
-            $stock = $_POST['stock'];
-            $fecha = $_POST['fecha_creacion'];
-            $descripcion = $_POST['descripcion'];
-            $estado = 1;
-            $id_articulo = $id;
-            $id_usuario = $id1;
-
-      
-            $sq = "DELETE foto_producto from articulo where id_articulo ='$id_articulo' ";
-            $resultado_eliminar = mysqli_query($con, $sq) or die(mysqli_error($con));
-
-      
-            $sql2 = "UPDATE articulo SET  id_articulo = '$id', id_usuario = '$id1', nombre_categoria = '$categoria', nombre = '$nombre', precio_venta = '$precio', descuento = '$descuento',
-       stock = '$stock', fecha_creacion = '$fecha', descripcion = '$descripcion', foto_producto = '$imagen', id_estado = '$estado' where id_articulo ='$id' ";
-      
-            $resultado_editar = mysqli_query($con, $sql2) or die(mysqli_error($con));
-      
-            // redireccionar luego de editar
-          }
-          if ($resultado_editar) {
-      
-            echo "<script language=\"JavaScript\">\n";
-            echo "alert('Producto Editado Correctamente');\n";
-            echo "</script>";
-            header("location: index.php");
-          } else {
-            echo "<script language=\"JavaScript\">\n";
-            echo "alert('Hubo un error');\n";
-            echo "</script>";
-            header("location: index.php");
-          }}
-          
-          
-          
-          else{
-            $id = "";
-            $categoria = "";
-            $descuento = "";
-            $nombre = "";
-            $precio = "";
-            $stock = "";
-            $fecha = "";
-            $descripcion = "";
-            $e = "";
-            $imagen = "";
-            $estado = 1;
-            $id_articulo = $id;
-            $id_usuario = $id1;
-        
-            if ($_POST) {
-              $id = $_POST['id'];
-              $categoria = $_POST['categoria_producto'];
-              $descuento = $_POST['descuento'];
-              $nombre = $_POST['name_producto'];
-            
-              $precio = $_POST['precio'];
-              $stock = $_POST['stock'];
-              $fecha = $_POST['fecha_creacion'];
-              $descripcion = $_POST['descripcion'];
-              $estado = 1;
-              $id_articulo = $id;
-              $id_usuario = $id1;
-        
-        
-        
-              $sql2 = "UPDATE articulo SET  id_articulo = '$id', id_usuario = '$id1', nombre_categoria = '$categoria', nombre = '$nombre', precio_venta = '$precio', descuento = '$descuento',
-         stock = '$stock', fecha_creacion = '$fecha', descripcion = '$descripcion', id_estado = '$estado' where id_articulo ='$id' ";
-        
-              $resultado_editar = mysqli_query($con, $sql2) or die(mysqli_error($con));
-        
-              // redireccionar luego de editar
-            }
-            if ($resultado_editar) {
-        
-              echo "<script language=\"JavaScript\">\n";
-              echo "alert('Producto Editado Correctamente');\n";
-              echo "</script>";
-              header("location: index.php");
-            } else {
-              echo "<script language=\"JavaScript\">\n";
-              echo "alert('Hubo un error');\n";
-              echo "</script>";
-              header("location: index.php");
-            }
-
-          }
-
-   
+      if ($_POST) {
+        $id = $_POST['id'];
+        $categoria = $_POST['categoria_producto'];
+        $descuento = $_POST['descuento'];
+        $nombre = $_POST['name_producto'];
 
 
+
+        $precio = $_POST['precio'];
+        $stock = $_POST['stock'];
+        $fecha = $_POST['fecha_creacion'];
+        $descripcion = $_POST['descripcion'];
+        $estado = $_POST['id_estado'];
+        $id_articulo = $id;
+        $id_usuario = $id1;
+
+
+
+        $sql2 = "UPDATE articulo SET  id_articulo = '$id', id_usuario = '$id1', nombre_categoria = '$categoria', nombre = '$nombre', precio_venta = '$precio', descuento = '$descuento',
+         stock = '$stock', fecha_creacion = '$fecha', descripcion = '$descripcion', id_estado = '$estado' where id_articulo ='$id' and id_usuario ='$id_usuario' ";
+
+        $resultado_editar = mysqli_query($con, $sql2) or die(mysqli_error($con));
+
+        // redireccionar luego de editar
+      }
+      if ($resultado_editar) {
+
+        echo "<script language=\"JavaScript\">\n";
+        echo "alert('Producto Editado Correctamente');\n";
+        echo "</script>";
+        header("location: index.php");
+      } else {
+        echo "<script language=\"JavaScript\">\n";
+        echo "alert('Hubo un error');\n";
+        echo "</script>";
+        header("location: index.php");
+      }
+    } else {
+
+      $id = "";
+      $categoria = "";
+      $descuento = "";
+      $nombre = "";
+      $precio = "";
+      $stock = "";
+      $fecha = "";
+      $descripcion = "";
+      $e = "";
+      $imagen = "";
+      $estado = "";
+      $id_articulo = $id;
+      $id_usuario = $id1;
+
+      if ($_POST) {
+        $id = $_POST['id'];
+        $categoria = $_POST['categoria_producto'];
+        $descuento = $_POST['descuento'];
+        $nombre = $_POST['name_producto'];
+
+        $e = $_FILES['imagen_articulo']['tmp_name'];
+        $imagen = addslashes(file_get_contents($e));
+
+        $precio = $_POST['precio'];
+        $stock = $_POST['stock'];
+        $fecha = $_POST['fecha_creacion'];
+        $descripcion = $_POST['descripcion'];
+        $estado = $_POST['id_estado'];
+        $id_articulo = $id;
+        $id_usuario = $id1;
+
+
+        $da = "UPDATE articulo SET  id_articulo = '$id', id_usuario = '$id1', nombre_categoria = '$categoria', nombre = '$nombre', precio_venta = '$precio', descuento = '$descuento',
+       stock = '$stock', fecha_creacion = '$fecha', descripcion = '$descripcion', foto_poducto='$imagen' , id_estado = '$estado' where id_articulo ='$id' and id_usuario ='$id_usuario' ";
+
+        $resultado_e = mysqli_query($con, $da) or die(mysqli_error($con));
+
+        // redireccionar luego de editar
+      }
+      if ($resultado_e) {
+
+        echo "<script language=\"JavaScript\">\n";
+        echo "alert('Producto Editado Correctamente');\n";
+        echo "</script>";
+        header("location: index.php");
+      } else {
+        echo "<script language=\"JavaScript\">\n";
+        echo "alert('Hubo un error');\n";
+        echo "</script>";
+        header("location: index.php");
+      }
     }
-
-
-
-    mysqli_close($con);
   }
+
+
+
+
+
+
+
+  mysqli_close($con);
+}
+
+
+
 
 
 
@@ -470,6 +466,7 @@ if (empty($_REQUEST['id'])) {
         </div>
       </nav>
     </header>
+
     <!-- Left side column. contains the logo and sidebar -->
     <aside class="main-sidebar">
       <!-- sidebar: style can be found in sidebar.less -->
@@ -477,7 +474,8 @@ if (empty($_REQUEST['id'])) {
         <!-- Sidebar user panel -->
         <div class="user-panel">
           <div class="pull-left image">
-            <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+            <?php echo '<img src="data:image/jpg;base64, ' . base64_encode($datos['imagen_usuario']) . '" class="img-circle" /> '
+            ?>
           </div>
           <div class="pull-left info">
             <p><?php echo $datos['nombre'] . " " . $datos['apellidos']; ?></p>
@@ -486,32 +484,31 @@ if (empty($_REQUEST['id'])) {
         </div>
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-          <li class="header">Disfruta tu espacio</li>
+          <li class="header">MENU DE NAVEGACION</li>
 
           <li class="active treeview">
             <a href="#">
               <i class="glyphicon glyphicon-shopping-cart"></i> <span>Mi tienda</span>
+
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
-
               <li class="active"><a href="index.php"><i class="fa fa-table"></i> Productos</a></li>
-              <li class="active"><a href="inventario.php"><i class="fa fa-circle-o"></i> Inventarios</a></li>
-
+              <li class="active"><a href="inventario.php"><i class="glyphicon glyphicon-folder-close"></i> Inventarios</a></li>
+              <li class="active"><a href="contacto.php"><i class="glyphicon glyphicon-earphone"></i>Contactanos</a></li>
             </ul>
-
           </li>
-
-
 
           <li class="header">REPORTES</li>
           <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
         </ul>
+
       </section>
       <!-- /.sidebar -->
     </aside>
+
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -538,13 +535,31 @@ if (empty($_REQUEST['id'])) {
                   Edicion de productos</h3>
               </div>
               <div class="panel-body">
-                <form action="editar.php" method="post">
+                <form action="editar.php" method="post" enctype="multipart/form-data">
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="">Nombre</label>
                         <input type="text" class="form-control" value="<?php echo  $datosproducto['nombre'] ?>" name="name_producto" placeholder="Ingrese el nombre del producto">
                       </div>
+                      <label for="">categoria</label>
+                      <select name="categoria_producto" class="form-control">
+                        <option id="opcion"><?php echo  $datosproducto['nombre_categoria']; ?></option>
+                        <?php
+                        include("php/bd.php");
+                        $con = conectar();
+
+                        $query = "SELECT * FROM categoria";
+                        $resulta = mysqli_query($con, $query);
+
+                        while ($row = mysqli_fetch_array($resulta)) {
+
+                          $tipo = $row['nombre_categoria'];
+
+                          echo "<option value='$tipo'>$tipo</option>";
+                        }
+                        ?>
+                      </select>
 
                       <div class="form-group">
                         <label for="">Precio</label>
@@ -560,23 +575,10 @@ if (empty($_REQUEST['id'])) {
 
 
                       <div class="form-group">
-                        <label for="">categoria</label>
-                        <select name="categoria_producto" class="form-control">
-                          <option id="opcion"><?php echo  $datosproducto['nombre_categoria']; ?></option>
-                          <?php
-                          include("php/bd.php");
-                          $con = conectar();
+                        <label for="" type="hidden"></label>
+                        <select type="hidden" name="categoria_producto" class="form-control">
 
-                          $query = "SELECT * FROM categoria";
-                          $resulta = mysqli_query($con, $query);
 
-                          while ($row = mysqli_fetch_array($resulta)) {
-
-                            $tipo = $row['nombre_categoria'];
-
-                            echo "<option value='$tipo'>$tipo</option>";
-                          }
-                          ?>
                         </select>
                       </div>
                     </div>
@@ -598,13 +600,38 @@ if (empty($_REQUEST['id'])) {
        min="2018-01-01" max="2018-12-31">-->
                       </div>
                     </div>
-
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                       <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Descripcion</label>
-                        <input class="form-control" type="text" id="exampleFormControlTextarea1" value="<?php echo  $datosproducto['descripcion']; ?>" rows="3" name="descripcion" placeholder="Ingrese la descripcion del producto"></textarea>
+                        <label for="">ID</label>
+                        <input type="number" readonly class="form-control" value="<?php echo  $datosproducto['id_articulo']; ?>" name="id" placeholder="Ingrese la cantidad de productos">
                       </div>
                     </div>
+                    <div class="col-md-12">
+
+                      <div class="form-group ">
+                        <label for="">Estado</label>
+                        <select name="id_estado" class="form-control">
+                          <option id="opcion"><?php echo  $datosproducto['id_estado']; ?></option>
+                          <?php
+                          include("php/bd.php");
+                          $con = conectar();
+
+                          $query = "SELECT * FROM estado";
+                          $resulta = mysqli_query($con, $query);
+
+                          while ($row = mysqli_fetch_array($resulta)) {
+
+                            $tipo = $row['id_estado'];
+
+                            echo "<option value='$tipo'>$tipo</option>";
+                          }
+                          ?>
+                        </select>
+                      </div>
+                    </div>
+
+
+
 
                     <div class="col-md-6">
                       <div class="form-group">
@@ -613,13 +640,24 @@ if (empty($_REQUEST['id'])) {
                       </div>
                     </div>
 
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label class="col-sm-2 control-label">FOTO</label>
 
-                        <input type="file" class="form-control" name="imagen_articulo" multiple>
+
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Sube una imagen para mostrar en tu perfil</label>
+                      <div class="col-sm-8">
+                        <input type="file" class="form-control" name="imagen_articulo" multiple accept="image/*">
+                      </div>
+
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Descripcion</label>
+                        <input class="form-control" type="text" id="exampleFormControlTextarea1" value="<?php echo  $datosproducto['descripcion']; ?>" rows="3" name="descripcion" placeholder="Ingrese la descripcion del producto"></textarea>
                       </div>
                     </div>
+
+
+
 
                     <div class="row">
                       <div class="ol-md-12">

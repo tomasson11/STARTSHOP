@@ -90,7 +90,7 @@
         <div class="form-group">
 			        <label class="col-sm-2 control-label">Sube una imagen para mostrar en tu perfil</label>
 			        <div class="col-sm-8">
-			        <input type="file" class="form-control" name="imagen_usuario" multiple >
+			        <input type="file" class="form-control" name="imagen_usuario" multiple accept="image/*" >
 		</div>
 
 

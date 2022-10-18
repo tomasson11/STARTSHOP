@@ -148,8 +148,8 @@ $con = conectar();
           </a>
           <ul class="treeview-menu">
 
-          <li class="active"><a href="team_startshopv.php"><i class="glyphicon glyphicon-gift"></i>Team StartShop</a></li>
-          <li class="active"><a href="contactov.php"><i class="glyphicon glyphicon-earphone"></i>Contáctanos</a></li>
+            <li class="active"><a href="team_startshopv.php"><i class="glyphicon glyphicon-gift"></i>Team StartShop</a></li>
+            <li class="active"><a href="contactov.php"><i class="glyphicon glyphicon-earphone"></i>Contáctanos</a></li>
 
           </ul>
 
@@ -157,7 +157,7 @@ $con = conectar();
 
 
 
-      
+
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -192,17 +192,17 @@ $con = conectar();
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav">
             <li class=""><a href="normal_user.php">Shop</a></li>
-            <li><a href="#">Novedades</a></li>
+            <li><a href="../categorias/novedadesv.php">Novedades</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Servicios <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#">Restaurante</a></li>
-                <li><a href="#">Repostería</a></li>
-                <li><a href="#">Modistería</a></li>
+                <li><a href="../categorias/restaurantev.php">Restaurante</a></li>
+                <li><a href="../categorias/reposteriav.php">Repostería</a></li>
+
                 <li class="divider"></li>
-                <li><a href="#">Floristería</a></li>
+                <li><a href="../categorias/floristeriav.php">Floristería</a></li>
                 <li><a href="#"></a></li>
 
               </ul>
@@ -215,53 +215,17 @@ $con = conectar();
                 Destacados<b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#">Bisutería</a></li>
-                <li><a href="#">Joyería</a></li>
-                <li><a href="#">Tecnología</a></li>
+                <li><a href="../categorias/bisuteriav.php">Bisutería</a></li>
+                <li><a href="../categorias/tecnologiav.php">Tecnología</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Licor Artesanal</a></li>
+                <li><a href="../categorias/licorv.php">Licor Artesanal</a></li>
                 <li class="divider"></li>
                 <li><a href="#"></a></li>
               </ul>
             </li>
           </ul>
 
-          <ul class="nav navbar-nav navbar-left">
 
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Información de Interés<b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="team_startshopv.php">Team StartShop</a></li>
-
-                <li><a href="contacto.php">Contáctanos</a></li>
-
-              </ul>
-            </li>
-          </ul>
-
-
-
-
-
-          </li>
-          </ul>
-
-          <ul class="nav navbar-nav navbar-left">
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Perreo HOTa<b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="">Team StartShop</a></li>
-
-                <li><a href="">Contáctanos</a></li>
-
-              </ul>
-            </li>
-          </ul>
 
 
           <form action="" method="get" class="navbar-form navbar-right" role="search">

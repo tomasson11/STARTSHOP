@@ -3,7 +3,7 @@
 include("../php/bd.php");
 $con = conectar();
 //iniciar la carga de los datos directamente de la tabla
-$articulos = mysqli_query($con, "SELECT * FROM articulo WHERE nombre LIKE LOWER('%" . $_POST['busqueda'] . "%')");
+$articulos = mysqli_query($con, "SELECT * FROM articulo WHERE nombre LIKE LOWER('%" . $_POST['busqueda'] . "%') and id_estado = 1");
 
 while ($mostrar = mysqli_fetch_assoc($articulos)) {
 
@@ -51,7 +51,7 @@ while ($mostrar = mysqli_fetch_assoc($articulos)) {
               </button>
        
 
-            <li class="shop_btn btn-primary"><a href="paginas/producto_detallado.php? id=<?php echo $mostrar['id_articulo'] ?>" name="leer">Conoce más</a></li>
+            <li class="shop_btn btn-primary"><a href="paginas/producto_detallado.php id=<?php echo $mostrar['id_articulo'] ?>" name="leer">Conoce más</a></li>
             <div class="clear"> </div>
           </ul>
 

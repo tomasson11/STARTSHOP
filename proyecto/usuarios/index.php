@@ -173,7 +173,7 @@ include("headerindex.php");
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav">
             <li class=""><a href="index.php">Shop</a></li>
-            <li><a href="#">Novedades</a></li>
+            <li><a href="categorias/novedades.php">Novedades</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Servicios <b class="caret"></b>

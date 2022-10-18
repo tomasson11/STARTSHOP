@@ -89,7 +89,7 @@ include("headeradmin.php");
                     <table id="example2" class="table table-condensed">
                         <thead>
                             <tr>
-                                <th class="success">NI USUARIO</th>
+                               
                                 <th class="success">CORREO</th>
                                 <th class="success">FECHA COMENTARIO</th>
                                 <th class="success">MENJASE</th>
@@ -104,16 +104,18 @@ include("headeradmin.php");
                         ?>
 
                             <tr>
-                                <td><?php echo $mostrar['id_usuario']; ?></td>
+                             
                                 <td><?php echo $mostrar['correo']; ?></td>
                                 <td><?php echo $mostrar['fecha_mensaje']; ?></td>
                                 <td><?php echo $mostrar['mensaje']; ?></td>
 
 
                                 <td>
-                                    <a href="php/eliminar_producto.php? id_mensaje=<?php echo $mostrar['id_articulo'] ?>" name="eliminar_mensaje" class="btn btn-danger glyphicon glyphicon-trash"></a>
+                                    <a href="delete_mensajes.php? id=<?php echo $mostrar['id_mensaje'] ?>" name="eliminar_mensaje" class="btn btn-danger glyphicon glyphicon-trash"></a>
 
-                                    <a href="<?php echo $mostrar['correo']; ?>" class="btn btn-warning" >Responder</a>
+                            
+
+                                    <a href="mailto:<?php echo $mostrar['correo']; ?> ?subject=Sugerencia Desde La Página &body=" class="btn btn-warning glyphicon glyphicon-send" ></a>
 
 
 
