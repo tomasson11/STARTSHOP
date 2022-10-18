@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Login">
+  <meta name="description" content="imagen">
 
   <title>Login</title>
 
@@ -22,19 +22,15 @@
   </div>
 
   <!--Formulario de Login-->
-  <form action="/starshop/php/iniciar.php" method="post">
+  <form action="guardar.php" method="POST" enctype="multipart/form-data">
+
+    <input type="text" name="nombre" placeholder="nombre" value="" />
+
+    <input type="submit"  placeholder="enviar" value="" />
 
 
-    <center> <img src="imagenes/LOGO_STARSHOP.png" width="190" height="190" alt="starshop"></center>
 
-    <label for="username">USUARIO</label>
-    <input type="text" placeholder="Ingresa tu Usuario" name="usuario_login">
-
-    <label for="password">CONTRASE&Ntilde;A</label>
-    <input type="password" placeholder="Ingresa tu Contrase&ntilde;a" name="password_login">
     
-    <button name="start" type="submit">Iniciar Sesión</button>
-    <button name="create" type="submit">Crear Cuenta</button>
 
 
   </form>

@@ -1,16 +1,8 @@
 <?php
-<<<<<<< HEAD
 include ("../php/config.php");
 $con =conectar();
             //iniciar la carga de los datos directamente de la tabla
 $articulos = mysqli_query($con, "SELECT * FROM articulo WHERE nombre LIKE LOWER('%".$_POST['buscar']."%')");
-=======
-
-include("../php/bd.php");
-$con = conectar();
-//iniciar la carga de los datos directamente de la tabla
-$articulos = mysqli_query($con, "SELECT * FROM articulo WHERE nombre LIKE LOWER('%" . $_POST['busqueda'] . "%')");
->>>>>>> 20ac2d493dfcb01de141a78e7d083f07e3149fb7
 
 while ($mostrar = mysqli_fetch_assoc($articulos)) {
 

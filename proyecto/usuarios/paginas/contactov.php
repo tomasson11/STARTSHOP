@@ -164,17 +164,17 @@ include("../header.php");
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
                         <li class=""><a href="normal_user.php">Shop</a></li>
-                        <li><a href="#">Novedades</a></li>
+                        <li><a href="../categorias/novedadesv.php">Novedades</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 Servicios <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Restaurante</a></li>
-                                <li><a href="#">Repostería</a></li>
-                                <li><a href="#">Modistería</a></li>
+                                <li><a href="../categorias/restaurantev.php">Restaurante</a></li>
+                                <li><a href="../categorias/reposteriav.php">Repostería</a></li>
+
                                 <li class="divider"></li>
-                                <li><a href="#">Floristería</a></li>
+                                <li><a href="../categorias/floristeriav.php">Floristería</a></li>
                                 <li><a href="#"></a></li>
 
                             </ul>
@@ -187,16 +187,16 @@ include("../header.php");
                                 Destacados<b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Bisutería</a></li>
-                                <li><a href="#">Joyería</a></li>
-                                <li><a href="#">Tecnología</a></li>
+                                <li><a href="../categorias/bisuteriav.php">Bisutería</a></li>
+                                <li><a href="../categorias/tecnologiav.php">Tecnología</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">Licor Artesanal</a></li>
+                                <li><a href="../categorias/licorv.php">Licor Artesanal</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#"></a></li>
                             </ul>
                         </li>
                     </ul>
+
 
 
 
@@ -235,67 +235,67 @@ include("../header.php");
 
         <!-- Main content -->
         <section class="content">
-        <div class="wrap">
-        <div class="row col-lg-5">
-          <div class="col-7 col-sm-6 col-lg-5">
-            <img src="https://cdn.glitch.me/aa746bf3-a6c3-4002-b05c-06b267451fe0%2Fundraw_message_sent_re_q2kl.svg?v=1635881296678" width="300px" height="300px" />
-          </div>
-        </div>
-        <div class="row col-lg-5">
+            <div class="wrap">
+                <div class="row col-lg-5">
+                    <div class="col-7 col-sm-6 col-lg-5">
+                        <img src="https://cdn.glitch.me/aa746bf3-a6c3-4002-b05c-06b267451fe0%2Fundraw_message_sent_re_q2kl.svg?v=1635881296678" width="300px" height="300px" />
+                    </div>
+                </div>
+                <div class="row col-lg-5">
 
-        <?php 
-            date_default_timezone_set('America/Bogota');  
-            $DateAndTime = date("Y-m-d H:i:s ");  
-            ?>
+                    <?php
+                    date_default_timezone_set('America/Bogota');
+                    $DateAndTime = date("Y-m-d H:i:s ");
+                    ?>
 
-          <form action="" method="post" class="form-horizontal" role="form">
-            <div class="form-group">
+                    <form action="" method="post" class="form-horizontal" role="form">
+                        <div class="form-group">
 
-          
-                <input type="hidden" name="hora" value="<?= $DateAndTime ?>" class="form-control" id="ejemplo_email_3" placeholder="ejemplo_email@gmail.com">
-             
 
-              <label for="ejemplo_email_3" class="col-lg-2 control-label">correo</label>
+                            <input type="hidden" name="hora" value="<?= $DateAndTime ?>" class="form-control" id="ejemplo_email_3" placeholder="ejemplo_email@gmail.com">
 
-              <div class="col-lg-10">
-                <input type="email" required name="correo" class="form-control" id="ejemplo_email_3" placeholder="ejemplo_email@gmail.com">
-              </div>
+
+                            <label for="ejemplo_email_3" class="col-lg-2 control-label">correo</label>
+
+                            <div class="col-lg-10">
+                                <input type="email" required name="correo" class="form-control" id="ejemplo_email_3" placeholder="ejemplo_email@gmail.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ejemplo_password_3" class="col-lg-2 control-label">Comentario</label>
+                            <div class="col-lg-10">
+                                <textarea class="form-control" required rows="3" name="mensaje" placeholder="Quisiera ..."></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group container mt-5 mb-5">
+                            <div class="col-lg-offset-2 col-lg-10">
+
+                                <a href="../../../index.php" style="color: #000; text-decoration: none;"> <button name="enviar_comentario" type="button" class="btn btn-primary">Enviar</button> </a>
+
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <div class="row col-lg-5">
+                    <center>
+                        <h3>
+                            Ingresa un correo para eneviarte una respuesta
+                        </h3>
+                    </center>
+                    <center>
+                        <p>
+
+                        </p>
+                    </center>
+                </div>
+
+                <br>
+
+
             </div>
-            <div class="form-group">
-              <label for="ejemplo_password_3" class="col-lg-2 control-label">Comentario</label>
-              <div class="col-lg-10">
-                <textarea class="form-control" required rows="3" name="mensaje" placeholder="Quisiera ..."></textarea>
-              </div>
-            </div>
-            <div class="form-group container mt-5 mb-5">
-              <div class="col-lg-offset-2 col-lg-10">
- 
-                <a href="../../../index.php" style="color: #000; text-decoration: none;"> <button name="enviar_comentario" type="button" class="btn btn-primary" >Enviar</button> </a>
-
-              </div>
-            </div>
-
-          </form>
-
-        </div>
-
-        <div class="row col-lg-5">
-          <center>
-            <h3>
-              Ingresa un correo para eneviarte una respuesta
-            </h3>
-          </center>
-          <center>
-            <p>
-
-            </p>
-          </center>
-        </div>
-
-        <br>
-
-
-      </div>
 
 
         </section>

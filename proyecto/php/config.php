@@ -1,4 +1,6 @@
+
 <?php
+
 function conectar()
 {
    	$usuario = "root";
@@ -17,7 +19,4 @@ function conectar()
    return 	$conexion;
 
 }
-
-
-	
 ?>

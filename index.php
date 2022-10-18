@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <!-- JULIAN ESTUVO AQUI -->
+
 <head>
   <meta charset="utf-8">
   <meta name="description" content="Login">
@@ -33,12 +34,18 @@
     <label for="password">CONTRASE&Ntilde;A</label>
     <input type="password" placeholder="Ingresa tu Contrase&ntilde;a" name="password_login" required>
 
+ 
+
+  
+
     <button name="start" type="submit">Iniciar Sesión</button>
-    <a href="create_count.php" style="color: #000; text-decoration: none;"> <button name="crear" type="button" >Crea tu cuenta</button> </a>
+    <a href="create_count.php" style="color: #000; text-decoration: none;"> <button name="crear" type="button">Crea tu cuenta</button> </a>
 
-
+   <center> <h6>¿Problemas para inciar? <a href="https://wa.me/573136861897?text=HOLA...%20VENGO%20A%20PRESTAR%20UN%20SERVICIO%20DE%20RESTAURANTE" target="_blank">click</a></h6>
+   </center>
   </form>
 
+  
 
 </body>
 

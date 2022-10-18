@@ -1,6 +1,12 @@
 <?php
 
 include("headeradmin.php");
+
+
+
+
+
+
 ?>
 
 
@@ -185,7 +191,7 @@ include("headeradmin.php");
                   <thead>
                     <tr>
                       <th>ID</th>
-
+                      <th>TE</th>
 
                       <th class="warning">NOMBRE</th>
                       <th class="warning">PRECIO</th>
@@ -207,6 +213,7 @@ include("headeradmin.php");
 
                     <tr>
                       <td><?php echo $mostrar['id_articulo']; ?></td>
+                      <td><?php echo $mostrar['id_estado']; ?></td>
 
                       <td><?php echo $mostrar['nombre']; ?></td>
                       <td><?php echo $mostrar['precio_venta']; ?></td>
@@ -218,10 +225,9 @@ include("headeradmin.php");
                       <td>
 
 
-                        <a href="php/eliminar_producto.php? id=<?php echo $mostrar['id_articulo'] ?> id_estado=<?php echo $mostrar['id_estado'] ?>" class="btn btn-danger glyphicon glyphicon-trash"></a>
-
-                        <a href="php/estado.php? id=<?php echo $mostrar['id_articulo'] ?>" class="btn btn-warning" name="cambiar_estado">estado</a>
-
+                      
+                        <a href="editar_producto.php? idsp=<?php echo $mostrar['id_articulo']; ?>" name="editar">
+                              <button type="button" class="btn btn-primary fa-duotone fa-pen-to-square" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">editar</button></a>
 
 
 

@@ -2,10 +2,6 @@
 include("header.php");
 
 
-
-
-
-
 $query = "SELECT imagen_usuario FROM usuario WHERE usuario_login = '$uss'";
 $resulta = mysqli_query($con, $query);
 
@@ -39,7 +35,7 @@ if (isset($_POST['Actualizar'] )) {
     $email = $_POST['email'];
     $direccion = $_POST['direccion'];
 
-    $e = $_FILES['imagen_usuario']['tmp_name'];
+    /*$e = $_FILES['imagen_usuario']['tmp_name'];
     $imgContenido = addslashes(file_get_contents($e));
 
             if(isset($_FILES['imagen_usuario']['tpm_name'])){
@@ -70,7 +66,7 @@ if (isset($_POST['Actualizar'] )) {
         echo "</script>";
         echo "<META HTTP-EQUIV='refresh' CONTENT='0; URL=../empleado/index.php'>";
       }}} }
-      /*
+      */
 
       else{
 

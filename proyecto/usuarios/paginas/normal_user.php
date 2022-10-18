@@ -118,29 +118,28 @@ $con = conectar();
 </head>
 
 <body>
-
-  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-        <img src="../dist/img/usuario.png" class="img-circle">
+          <img src="../dist/img/starshop.png" class="img-circle" /> '
 
         </div>
         <div class="pull-left info">
-          <p>Usuario</p>
+          <p></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">MENU DE NAVEGACION</li>
+        <li class="header">Apoyamos el emprendimiento</li>
 
         <li class="active treeview">
           <a href="#">
-            <i class="glyphicon glyphicon-shopping-cart"></i> <span>Información</span>
+            <i class="glyphicon glyphicon-shopping-cart"></i> <span>Información de interés </span>
 
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -148,8 +147,8 @@ $con = conectar();
           </a>
           <ul class="treeview-menu">
 
-          <li class="active"><a href="team_startshopv.php"><i class="glyphicon glyphicon-gift"></i>Team</a></li>
-          <li class="active"><a href="contactov.php"><i class="glyphicon glyphicon-earphone"></i>Contáctanos</a></li>
+          <li class="active"><a href="../paginas/team_startshopv.php"><i class="glyphicon glyphicon-gift"></i>Team StartShop</a></li>
+          <li class="active"><a href="../paginas/contactov.php"><i class="glyphicon glyphicon-earphone"></i>Contáctanos</a></li>
 
           </ul>
 
@@ -192,17 +191,17 @@ $con = conectar();
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav">
             <li class=""><a href="normal_user.php">Shop</a></li>
-            <li><a href="#">Novedades</a></li>
+            <li><a href="../categorias/novedadesv.php">Novedades</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Servicios <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#">Restaurante</a></li>
-                <li><a href="#">Repostería</a></li>
-                <li><a href="#">Modistería</a></li>
+                <li><a href="../categorias/restaurantev.php">Restaurante</a></li>
+                <li><a href="../categorias/reposteriav.php">Repostería</a></li>
+
                 <li class="divider"></li>
-                <li><a href="#">Floristería</a></li>
+                <li><a href="../categorias/floristeriav.php">Floristería</a></li>
                 <li><a href="#"></a></li>
 
               </ul>
@@ -215,16 +214,18 @@ $con = conectar();
                 Destacados<b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#">Bisutería</a></li>
-                <li><a href="#">Joyería</a></li>
-                <li><a href="#">Tecnología</a></li>
+                <li><a href="../categorias/bisuteriav.php">Bisutería</a></li>
+                <li><a href="../categorias/tecnologiav.php">Tecnología</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Licor Artesanal</a></li>
+                <li><a href="../categorias/licorv.php">Licor Artesanal</a></li>
                 <li class="divider"></li>
                 <li><a href="#"></a></li>
               </ul>
             </li>
           </ul>
+
+
+
 
           <form action="" method="get" class="navbar-form navbar-right" role="search">
             <div class="form-group">
