@@ -1,53 +1,39 @@
+
 <?php
-include("../../php/bd.php");
-$con = conectar();
+ include("../../php/bd.php");
+ $con = conectar();
 
-if (isset($_POST['cambiar_estado'])){
-        $id=$_GET['id'];
-        $id_estado=$_GET['id_estado'];
+if (isset($_POST['cambiar_estado'])) {
+ 
 
-        if($id_estado=1){
+  $id = $_GET['id'];
+  $id_estado = $_GET['id_estado'];
 
-		
-		$sq = "UPDATE articulo SET id_estado = 0 where id_articulo = '$id'";
-		$sqli=mysql_query($con,$sq);
+  $cero == "0";
+  $uno == "1";
 
+  if ($id_estado == "1") {
 
-        }elseif($id_estado=0){
+   $sq1 =" UPDATE `articulo` SET `id_estado` = '0' WHERE `articulo`.`id_articulo` = 60";
+    $sqli = mysqli_query($con, $sq1);
+  } else {
 
-            $sq = "UPDATE articulo SET id_estado = 1 where id_articulo = '$id'";
-            $sqli2=mysql_query($con,$sq);
+    $sq = "UPDATE articulo SET id_estado = '$uno' where id_articulo = '$id'";
+    $sqli2 = mysqli_query($con, $sq);
+  }
 
-        }
-
-
-
-if($sqli){
+  if ($sqli && $sqli2) {
     echo "<script language=\"JavaScript\">\n";
     echo "alert('Estado cambiado Correctamente');\n";
     echo "</script>";
     header("location:index.php");
-
-}elseif($sqli2){
-    echo "<script language=\"JavaScript\">\n";
-    echo "alert('Estado cambiado Correctamente');\n";
-    echo "</script>";
-    header("location:index.php");
-
-}else{
+  } else {
     echo "<script language=\"JavaScript\">\n";
     echo "alert('Hubo un error');\n";
     echo "</script>";
     header("location:index.php");
-}}
-
-
-
-/*$sql= "UPDATE FROM articulo SET id_estado='$estado' WHERE id_articulo='$id'";
-$query=mysqli_query($con,$sql);
+  }
 }
 
-if($query){
-    header("location: ../index.php");
-}*/
+
 ?>

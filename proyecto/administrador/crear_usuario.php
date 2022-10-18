@@ -11,6 +11,11 @@ include("headeradmin.php");
 <html>
 
 <head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/style.css">
+
 </head>
 
 <!-- Left side column. contains the logo and sidebar -->
@@ -46,7 +51,6 @@ include("headeradmin.php");
           <li class="active"><a href="usuarios.php"><i class="glyphicon glyphicon-user"></i>USUARIOS</a></li>
           <li class="active"><a href="crear_usuario.php"><i class="glyphicon glyphicon-plus"></i>CREAR USUARIO</a></li>
           <li class="active"><a href="mensajes.php"><i class="glyphicon glyphicon-envelope"></i>Mensajes</a></li>
-
         </ul>
 
       </li>
@@ -56,6 +60,8 @@ include("headeradmin.php");
 
     </ul>
   </section>
+
+
   <!-- /.sidebar -->
 </aside>
 
@@ -67,38 +73,39 @@ include("headeradmin.php");
 
   <section class="content-header">
 
-    <div class="row">
+  <div class="row">
+      <!-- ./col -->
       <div class="col-lg-6 col-xs-5">
         <!-- small box -->
-        <div class="small-box bg-aqua">
+        <div class="small-box bg-green">
           <div class="inner">
-            <h3><?php echo $rowcount2; ?> </h3>
+            <h3><?php echo $rowcount3; ?><sup style="font-size: 20px"></sup></h3>
 
-            <p>Productos Registrados</p>
+            <p>Empleados Registrados</p>
           </div>
           <div class="icon">
-            <i class="ion ion-bag"></i>
+            <i class="ion ion-person-add"></i>
           </div>
-          <a href="#example2" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+          <a href="usuarios.php #example2" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
       <div class="col-lg-6 col-xs-5">
         <!-- small box -->
-        <div class="small-box bg-red">
+        <div class="small-box bg-yellow">
           <div class="inner">
-            <h3>319</h3>
+            <h3><?php echo $rowcount; ?> </h3>
 
-            <p>Total de Ventas </p>
+            <p>Usuarios Registrados</p>
           </div>
           <div class="icon">
-            <i class="ion ion-pie-graph"></i>
+            <i class="ion ion-person-add"></i>
           </div>
-          <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="usuarios.php #example2" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
-
     </div>
+
 
 
 
@@ -106,137 +113,123 @@ include("headeradmin.php");
 
     <center>
       <h1>
-        Tabla General Productos
+        Formulario para agregar Emprendedor
       </h1>
     </center>
 
     <!-- Main content -->
     <section class="content">
 
-      <!-- Main content -->
-      <section class="content">
-        <a href="usuarios.php"><button type="" class="glyphicon glyphicon-home" name="home"></button></a>
-        <form action="index.php" method="post" class="navbar-form navbar-right" role="search">
-          <tr>
+     
+<form action="create_count.php" method="post" enctype="multipart/form-data">
 
-            <td>
-              <div class="form-group">
-                <input onkeyup="buscar_ahora($('#busqueda').val());" type="text" class="form-control" placeholder="Buscar..." name="busqueda" id="busqueda">
-              </div>
-              <button type="submit" class="btn btn-default glyphicon glyphicon-search" name="buscar"></button>
-            </td>
-          </tr>
-        </form>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="box">
-              <div class="box-header">
-                <?php
-                if (isset($_POST['buscar'])) {
-                  $doc = $_POST['busqueda'];
-
-                  $res = mysqli_query($con, "SELECT * FROM articulo WHERE nombre = '$doc' ");
-                  while ($cons = mysqli_fetch_array($res)) {
-                    echo
-                    "
-      <table id='example2' class='table table-bordered table-hover'>
-      <thead>
-      <tr>
-        <th>ID</th>
+<div id="loginContainer" class="form-step form-step-active">
+    <div id="loginPicture">
+        <!--<img src="imagenes/image1.jpg" alt=""> -->
+    </div>
+    <div id="loginPictureCover"></div>
 
 
-        <th>NOMBRE</th>
-        <th>PRECIO</th>
-        <th>STOCK</th>
-        <th>CATEGORIA</th>
-        <th>CREACION</th>
-        <th>DESCRIPCION</th>
-        <th>ESTADO</th>
-      </tr>
-    </thead>
-      </tr>
-      <tr>
-      <td>" . $cons['id_articulo'] . "</td>
-      <td>" . $cons['nombre'] . "</td>
-      <td>" . $cons['precio_venta'] . "</td>
-      <td>" . $cons['stock'] . "</td>
-      <td>" . $cons['nombre_categoria'] . "</td>
-      <td>" . $cons['fecha_creacion'] . "</td>
-      <td>" . $cons['descripcion'] . "</td>
-      <td>" . $cons['id_estado'] . "</td>
-      <td>
+
+    <!--Primeras variables con informacion basica del usuario -->
+    <label for="username">Tipo Usuario</label>
+    <select name="usuario"  required>
+        <option id="opcion" value="0">Seleccione:</option>
+        <?php
+        include("../bd.php");
+        $con = conectar();
+
+        $query = "SELECT * FROM rol";
+        $resulta = mysqli_query($con, $query);
+
+        while ($row = mysqli_fetch_array($resulta)) {
+
+            $tipo = $row['tipo_rol'];
+
+            echo "<option value='$tipo'>$tipo</option>";
+        }
+        ?>
+    </select>
+
+
+    <label for="username">Nombre</label>
+    <input type="text" placeholder="Ingresa tus Nombres" name="nombres" minlength="2" maxlength="20" required>
+
+    <label for="username">Apellidos</label>
+    <input type="text" placeholder="Ingresa tus Apellidos" name="apellidos" minlength="2" maxlength="20" required>
+
+   
+
+   
+
+
+    <!--SE LLAMA EL TIPO DE DOCUMENTO DIRECTAMENTE DE DB-->
+
+
+    <label for="username">Tipo Documento</label>
+    <select name="documento">
+        <option id="opcion" value="0">Seleccione:</option>
+        <?php
+        include("php/bd.php");
+        $con = conectar();
+
+        $query = "SELECT * FROM documento";
+        $resulta = mysqli_query($con, $query);
+
+        while ($row = mysqli_fetch_array($resulta)) {
+
+            $tipo = $row['tipo_documento'];
+
+            echo "<option value='$tipo'>$tipo</option>";
+        }
+        ?>
+    </select>
+
+
+    <!--variables relacionadas con la cuenta-->
+
+
+    <label for="Num_documento">Num Documento</label>
+    <input type="int" placeholder="Ingresa tu Documento" name="num_documento" minlength="7" maxlength="10" required>
+
+    <label for="Fecha_-nacimiento">Fecha Nacimiento</label>
+    <input type="date" placeholder="" name="fecha_nacimiento" min="1950-01-01" required>
+
+    <label for="Direccion">Dirección</label>
+    <input type="text" placeholder="Ingresa tu Dirección" name="direccion" required>
+
+
+    <label for="Telefono">Teléfono Celular</label>
+    <input type="int" placeholder="Ingresa tu Teléfono" name="telefono" maxlength="10" required>
+
+    <label for="Email">Email</label>
+    <input type="email" name="email" placeholder="Ingresa tu Email" required>
+
+
+    <label for="Usuario">CREA UN NOMBRE DE USUARIO CON EL CUAL SIEMPRE INICIARAS SESION</label>
+    <input type="text" name="name_usuario" minlength="3" maxlength="15">
+
+    <label for="Contraseña">CONTRASEÑA DEL USUARIO</label>
+    <input type="password" name="password_usuario" minlength="7" maxlength="100" required>
+
+
+
+    <div class="form-group">
+        <label class="col-sm-12 control-label">Sube una imagen para mostrar en el perfil</label>
+        <div class="col-sm-8">
+            <input type="file" class="form-control" name="imagen_usuario" multiple>
+        </div>
+
+
+        <!--Botones-->
+
+        <button name="finalizar" type="submit">Crear</button>
     
-    
-      </td>
-    
-
-      </tr>
-      </table>
-      ";
-                  }
-                }
-
-                ?>
-
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">
-                <table id="example2" class="table table-condensed">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-
-
-                      <th class="warning">NOMBRE</th>
-                      <th class="warning">PRECIO</th>
-                      <th class="warning">STOCK</th>
-                      <th class="warning">CATEGORIA</th>
-                      <th class="warning">CREACION</th>
-                      <th class="warning">DESCRIPCION</th>
-                      <th class="warning">ESTADO</th>
-                      <th class="warning">ACCIONES</th>
-                    </tr>
-                  </thead>
-
-                  <?php
-                  //iniciar la carga de los datos directamente de la tabla
-
-                  while ($mostrar = mysqli_fetch_array($result)) {
-
-                  ?>
-
-                    <tr>
-                      <td><?php echo $mostrar['id_articulo']; ?></td>
-
-                      <td><?php echo $mostrar['nombre']; ?></td>
-                      <td><?php echo $mostrar['precio_venta']; ?></td>
-                      <td><?php echo $mostrar['stock']; ?></td>
-                      <td><?php echo $mostrar['nombre_categoria']; ?></td>
-                      <td><?php echo $mostrar['fecha_creacion']; ?></td>
-                      <td><?php echo $mostrar['descripcion']; ?></td>
-                      <td><?php echo $mostrar['id_estado']; ?></td>
-                      <td>
-
-
-                        <a href="php/eliminar_producto.php? id=<?php echo $mostrar['id_articulo'] ?> id_estado=<?php echo $mostrar['id_estado'] ?>" class="btn btn-danger glyphicon glyphicon-trash"></a>
-
-                        <a href="php/estado.php? id=<?php echo $mostrar['id_articulo'] ?>" class="btn btn-warning" name="cambiar_estado">estado</a>
 
 
 
 
-                      </td>
-                    </tr>
-
-                  <?php
-                  }
-                  ?>
-                </table>
-
-
-              </div>
-              <!-- /.box-body -->
-            </div>
+</form>
             <!-- /.box -->
       </section>
 
@@ -315,3 +308,7 @@ include("headeradmin.php");
 </body>
 
 </html>
+
+
+
+

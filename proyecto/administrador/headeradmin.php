@@ -19,30 +19,39 @@ $sql = "SELECT * FROM usuario WHERE usuario_login='$uss'";
 $sqli="SELECT * from articulo";
 $result=mysqli_query($con,$sqli);  
 
+
+
+//Datos recibidos de la bd para usuario
 $sqli2="SELECT * from usuario";
-$result2=mysqli_query($con,$sqli2);        
+$result2=mysqli_query($con,$sqli2); 
+
+
+//Datos recibidos de la bd para mostra mensajes       
+
+$sq3="SELECT * from contactanos";
+$resultm=mysqli_query($con,$sq3);        
 
 
  
 
 
+
 /* aqui se hacen las consultas para mostar informacion importante como cantidad de usuarios y articulos registrados */
 $t = "SELECT * FROM usuario";
-if ($r=mysqli_query($con,$t)) {
-    $rowcount=mysqli_num_rows($r);
-    
+if ($r = mysqli_query($con, $t)) {
+  $rowcount = mysqli_num_rows($r);
+}
+$t3 = "SELECT * FROM usuario where tipo_rol = 'Empleado' ";
+if ($r3 = mysqli_query($con, $t3)) {
+  $rowcount3 = mysqli_num_rows($r3);
 }
 
+
 $t2 = "SELECT * FROM articulo";
-if ($r2=mysqli_query($con,$t2)) {
-    $rowcount2=mysqli_num_rows($r2);
-    
+if ($r2 = mysqli_query($con, $t2)) {
+  $rowcount2 = mysqli_num_rows($r2);
 }
-$t3 = "SELECT * FROM usuario ";
-if ($r3=mysqli_query($con,$t3)) {
-    $rowcount3=mysqli_num_rows($r3);
-    
-}
+
 
 
 

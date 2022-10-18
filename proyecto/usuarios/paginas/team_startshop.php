@@ -260,7 +260,7 @@ include("../headerindex.php");
 
               <p> Es un chico con grandes aspiraciones,
                 cursa el grado 11 y actualmente está terminando
-                la media técnica en infromática. quiere seguir aprendiendo sobre el
+                la media técnica en informática. quiere seguir aprendiendo sobre el
                 mundo de la programación </p>
 
             </div>
@@ -275,7 +275,10 @@ include("../headerindex.php");
             <div class="shop_desc">
               <h3><a href="#">Juan Camilo Torres</a></h3>
 
-              <p> </p>
+              <p> Es un chico con grandes aspiraciones,
+                cursa el grado 11 y actualmente está terminando
+                la media técnica en informática. quiere seguir aprendiendo sobre el
+                mundo de la programación </p>
 
             </div>
           </a></div>
@@ -288,7 +291,10 @@ include("../headerindex.php");
             <div class="shop_desc">
               <h3><a href="#">Tomás Felipe Roldán</a></h3>
 
-              <p> </p>
+              <p> Es un chico con grandes aspiraciones,
+                cursa el grado 11 y actualmente está terminando
+                la media técnica en informática. quiere seguir aprendiendo sobre el
+                mundo de la programación </p>
 
             </div>
           </a></div>
@@ -300,7 +306,10 @@ include("../headerindex.php");
             <div class="shop_desc">
               <h3><a href="#">Carlos Quiroz</a></h3>
 
-              <p> </p>
+              <p> Es un chico con grandes aspiraciones,
+                cursa el grado 11 y actualmente está terminando
+                la media técnica en informática. quiere seguir aprendiendo sobre el
+                mundo de la programación </p>
 
             </div>
           </a>

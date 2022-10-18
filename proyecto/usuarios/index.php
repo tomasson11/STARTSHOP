@@ -184,6 +184,11 @@ include("headerindex.php");
                 <li class="divider"></li>
                 <li><a href="#">Floristería</a></li>
                 <li><a href="#"></a></li>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 20ac2d493dfcb01de141a78e7d083f07e3149fb7
                 </ul>
               </li>
 
@@ -222,6 +227,16 @@ include("headerindex.php");
 
       </section>
       
+<<<<<<< HEAD
+=======
+     <?php if($mensaje!=""){?>
+
+      <div class="alert alert-success">
+        <?php echo $mensaje; ?>
+      </div>
+    <?php } ?>
+
+>>>>>>> 20ac2d493dfcb01de141a78e7d083f07e3149fb7
     <!-- Main content -->
     <section class="content">
       <div class="main">

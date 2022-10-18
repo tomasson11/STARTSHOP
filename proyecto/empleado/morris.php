@@ -35,11 +35,12 @@ include("header.php");
           <ul class="treeview-menu">
           <li class="active"><a href="index.php"><i class="fa fa-table"></i> Productos</a></li>
             <li class="active"><a href="inventario.php"><i class="glyphicon glyphicon-folder-close"></i> Inventarios</a></li>
+            <li class="active"><a href="contacto.php"><i class="glyphicon glyphicon-earphone"></i>Contactanos</a></li>
           </ul>
         </li>
 
         <li class="header">REPORTES</li>
-        <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-signal"></i> Estadisticas</a></li>
+        <li class="active"><a href="morris.php"><i class="glyphicon glyphicon-stats"></i> Estadisticas</a></li>
       </ul>
 
     </section>
@@ -92,12 +93,18 @@ include("header.php");
               $id1= $datos['id_usuario'];
               $sqli1 = "SELECT * FROM articulo WHERE id_usuario = '$id1'";
               $resulto = mysqli_query($con,$sqli1);
+             
               while ($registro = mysqli_fetch_array($resulto)){
               ?>
+              
+              
              '<?php echo $registro["stock"]?>',
               <?php
               }
+              
+              
               ?>  
+              
                       
           ],
             backgroundColor: ['#6bf1ab','#63d69f','#438c6c','#509c7f','#1f794e','#34444c'],

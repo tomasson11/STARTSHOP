@@ -58,7 +58,8 @@ include("headeradmin.php");
 
           <li class="active"><a href="index.php"><i class="glyphicon glyphicon-gift"></i>ARTICULOS</a></li>
           <li class="active"><a href="usuarios.php"><i class="glyphicon glyphicon-user"></i>USUARIOS</a></li>
-
+          <li class="active"><a href="crear_usuario.php"><i class="glyphicon glyphicon-plus"></i>CREAR USUARIO</a></li>
+          <li class="active"><a href="mensajes.php"><i class="glyphicon glyphicon-envelope"></i>Mensajes</a></li>
         </ul>
 
       </li>
@@ -86,14 +87,14 @@ include("headeradmin.php");
         <!-- small box -->
         <div class="small-box bg-green">
           <div class="inner">
-            <h3><?php echo $rowcount2; ?><sup style="font-size: 20px"></sup></h3>
+            <h3><?php echo $rowcount3; ?><sup style="font-size: 20px"></sup></h3>
 
             <p>Empleados Registrados</p>
           </div>
           <div class="icon">
             <i class="ion ion-person-add"></i>
           </div>
-          <a href="#" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="#example2" class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -108,7 +109,7 @@ include("headeradmin.php");
           <div class="icon">
             <i class="ion ion-person-add"></i>
           </div>
-          <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+          <a href="#example2" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
     </div>
@@ -134,14 +135,14 @@ include("headeradmin.php");
       <section class="content">
 
       <a href="index.php"><button type="" class="glyphicon glyphicon-home" name="home"></button></a>
-        <form action="" method="post" class="navbar-form navbar-right" role="search">
+        <form action="usuarios.php" method="post" class="navbar-form navbar-right" role="search">
           <tr>
         
             <td>
             <div class="form-group">
-              <input onkeyup="buscar_ahora($('#busqueda').val());" type="text" class="form-control" placeholder="Buscar..." name="busqueda" id="busqueda">
+              <input onkeyup="buscar_ahora($('#busqueda').val());" type="text" class="form-control" placeholder="Ingresa un documento" name="busqueda" id="busqueda" minlength="6" maxlength="10">
             </div>
-            <button type="submit" class="btn btn-default glyphicon glyphicon-search" name="enviar"></button>
+            <button type="submit" class="btn btn-default glyphicon glyphicon-search" name="buscar"></button>
             </td>
           </tr>
         </form>
@@ -156,20 +157,72 @@ include("headeradmin.php");
               <!-- /.box-header -->
               <div class="box-body">
 
-                <table id="example2" class="table table-bordered table-hover">
+<?php
+              if(isset($_POST['buscar']))
+{
+  $doc=$_POST['busqueda'];
+
+  $resu = mysqli_query($con,"SELECT * FROM usuario WHERE num_documento = $doc");
+  while($cons = mysqli_fetch_array($resu))
+
+    {   
+      echo
+      "
+      <table id='example2' class='table table-bordered table-hover'>
+      <thead>
+        <tr>
+          <th class='danger'>NI</th>
+          <th class='danger'>ROL</th>
+          <th class='danger'>NOMBRE</th>
+          <th class='danger'>APELLIDOS</th>
+          <th class='danger'>TIPO DOCU</th>
+          <th class='danger'>NUM. DOCU</th>
+          <th class='danger'>FEC. NACIMIENTO</th>
+          <th class='danger'>DIRECCION</th>
+          <th class='danger'>TELEFONO</th>
+          <th class='danger'>EMAIL</th>
+    
+        </tr>
+      </thead>
+      </tr>
+      <tr>
+      <td>".$cons['id_usuario']."</td>
+      <td>".$cons['tipo_rol']."</td>
+      <td>".$cons['nombre']."</td>
+      <td>".$cons['apellidos']."</td>
+      <td>".$cons['tipo_documento']."</td>
+      <td>".$cons['num_documento']."</td>
+      <td>".$cons['fecha_nacimiento']."</td>
+      <td>".$cons['direccion']."</td>
+      <td>".$cons['telefono']."</td>
+      <td>".$cons['email']."</td>
+  
+
+      </tr>
+      </table>
+      ";}
+      
+  }
+      
+?>
+<br>
+
+
+                <table id="example2" class="table table-condensed">
                   <thead>
                     <tr>
-                      <th>NI</th>
-                      <th>ROL</th>
-                      <th>NOMBRE</th>
-                      <th>APELLIDOS</th>
-                      <th>TIPO DOCU</th>
-                      <th>NUM. DOCU</th>
-                      <th>FEC. NACIMIENTO</th>
-                      <th>DIRECCION</th>
-                      <th>TELEFONO</th>
-                      <th>EMAIL</th>
-                      <th>ESTADO</th>
+                      <th class="success">NI</th>
+                      <th class="success">ROL</th>
+                      <th class="success">NOMBRE</th>
+                      <th class="success">APELLIDOS</th>
+                      <th class="success">TIPO DOCU</th>
+                      <th class="success">NUM. DOCU</th>
+                      <th class="success">FEC. NACIMIENTO</th>
+                      <th class="success">DIRECCION</th>
+                      <th class="success">TELEFONO</th>
+                      <th class="success">EMAIL</th>
+                      <th class="success">ACCIONES</th>
+                 
                     </tr>
                   </thead>
 
@@ -182,7 +235,7 @@ include("headeradmin.php");
 
                     <tr>
                       <td><?php echo $mostrar['id_usuario']; ?></td>
-                      <td><?php echo $mostrar['tipo_rol']; ?></td>
+                      <td ><?php echo $mostrar['tipo_rol']; ?></td>
                       <td><?php echo $mostrar['nombre']; ?></td>
                       <td><?php echo $mostrar['apellidos']; ?></td>
                       <td><?php echo $mostrar['tipo_documento']; ?></td>
@@ -191,8 +244,8 @@ include("headeradmin.php");
                       <td><?php echo $mostrar['direccion']; ?></td>
                       <td><?php echo $mostrar['telefono']; ?></td>
                       <td><?php echo $mostrar['email']; ?></td>
-                      <td><?php echo $mostrar['id_estado']; ?></td>
-                      <!------
+                     
+                  
                 <td>
 
         
@@ -208,7 +261,7 @@ include("headeradmin.php");
                             
                             
                             </td>
-                            --->
+                          
                     </tr>
 
                   <?php
@@ -224,6 +277,26 @@ include("headeradmin.php");
 
       <!-- /.content -->
 </div>
+<!--
+<script>
+  function getData(){
+    let input = document.getElementById("busqueda"). value 
+    let content = document.getElementById("content")
+    let url ="load.php"
+    let formaData = new FormData()
+    formaData.append('busqueda',input)
+
+
+    fetch(url,{
+      method: "POST", 
+      body: formaData
+    }).then(response => response.json)
+  }
+
+
+
+</script>
+-->
 <!-- /.content-wrapper -->
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
